@@ -166,6 +166,14 @@ ul.task-list li input[type="checkbox"] {
     border-top: 1px solid var(--gray); margin-top: 52px; padding-top: 16px;
     font-size: 0.88rem; color: var(--muted);
   }
+  /* Without this the one link in the footer renders in the browser's
+     default link blue with a full underline, which is the loudest thing
+     on an otherwise quiet page. `color: inherit` keeps it in the muted
+     grey; the offset underline keeps it recognisable as a link. */
+  footer.rpi-foot a {
+    color: inherit; text-decoration: underline; text-underline-offset: 2px;
+  }
+  footer.rpi-foot a:hover, footer.rpi-foot a:focus { color: var(--rpired); }
   @media (max-width: 560px) {
     ul.lectures a { flex-wrap: wrap; gap: 4px 12px; }
     .note { flex-basis: 100%; }
@@ -207,7 +215,7 @@ opened from disk. For a printable copy, open a deck and add
 with background graphics on.</p>
 
 <footer class="rpi-foot">
-  Built with Quarto and Reveal.js from the RPI Lally deck template.
+  Built with <a href="https://quarto.org/">Quarto</a>.
 </footer>
 
 </main>
