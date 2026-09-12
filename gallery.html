@@ -712,6 +712,29 @@
   <script src="ojs-libs/htl.min.js"></script>
   <script src="ojs-libs/plot.umd.min.js"></script>
   <script src="ojs-libs/inputs.min.js"></script>
+  <!-- ============================================================
+       noindex.html
+       Keeps the published course out of search results.
+
+       WHY NOT robots.txt ALONE. robots.txt is honoured per ORIGIN, at
+       exactly /robots.txt (RFC 9309). A GitHub project page lives under a
+       path prefix, https://<user>.github.io/<repo>/, so a crawler reads
+       https://<user>.github.io/robots.txt and never the one in the course
+       repository. publish.sh writes a robots.txt anyway, because it costs
+       nothing and documents the intent to anyone reading the repo, but
+       THIS FILE is what actually does the work.
+
+       `noindex` keeps the page out of the index. `nofollow` stops the
+       crawler following links out of it. `noarchive` suppresses cached
+       copies. None of this restricts ACCESS: anyone with the URL can still
+       read the deck, which is the point of publishing it for a class.
+
+       TO ALLOW INDEXING for a course, drop this file from
+       `include-in-header` in that course's _quarto.yml and from the
+       `format: html` block in its index.qmd. Both, or the two pages
+       disagree.
+       ============================================================ -->
+  <meta name="robots" content="noindex, nofollow, noarchive">
   <script type="module" src="gallery_files/libs/quarto-ojs/quarto-ojs-runtime.js"></script>
   <link href="gallery_files/libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
   <script src="gallery_files/libs/quarto-diagram/mermaid.min.js"></script>
