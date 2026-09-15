@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="3_Linear_Programming_Modeling_Examples_files/libs/clipboard/clipboard.min.js"></script>
-<script src="3_Linear_Programming_Modeling_Examples_files/libs/quarto-html/tabby.min.js"></script>
-<script src="3_Linear_Programming_Modeling_Examples_files/libs/quarto-html/popper.min.js"></script>
-<script src="3_Linear_Programming_Modeling_Examples_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="3_Linear_Programming_Modeling_Examples_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="3_Linear_Programming_Modeling_Examples_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="3_Linear_Programming_Modeling_Examples_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="3_Linear_Programming_Modeling_Examples_Solutions_files/libs/clipboard/clipboard.min.js"></script>
+<script src="3_Linear_Programming_Modeling_Examples_Solutions_files/libs/quarto-html/tabby.min.js"></script>
+<script src="3_Linear_Programming_Modeling_Examples_Solutions_files/libs/quarto-html/popper.min.js"></script>
+<script src="3_Linear_Programming_Modeling_Examples_Solutions_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="3_Linear_Programming_Modeling_Examples_Solutions_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="3_Linear_Programming_Modeling_Examples_Solutions_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="3_Linear_Programming_Modeling_Examples_Solutions_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Sebastian Souyris">
@@ -14,8 +14,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="3_Linear_Programming_Modeling_Examples_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="3_Linear_Programming_Modeling_Examples_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="3_Linear_Programming_Modeling_Examples_Solutions_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="3_Linear_Programming_Modeling_Examples_Solutions_files/libs/revealjs/dist/reveal.css">
   <style>
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -35,13 +35,13 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="3_Linear_Programming_Modeling_Examples_files/libs/revealjs/dist/theme/quarto-eb0e262d90f5e09150b52c9a73d278d7.css">
-  <link href="3_Linear_Programming_Modeling_Examples_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="3_Linear_Programming_Modeling_Examples_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="3_Linear_Programming_Modeling_Examples_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="3_Linear_Programming_Modeling_Examples_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="3_Linear_Programming_Modeling_Examples_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="3_Linear_Programming_Modeling_Examples_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="3_Linear_Programming_Modeling_Examples_Solutions_files/libs/revealjs/dist/theme/quarto-eb0e262d90f5e09150b52c9a73d278d7.css">
+  <link href="3_Linear_Programming_Modeling_Examples_Solutions_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="3_Linear_Programming_Modeling_Examples_Solutions_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="3_Linear_Programming_Modeling_Examples_Solutions_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="3_Linear_Programming_Modeling_Examples_Solutions_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="3_Linear_Programming_Modeling_Examples_Solutions_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="3_Linear_Programming_Modeling_Examples_Solutions_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -749,7 +749,6 @@ Sebastian Souyris
 \newcommand{\bm}[1]{\boldsymbol{#1}}
 \]</span></p>
 </div>
-<div class="roadmap">
 <ol type="1">
 <li><a href="#/modeling-approach">The Modeling Approach</a></li>
 <li><a href="#/product-mix">A Product Mix Example</a></li>
@@ -760,8 +759,6 @@ Sebastian Souyris
 <li><a href="#/practice">Practice Problem</a></li>
 <li><a href="#/closing">Summary</a></li>
 </ol>
-</div>
-<p><span style="font-size: 0.72em; color: #404040;">The diet example is today’s in-class quiz; its formulation and solution are posted after class.</span></p>
 </section>
 <section>
 <section id="modeling-approach" class="title-slide slide level1 center">
@@ -1220,6 +1217,101 @@ Sebastian Souyris
      deck for the in-class quiz (In_Class_Quiz_Diet.tex). A visible
      conditional div is unwrapped before Pandoc splits the slides, so the
      headings inside it still make slides of their own. -->
+</section>
+<section id="breakfast-decision-variables" class="slide level2">
+<h2>Breakfast: Decision Variables</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<ul>
+<li><span class="math inline">\(x_1\)</span> = cups of bran cereal</li>
+<li><span class="math inline">\(x_2\)</span> = cups of dry cereal</li>
+<li><span class="math inline">\(x_3\)</span> = cups of oatmeal</li>
+<li><span class="math inline">\(x_4\)</span> = cups of oat bran</li>
+<li><span class="math inline">\(x_5\)</span> = eggs</li>
+</ul>
+</div><div class="column" style="width:48%;">
+<ul>
+<li><span class="math inline">\(x_6\)</span> = slices of bacon</li>
+<li><span class="math inline">\(x_7\)</span> = oranges</li>
+<li><span class="math inline">\(x_8\)</span> = cups of milk</li>
+<li><span class="math inline">\(x_9\)</span> = cups of orange juice</li>
+<li><span class="math inline">\(x_{10}\)</span> = slices of wheat toast</li>
+</ul>
+</div></div>
+<div title="Pattern">
+<div class="callout callout-caution no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Pattern</strong></p>
+</div>
+<div class="callout-content">
+<p>One variable per food, in the serving unit of the data table. Ten variables is routine for Solver; the graphical method stopped at two.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="breakfast-model-summary" class="slide level2">
+<h2>Breakfast: Model Summary</h2>
+<div style="font-size: 0.66em;">
+<p><span class="math display">\[
+\begin{array}{l@{\;}r@{\;}r@{\;}r@{\;}r@{\;}r@{\;}r@{\;}r@{\;}r@{\;}r@{\;}r@{\;}c@{\;}l}
+\text{Minimize } Z = &amp; 0.18x_1 &amp; +0.22x_2 &amp; +0.10x_3 &amp; +0.12x_4 &amp; +0.10x_5 &amp; +0.09x_6 &amp; +0.40x_7 &amp; +0.16x_8 &amp; +0.50x_9 &amp; +0.07x_{10} &amp; &amp; \\[2pt]
+\text{subject to:} &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; \\
+\quad\text{calories} &amp; 90x_1 &amp; +110x_2 &amp; +100x_3 &amp; +90x_4 &amp; +75x_5 &amp; +35x_6 &amp; +65x_7 &amp; +100x_8 &amp; +120x_9 &amp; +65x_{10} &amp; \ge &amp; 420 \\
+\quad\text{fat} &amp; &amp; 2x_2 &amp; +2x_3 &amp; +2x_4 &amp; +5x_5 &amp; +3x_6 &amp; &amp; +4x_8 &amp; &amp; +x_{10} &amp; \le &amp; 20 \\
+\quad\text{cholesterol} &amp; &amp; &amp; &amp; &amp; 270x_5 &amp; +8x_6 &amp; &amp; +12x_8 &amp; &amp; &amp; \le &amp; 30 \\
+\quad\text{iron} &amp; 6x_1 &amp; +4x_2 &amp; +2x_3 &amp; +3x_4 &amp; +x_5 &amp; &amp; +x_7 &amp; &amp; &amp; +x_{10} &amp; \ge &amp; 5 \\
+\quad\text{calcium} &amp; 20x_1 &amp; +48x_2 &amp; +12x_3 &amp; +8x_4 &amp; +30x_5 &amp; &amp; +52x_7 &amp; +250x_8 &amp; +3x_9 &amp; +26x_{10} &amp; \ge &amp; 400 \\
+\quad\text{protein} &amp; 3x_1 &amp; +4x_2 &amp; +5x_3 &amp; +6x_4 &amp; +7x_5 &amp; +2x_6 &amp; +x_7 &amp; +9x_8 &amp; +x_9 &amp; +3x_{10} &amp; \ge &amp; 20 \\
+\quad\text{fiber} &amp; 5x_1 &amp; +2x_2 &amp; +3x_3 &amp; +4x_4 &amp; &amp; &amp; +x_7 &amp; &amp; &amp; +3x_{10} &amp; \ge &amp; 12 \\
+&amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; \llap{x_1, \dots, x_{10}} &amp; \ge &amp; 0
+\end{array}
+\]</span></p>
+</div>
+</section>
+<section id="breakfast-excel-solution" class="slide level2">
+<h2>Breakfast: Excel Solution</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/Exhibit_4_05.jpg" class="exhibit"></p>
+<figcaption>Exhibit 4.5. Optimal: 1.025 cups of oatmeal, 1.241 cups of milk, 2.975 slices of toast, at $0.509 per meal. Calories, calcium, and fiber bind.</figcaption>
+</figure>
+</div>
+</section>
+<section id="breakfast-what-the-solution-teaches" class="slide level2">
+<h2>Breakfast: What the Solution Teaches</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<div title="Reading the answer">
+<div class="callout callout-caution no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Reading the answer</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Only three of ten foods enter: LP finds the cheapest way to hit each binding requirement</li>
+<li>Fat sits at 9.99 g against 20; cholesterol has 15.1 mg of slack</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:48%;">
+<div title="Making it realistic">
+<div class="callout callout-important no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Making it realistic</strong></p>
+</div>
+<div class="callout-content">
+<p>A model that says “three slices of toast and a cup of oatmeal” is doing what it was told. Variety and whole-number servings are extra constraints; add them and the cost rises. The model prices the policy.</p>
+</div>
+</div>
+</div>
+</div>
+</div></div>
 </section></section>
 <section>
 <section id="investment" class="title-slide slide level1 center">
@@ -2078,20 +2170,20 @@ Extra: 1,800 of 1, 1,200 of 2</p>
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="3_Linear_Programming_Modeling_Examples_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="3_Linear_Programming_Modeling_Examples_Solutions_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="3_Linear_Programming_Modeling_Examples_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="3_Linear_Programming_Modeling_Examples_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="3_Linear_Programming_Modeling_Examples_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="3_Linear_Programming_Modeling_Examples_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="3_Linear_Programming_Modeling_Examples_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="3_Linear_Programming_Modeling_Examples_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="3_Linear_Programming_Modeling_Examples_Solutions_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="3_Linear_Programming_Modeling_Examples_Solutions_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="3_Linear_Programming_Modeling_Examples_Solutions_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="3_Linear_Programming_Modeling_Examples_Solutions_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="3_Linear_Programming_Modeling_Examples_Solutions_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="3_Linear_Programming_Modeling_Examples_Solutions_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="3_Linear_Programming_Modeling_Examples_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="3_Linear_Programming_Modeling_Examples_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="3_Linear_Programming_Modeling_Examples_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="3_Linear_Programming_Modeling_Examples_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="3_Linear_Programming_Modeling_Examples_Solutions_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="3_Linear_Programming_Modeling_Examples_Solutions_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="3_Linear_Programming_Modeling_Examples_Solutions_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="3_Linear_Programming_Modeling_Examples_Solutions_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
