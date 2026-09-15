@@ -684,8 +684,8 @@ Sebastian Souyris
   the title, the subtitle and the switch.
 
   THE SWITCH, the counterpart of \ifsolutions in 0_Main.tex. false
-  builds the pre-class deck (the diet example's formulation, Exhibit 4.5
-  and discussion held back for the in-class quiz); true builds the full
+  builds the pre-class deck (the diet example's formulation and
+  discussion held back for the in-class quiz); true builds the full
   deck. The slides it gates sit in `content-visible when-meta="solutions"`
   divs, which Quarto shows only when the value is the boolean true. The
   Beamer deck delivered the same pair as MGMT_4100_03_pre.pdf and
@@ -708,10 +708,12 @@ Sebastian Souyris
   appendix. Only the diet solution is gated by `solutions`; every other
   solution and the appendix ship in both variants.
 
-  The Excel exhibits (solution screens 4.1, 4.5, 4.7, 4.10, 4.17) and
+  The Excel exhibits (solution screens 4.1, 4.7, 4.10, 4.17) and
   Figure 4.1 are the Beamer deck's, copied into assets/ under the same
-  names. There are no computed figures, so this deck has no {python}
-  cells and no setup cell.
+  names. The Beamer deck's Exhibit 4.5 slide (the diet solution screen)
+  was removed at Sebastian's request, 14 September 2026;
+  assets/Exhibit_4_05.jpg is no longer used. There are no computed
+  figures, so this deck has no {python} cells and no setup cell.
 
   MODEL SUMMARIES. The Beamer arrays carry over with two substitutions,
   both for MathJax. \multicolumn is undefined there (gallery.qmd, the
@@ -968,7 +970,7 @@ Sebastian Souyris
 <section id="quick-screen-excel-solution" class="slide level2">
 <h2>Quick-Screen: Excel Solution</h2>
 <!-- EXHIBIT HEIGHT. Exhibit 4.1 is 547 x 356 px and sits at its own
-     size. The larger exhibits (4.5, 4.7, 4.10, 4.17) carry a two-line
+     size. The larger exhibits (4.7, 4.10, 4.17) carry a two-line
      caption, and at the theme's 381px figure cap that second line ran
      onto the footline [observed]. Each carries `.exhibit` and takes a
      340px cap instead, the counterpart of the deck-local \exhibit helper,
@@ -1215,8 +1217,8 @@ Sebastian Souyris
 </div>
 </div>
 </div></div>
-<!-- SOLUTIONS VARIANT ONLY: the four slides below are the diet example's
-     formulation, Exhibit 4.5 and discussion, held back from the pre-class
+<!-- SOLUTIONS VARIANT ONLY: the three slides below are the diet example's
+     formulation and discussion, held back from the pre-class
      deck for the in-class quiz (In_Class_Quiz_Diet.tex). A visible
      conditional div is unwrapped before Pandoc splits the slides, so the
      headings inside it still make slides of their own. -->
@@ -2066,7 +2068,7 @@ Extra: 1,800 of 1, 1,200 of 2</p>
 </section>
 <section id="appendix-sources" class="slide level2">
 <h2>Appendix: Sources</h2>
-<p>Taylor, B. W. (2019). <em>Introduction to Management Science</em>, 13th ed., Pearson, Ch. 4: examples 4.1 to 4.8 and the chapter example problem. Excel exhibits 4.1, 4.5, 4.7, 4.10, and 4.17 reproduced from the publisher’s instructor resources.</p>
+<p>Taylor, B. W. (2019). <em>Introduction to Management Science</em>, 13th ed., Pearson, Ch. 4: examples 4.1 to 4.8 and the chapter example problem. Excel exhibits 4.1, 4.7, 4.10, and 4.17 reproduced from the publisher’s instructor resources.</p>
 
 </section></section>
     </div>
