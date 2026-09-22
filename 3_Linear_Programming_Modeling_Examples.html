@@ -764,6 +764,17 @@ Sebastian Souyris
   did. \setlength{\arraycolsep} has no effect in MathJax, so each
   array's column gap is written into its preamble with @{...}.
 
+  WORKBOOKS FOR THE EXCEL SOLUTION SCREENS, 21 September 2026, at
+  Sebastian's request. The screenshots stay; their captions lost the
+  "Exhibit 4.x" label and each links a workbook in Data/, named for its
+  example. The textbook's own files are NOT published; these are ours,
+  written and checked by build_deck03_workbooks.py in
+  ~/Dropbox/Claude/Projects/Courses/MGMT_4100/MGMT_4100_2026_Fall/Data/,
+  on the textbook's cells so the screenshots still point at them:
+  Quick_Screen_Solution (Exhibit 4.1), Kathleen_Portfolio_Solution (4.7),
+  Biggs_Marketing_Solution (4.10), Motor_Oil_Blending_Solution (4.17,
+  holding the mix the Reading the Solution slide calls Solver's).
+
   THIS COMMENT SITS UNDER THE FIRST HEADING because anything above it,
   a comment included, becomes an untitled empty slide before the
   Roadmap [observed].
@@ -1010,12 +1021,13 @@ Sebastian Souyris
 </section>
 <section id="quick-screen-excel-solution" class="slide level2">
 <h2>Quick-Screen: Excel Solution</h2>
-<!-- EXHIBIT HEIGHT. Exhibit 4.1 is 547 x 356 px and sits at its own
-     size. The larger exhibits (4.7, 4.10, 4.17) carry a two-line
-     caption, and at the theme's 381px figure cap that second line ran
-     onto the footline [observed]. Each carries `.exhibit` and takes a
-     340px cap instead, the counterpart of the deck-local \exhibit helper,
-     which shortened the image for the same reason.
+<!-- EXHIBIT HEIGHT. Each Excel screenshot carries a two-line caption
+     (the solution, then the download link), and at the theme's 381px
+     figure cap that second line ran onto the footline [observed]. Each
+     carries `.exhibit` and takes a 340px cap instead, the counterpart of
+     the deck-local \exhibit helper, which shortened the image for the
+     same reason. Exhibit 4.1, at 547 x 356 px, sits under the cap anyway
+     and carries the class for uniformity.
 
      A class and a rule here, because a `style` attribute on the image
      lands on Quarto's wrapper div, where it constrains nothing
@@ -1029,8 +1041,8 @@ Sebastian Souyris
 </style>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="assets/Exhibit_4_01.jpg"></p>
-<figcaption>Exhibit 4.1. Optimal: <span class="math inline">\(x_1 = 175.56\)</span>, <span class="math inline">\(x_2 = 57.78\)</span>, <span class="math inline">\(x_3 = 500\)</span>, <span class="math inline">\(x_4 = 0\)</span>, <span class="math inline">\(Z = \$45{,}522.22\)</span>. Processing time, truck capacity, and blank T-shirts bind; budget and sweatshirt blanks have slack.</figcaption>
+<p><img data-src="assets/Exhibit_4_01.jpg" class="exhibit"></p>
+<figcaption>Optimal: <span class="math inline">\(x_1 = 175.56\)</span>, <span class="math inline">\(x_2 = 57.78\)</span>, <span class="math inline">\(x_3 = 500\)</span>, <span class="math inline">\(x_4 = 0\)</span>, <span class="math inline">\(Z = \$45{,}522.22\)</span>. Processing time, truck capacity, and blank T-shirts bind; budget and sweatshirt blanks have slack. Download <a href="Data/Quick_Screen_Solution.xlsx">Quick_Screen_Solution.xlsx</a>.</figcaption>
 </figure>
 </div>
 </section></section>
@@ -1374,7 +1386,7 @@ Sebastian Souyris
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="assets/Exhibit_4_07.jpg" class="exhibit"></p>
-<figcaption>Exhibit 4.7. Optimal: <span class="math inline">\(x_3 = \$38{,}181.82\)</span> in treasury bills, <span class="math inline">\(x_4 = \$31{,}818.18\)</span> in the stock fund, <span class="math inline">\(Z = \$6{,}618.18\)</span>. The ratio guideline binds.</figcaption>
+<figcaption>Optimal: <span class="math inline">\(x_3 = \$38{,}181.82\)</span> in treasury bills, <span class="math inline">\(x_4 = \$31{,}818.18\)</span> in the stock fund, <span class="math inline">\(Z = \$6{,}618.18\)</span>. The ratio guideline binds. Download <a href="Data/Kathleen_Portfolio_Solution.xlsx">Kathleen_Portfolio_Solution.xlsx</a>.</figcaption>
 </figure>
 </div>
 </section></section>
@@ -1448,7 +1460,7 @@ Sebastian Souyris
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="assets/Exhibit_4_10.jpg" class="exhibit"></p>
-<figcaption>Exhibit 4.10. Optimal: <span class="math inline">\(x_1 = 1.818\)</span>, <span class="math inline">\(x_2 = 10\)</span>, <span class="math inline">\(x_3 = 3.182\)</span>, <span class="math inline">\(Z = 185{,}000\)</span> exposures. Budget, radio slots, and the 15-ad limit bind.</figcaption>
+<figcaption>Optimal: <span class="math inline">\(x_1 = 1.818\)</span>, <span class="math inline">\(x_2 = 10\)</span>, <span class="math inline">\(x_3 = 3.182\)</span>, <span class="math inline">\(Z = 185{,}000\)</span> exposures. Budget, radio slots, and the 15-ad limit bind. Download <a href="Data/Biggs_Marketing_Solution.xlsx">Biggs_Marketing_Solution.xlsx</a>.</figcaption>
 </figure>
 </div>
 </section>
@@ -1680,7 +1692,7 @@ x_{1s} \ge 0.50\,(x_{1s} + x_{2s} + x_{3s})
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="assets/Exhibit_4_17.jpg" class="exhibit"></p>
-<figcaption>Exhibit 4.17. Optimal profit <span class="math inline">\(Z = \$76{,}800\)</span> per day. Components 1 and 2 are used up; each grade is produced at exactly its 3,000-barrel minimum.</figcaption>
+<figcaption>Optimal profit <span class="math inline">\(Z = \$76{,}800\)</span> per day. Components 1 and 2 are used up; each grade is produced at exactly its 3,000-barrel minimum. Download <a href="Data/Motor_Oil_Blending_Solution.xlsx">Motor_Oil_Blending_Solution.xlsx</a>.</figcaption>
 </figure>
 </div>
 </section>
@@ -1689,11 +1701,11 @@ x_{1s} \ge 0.50\,(x_{1s} + x_{2s} + x_{3s})
 <!-- `.smaller`: at body size the insight box sat on the footline. -->
 <div class="columns">
 <div class="column" style="width:48%;">
-<div title="Solver's mix (Exhibit 4.17)">
+<div title="Solver's mix">
 <div class="callout callout-caution no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Solver’s mix (Exhibit 4.17)</strong></p>
+<p><strong>Solver’s mix</strong></p>
 </div>
 <div class="callout-content">
 <p>Super: 1,500 of 1, 600 of 2, 900 of 3<br>
@@ -2109,7 +2121,7 @@ Extra: 1,800 of 1, 1,200 of 2</p>
 </section>
 <section id="appendix-sources" class="slide level2">
 <h2>Appendix: Sources</h2>
-<p>Taylor, B. W. (2019). <em>Introduction to Management Science</em>, 13th ed., Pearson, Ch. 4: examples 4.1 to 4.8 and the chapter example problem. Excel exhibits 4.1, 4.7, 4.10, and 4.17 reproduced from the publisher’s instructor resources.</p>
+<p>Taylor, B. W. (2019). <em>Introduction to Management Science</em>, 13th ed., Pearson, Ch. 4: examples 4.1 to 4.8 and the chapter example problem. The four Excel solution screenshots reproduced from the publisher’s instructor resources.</p>
 
 </section></section>
     </div>
