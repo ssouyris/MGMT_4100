@@ -3263,6 +3263,195 @@ x_i = 0 \text{ or } 1 \quad \text{for all } i = 1, \dots, 12
       else window.addEventListener("load", boot);
     })();
     </script>
+    <!-- ============================================================
+         laser-pointer.html
+         Loaded through `include-after-body` in _extension.yml. Local, inline,
+         dependency-free.
+
+         Q, or a click on the slide (the remote's top button), turns a red
+         laser dot on and off in place of the mouse arrow.
+
+         WHY
+
+         A presentation remote in pointer mode (Logitech Spotlight, first
+         button) is a mouse to the browser: it moves the system arrow, which
+         is small and black on a projected slide. The remote's own highlight
+         overlay comes from Logi Options+, which is unreliable on this Mac
+         and is not installed by default, so the dot is drawn by the deck.
+
+         HOW
+
+         A fixed 14px div follows `mousemove`, and while it is on the arrow
+         is hidden over the deck. The dot is a div and not a CSS
+         `cursor: url(...)` image because browsers cap the size of cursor
+         images and Chromium refuses large ones near the window edge (its
+         documented behaviour, not measured here), which leaves no reliable
+         room for the glow.
+
+         It is off at load and off again after a reload. It hides after the
+         same idle time Reveal hides the arrow after (`hideCursorTime`,
+         5000 ms by default) and when the mouse leaves the window, so it is
+         never left parked on a slide.
+
+         While the board or the slide pen is up (B, C) the dot hides and the
+         marker's crosshair comes back, so drawing is unaffected; the dot
+         returns on the first movement after the board closes. The two
+         container ids are the ones rpi-chalkboard.html reads.
+
+         THE KEY
+
+         Q (81) is free: Reveal's own map binds P N H L K J F A G B V and
+         the punctuation keys (L is next slide), the chalkboard binds
+         C B X Y D DEL BACKSPACE, the menu M, the notes S. It is registered
+         with `Reveal.addKeyBinding`, so it is listed in the ? help panel.
+         Quarto's separate pointer extension uses Q for the same thing.
+
+         THE REMOTE'S TOP BUTTON
+
+         A short press of the Spotlight's top button reaches the browser as a
+         plain left click, and holding it only moves the mouse [measured
+         2026-10-28, event log in Chrome with Logi Options+ not running:
+         short press mousedown, mouseup, click 59 ms apart, button 0; hold,
+         mousemove only; middle and bottom, ArrowRight and ArrowLeft]. So a
+         click on the slide toggles the dot as Q does. The browser cannot
+         tell the remote from a trackpad, so a trackpad click on a slide
+         toggles it too.
+
+         A click is left alone, and toggles nothing, when it lands on
+         anything that takes clicks (links, buttons, form controls, video,
+         the menu, the controls, the board buttons and palette), in the
+         overview, while the board or pen is up, when it ends a drag of more
+         than 5px, or when it leaves a text selection.
+
+         Delete this file and drop it from `include-after-body` to remove
+         the dot; nothing else depends on it.
+         ============================================================ -->
+
+    <style>
+    #rpi-laser {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 14px;
+      height: 14px;
+      margin: -7px 0 0 -7px;           /* centre the dot on the hotspot */
+      border-radius: 50%;
+      background: #D6001C;             /* RPI Red */
+      box-shadow:
+        0 0 4px 2px rgba(214, 0, 28, 0.65),
+        0 0 14px 6px rgba(214, 0, 28, 0.30);
+      pointer-events: none;            /* clicks go to what is under it */
+      z-index: 2147483647;
+      display: none;
+      will-change: transform;
+    }
+    #rpi-laser.rpi-laser-show { display: block; }
+    body.rpi-laser-on,
+    body.rpi-laser-on * { cursor: none !important; }
+    </style>
+
+    <script>
+    (function () {
+      "use strict";
+
+      var KEY = 81;                       // Q
+      var on = false;
+      var dot = null;
+      var x = -100, y = -100;
+      var idleTimer = null;
+      var frame = 0;
+
+      function boardOpen() {
+        var el = document.getElementById('chalkboard');
+        return !!el && getComputedStyle(el).visibility !== 'hidden';
+      }
+      function penOpen() {
+        var el = document.getElementById('notescanvas');
+        return !!el && el.style.pointerEvents === 'auto';
+      }
+      function annotating() { return boardOpen() || penOpen(); }
+
+      function idleMs() {
+        var c = window.Reveal && Reveal.getConfig ? Reveal.getConfig() : {};
+        return c.hideCursorTime || 5000;
+      }
+
+      function hide() {
+        if (dot) dot.classList.remove('rpi-laser-show');
+      }
+
+      // The arrow is hidden only while the dot is actually drawn, so the
+      // board's crosshair and the plugin's inline cursors are left alone.
+      function show() {
+        var drawn = on && !annotating();
+        document.body.classList.toggle('rpi-laser-on', drawn);
+        if (!drawn) { hide(); return; }
+        dot.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0)';
+        dot.classList.add('rpi-laser-show');
+        clearTimeout(idleTimer);
+        idleTimer = setTimeout(hide, idleMs());
+      }
+
+      function onMove(e) {
+        x = e.clientX; y = e.clientY;
+        if (!on || frame) return;
+        frame = requestAnimationFrame(function () { frame = 0; show(); });
+      }
+
+      function toggle() {
+        on = !on;
+        if (on) show();
+        else {
+          clearTimeout(idleTimer);
+          hide();
+          document.body.classList.remove('rpi-laser-on');
+        }
+      }
+
+      var INTERACTIVE = 'a, button, input, select, textarea, label, summary, ' +
+        'video, audio, iframe, [role="button"], [contenteditable], ' +
+        '.controls, .slide-menu, .slide-menu-button, ' +
+        '.slide-chalkboard-buttons, .palette';
+
+      var downX = 0, downY = 0;
+
+      function onDown(e) { downX = e.clientX; downY = e.clientY; }
+
+      function onClick(e) {
+        if (e.button !== 0 || e.shiftKey || e.altKey || e.metaKey || e.ctrlKey) return;
+        if (e.target.closest && e.target.closest(INTERACTIVE)) return;
+        if (Reveal.isOverview && Reveal.isOverview()) return;
+        if (annotating()) return;
+        if (Math.abs(e.clientX - downX) > 5 || Math.abs(e.clientY - downY) > 5) return;
+        var sel = window.getSelection && window.getSelection();
+        if (sel && !sel.isCollapsed) return;
+        x = e.clientX; y = e.clientY;
+        toggle();
+      }
+
+      function boot() {
+        if (!window.Reveal) return;
+        dot = document.createElement('div');
+        dot.id = 'rpi-laser';
+        dot.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(dot);
+
+        document.addEventListener('mousemove', onMove, { passive: true });
+        document.documentElement.addEventListener('mouseleave', hide);
+        document.addEventListener('mousedown', onDown, true);
+        document.addEventListener('click', onClick);
+
+        if (Reveal.addKeyBinding) {
+          Reveal.addKeyBinding(
+            { keyCode: KEY, key: 'Q', description: 'Laser pointer on / off' },
+            toggle);
+        }
+      }
+
+      if (document.readyState === "complete") boot();
+      else window.addEventListener("load", boot);
+    })();
+    </script>
     <script type="ojs-module-contents">
     eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlBsb3QgPSB3aW5kb3cuUGxvdFxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiSW5wdXRzID0gd2luZG93LklucHV0c1xuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0zIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiZDMgPSB3aW5kb3cuZDNcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Imh0bCA9IHdpbmRvdy5odGxcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ii8vIEhvdXNlIHBhbGV0dGUgKHRoZW1lLnNjc3MgbGluZXMgMzYtNDkpLCB0aGUgZ2FsbGVyeSdzIHZhbHVlcy5cbnJwaSA9ICh7XG4gIHJlZDogIFwiI0Q2MDAxQ1wiLFxuICBibHVlOiBcIiMxRDQxNThcIixcbiAgZ29sZDogXCIjQ0RBQzM4XCIsXG4gIGdyZWVuOlwiIzFBN0E0QVwiLFxuICBncmlkOiBcIiNCOUNDRDhcIixcbiAgaW5rOiAgXCIjMjMzNzNCXCIsXG4gIHBhcGVyOlwiI0ZBRkFGQVwiXG59KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC02IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiLy8gRVFVQUwgVU5JVFMsIG9uZSBwcmVzcyBhY3Jvc3MgdGhlIHNhbWUgbGVuZ3RoIGFzIG9uZSBsYXRoZSB1cCwgb3IgdGhlXG4vLyBzaGFwZSBvZiB0aGUgcmVnaW9uIGFuZCB0aGUgc2xvcGVzIG9mIHRoZSBsaW5lcyByZWFkIHdyb25nLiBUaGUgYm94IGlzXG4vLyB0aGUgcmlnaHQgY29sdW1uLCAzNjAgcHggd2lkZSwgYW5kIHRoZSBoZWlnaHQgZnJvbSB0aGUgdG9wIG9mIHRoZVxuLy8gY29udGVudCAoeSA9IDExMCkgdG8gdGhlIGZvb3RsaW5lICh5ID0gNTMwKSBsZXNzIGEgbWFyZ2luLiBUaGUgdGlnaHRlclxuLy8gb2YgdGhlIHR3byBmaXRzIHNldHMgdGhlIHNjYWxlIGZvciBib3RoIGF4ZXMgKGdhbGxlcnkgcmVjaXBlIDcsIGBmaXRgKS5cbm1zRml0ID0ge1xuICBjb25zdCBbbWF4VywgbWF4SF0gPSBbMzYwLCAzOTBdO1xuICBjb25zdCBbbWwsIG1yLCBtdCwgbWJdID0gWzQ0LCAxNCwgMTYsIDQwXTtcbiAgY29uc3QgeHMgPSBtcy5kb21haW4ueFsxXSAtIG1zLmRvbWFpbi54WzBdLCB5cyA9IG1zLmRvbWFpbi55WzFdIC0gbXMuZG9tYWluLnlbMF07XG4gIGNvbnN0IHVuaXQgPSBNYXRoLm1pbigobWF4VyAtIG1sIC0gbXIpIC8geHMsIChtYXhIIC0gbXQgLSBtYikgLyB5cyk7XG4gIHJldHVybiB7d2lkdGg6IHVuaXQgKiB4cyArIG1sICsgbXIsIGhlaWdodDogdW5pdCAqIHlzICsgbXQgKyBtYiwgbWwsIG1yLCBtdCwgbWJ9O1xufVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC03IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiLy8gUGxhaW4gZGlnaXRzIGZvciB3aG9sZSBudW1iZXJzLCB0d28gZGVjaW1hbHMgb3RoZXJ3aXNlOiAyLjIyIHByZXNzZXMgaXNcbi8vIHRoZSBwb2ludCBvZiB0aGUgc2xpZGUsIGFuZCByb3VuZGluZyBpdCBvbiBzY3JlZW4gd291bGQgaGlkZSBpdC5cbm1zRm10ID0gdiA9PiBOdW1iZXIuaXNJbnRlZ2VyKHYpID8gU3RyaW5nKHYpIDogdi50b0ZpeGVkKDIpXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTgiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJQbG90LnBsb3Qoe1xuICB3aWR0aDogbXNGaXQud2lkdGgsIGhlaWdodDogbXNGaXQuaGVpZ2h0LFxuICBtYXJnaW5MZWZ0OiBtc0ZpdC5tbCwgbWFyZ2luUmlnaHQ6IG1zRml0Lm1yLFxuICBtYXJnaW5Ub3A6IG1zRml0Lm10LCBtYXJnaW5Cb3R0b206IG1zRml0Lm1iLFxuICAvLyBgb3ZlcmZsb3c6IHZpc2libGVgIGxldHMgYSB0b29sdGlwIG5lYXIgdGhlIHJpZ2h0IGVkZ2UgcnVuIHBhc3QgdGhlXG4gIC8vIHBsb3QgaW5zdGVhZCBvZiBiZWluZyBjdXQgYXQgdGhlIFNWRyBib3VuZGFyeSBbb2JzZXJ2ZWRdLlxuICBzdHlsZToge2JhY2tncm91bmQ6IHJwaS5wYXBlciwgY29sb3I6IHJwaS5pbmssIGZvbnRTaXplOiBcIjEzcHhcIiwgb3ZlcmZsb3c6IFwidmlzaWJsZVwifSxcbiAgLy8gSW50ZWdlciB0aWNrcyBhbmQgYW4gaW50ZWdlciBmb3JtYXQ6IGEgY291bnQgb2YgbWFjaGluZXMgbGFiZWxsZWRcbiAgLy8gMC4wLCAxLjAsIDIuMCBpbnZpdGVzIHRoZSBmcmFjdGlvbmFsIHJlYWRpbmcgdGhlIHNsaWRlIGFyZ3VlcyBhZ2FpbnN0LlxuICB4OiB7bGFiZWw6IFwiUHJlc3NlcyB44oKBIOKGklwiLCBkb21haW46IG1zLmRvbWFpbi54LCBncmlkOiB0cnVlLFxuICAgICAgdGlja3M6IGQzLnJhbmdlKDAsIG1zLmRvbWFpbi54WzFdICsgMSksIHRpY2tGb3JtYXQ6IFwiZFwifSxcbiAgeToge2xhYmVsOiBcIuKGkSBMYXRoZXMgeOKCglwiLCBkb21haW46IG1zLmRvbWFpbi55LCBncmlkOiB0cnVlLFxuICAgICAgdGlja3M6IGQzLnJhbmdlKDAsIG1zLmRvbWFpbi55WzFdICsgMSksIHRpY2tGb3JtYXQ6IFwiZFwifSxcbiAgbWFya3M6IFtcbiAgICBQbG90LmxpbmUobXMucmVnaW9uLCB7eDogXCJ4XCIsIHk6IFwieVwiLCBmaWxsOiBycGkuYmx1ZSwgZmlsbE9wYWNpdHk6IDAuMTMsXG4gICAgICAgICAgICAgICAgICAgICAgICAgIHN0cm9rZTogcnBpLmJsdWUsIHN0cm9rZVdpZHRoOiAxLjh9KSxcbiAgICAuLi5tcy5jb25zLm1hcChjID0+IFBsb3QubGluZShjLnNlZywge3g6IFwieFwiLCB5OiBcInlcIiwgc3Ryb2tlOiBycGkuYmx1ZSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0cm9rZVdpZHRoOiAxLjIsIHN0cm9rZU9wYWNpdHk6IDAuNjV9KSksXG4gICAgLy8gVHdvIG1hcmtzLCBiZWNhdXNlIHRleHRBbmNob3IsIGR4IGFuZCBkeSBhcmUgY29uc3RhbnRzIGluIFBsb3Q6IGdpdmVuXG4gICAgLy8gZnVuY3Rpb25zIHRoZXkgd2VyZSBpZ25vcmVkLCBhbmQgdGhlIGZsb29yLXNwYWNlIGxhYmVsIGNlbnRyZWQgb25cbiAgICAvLyB0aGUgcmlnaHQgZWRnZSBhbmQgbG9zdCBoYWxmIGl0cyB0ZXh0IFtvYnNlcnZlZF0uIEJ1ZGdldDogYXQgdGhlXG4gICAgLy8gdG9wIG9mIGl0cyBsaW5lLCBpbnNpZGUgdGhlIGZyYW1lLiBGbG9vciBzcGFjZTogc3RhcnRpbmcgb24gaXRzIGxpbmVcbiAgICAvLyBhdCA1NSUgb2YgdGhlIHdheSBhbG9uZyBhbmQgc2V0IGp1c3QgYWJvdmUgaXQsIHNvIHRoZSBmYWxsaW5nIGxpbmVcbiAgICAvLyBtb3ZlcyBhd2F5IGZyb20gdGhlIHRleHQgaW5zdGVhZCBvZiB0aHJvdWdoIGl0OyBhdCB0aGUgcmlnaHQtaGFuZCBlbmRcbiAgICAvLyB0aGUgbGluZSBjcm9zc2VkIHRoZSBsYWJlbCwgYW5kIGJlbG93IGl0IHRoZSBvYmplY3RpdmUgZGlkIFtvYnNlcnZlZF0uXG4gICAgUGxvdC50ZXh0KFt7Li4ubXMuY29uc1swXS5zZWdbMF0sIG5hbWU6IG1zLmNvbnNbMF0ubmFtZX1dLCB7XG4gICAgICB4OiBcInhcIiwgeTogXCJ5XCIsIHRleHQ6IFwibmFtZVwiLCBmaWxsOiBycGkuYmx1ZSwgZm9udFNpemU6IDExLFxuICAgICAgdGV4dEFuY2hvcjogXCJzdGFydFwiLCBkeDogNSwgZHk6IDlcbiAgICB9KSxcbiAgICBQbG90LnRleHQoWygoW3AsIHFdKSA9PiAoe3g6IHAueCArIDAuNTUgKiAocS54IC0gcC54KSwgeTogcC55ICsgMC41NSAqIChxLnkgLSBwLnkpLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG5hbWU6IG1zLmNvbnNbMV0ubmFtZX0pKShtcy5jb25zWzFdLnNlZyldLCB7XG4gICAgICB4OiBcInhcIiwgeTogXCJ5XCIsIHRleHQ6IFwibmFtZVwiLCBmaWxsOiBycGkuYmx1ZSwgZm9udFNpemU6IDExLFxuICAgICAgdGV4dEFuY2hvcjogXCJzdGFydFwiLCBkeDogMiwgZHk6IC03XG4gICAgfSksXG4gICAgLy8gVGhlIG9iamVjdGl2ZSB0aHJvdWdoIHRoZSBpbnRlZ2VyIG9wdGltdW0sIGRhc2hlZCBhcyBpbiBGaWd1cmUgNS4xLlxuICAgIC8vIEl0cyBsYWJlbCBzaXRzIEJFTE9XIHRoZSByaWdodC1oYW5kIGVuZDogYWJvdmUgaXQsIHRoZSBmYWxsaW5nIGxpbmVcbiAgICAvLyByYW4gdGhyb3VnaCB0aGUgdGV4dCBbb2JzZXJ2ZWRdLlxuICAgIFBsb3QubGluZShtcy5vYmplY3RpdmUuc2VnLCB7eDogXCJ4XCIsIHk6IFwieVwiLCBzdHJva2U6IHJwaS5ncmVlbixcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0cm9rZURhc2hhcnJheTogXCI1IDRcIiwgc3Ryb2tlV2lkdGg6IDEuNn0pLFxuICAgIFBsb3QudGV4dChbbXMub2JqZWN0aXZlLnNlZ1ttcy5vYmplY3RpdmUuc2VnLmxlbmd0aCAtIDFdXSwge1xuICAgICAgeDogXCJ4XCIsIHk6IFwieVwiLCB0ZXh0OiAoKSA9PiBgWiA9ICR7ZDMuZm9ybWF0KFwiLFwiKShtcy5vYmplY3RpdmUueil9YCxcbiAgICAgIGZpbGw6IHJwaS5ncmVlbiwgZm9udFNpemU6IDExLCB0ZXh0QW5jaG9yOiBcImVuZFwiLCBkeDogLTIsIGR5OiAxM1xuICAgIH0pLFxuICAgIFBsb3QuZG90KG1zLnBvaW50cy5maWx0ZXIocCA9PiBwLmtpbmQgPT09IFwibGF0dGljZVwiKSxcbiAgICAgICAgICAgICB7eDogXCJ4XCIsIHk6IFwieVwiLCByOiAyLjgsIGZpbGw6IHJwaS5pbmssIGZpbGxPcGFjaXR5OiAwLjU1fSksXG4gICAgUGxvdC5kb3QobXMucG9pbnRzLmZpbHRlcihwID0+IHAua2luZCA9PT0gXCJyb3VuZGVkXCIpLFxuICAgICAgICAgICAgIHt4OiBcInhcIiwgeTogXCJ5XCIsIHI6IDUsIGZpbGw6IHJwaS5nb2xkLCBzdHJva2U6IHJwaS5pbmt9KSxcbiAgICBQbG90LmRvdChtcy5wb2ludHMuZmlsdGVyKHAgPT4gcC5raW5kID09PSBcImxwXCIpLFxuICAgICAgICAgICAgIHt4OiBcInhcIiwgeTogXCJ5XCIsIHI6IDYsIGZpbGw6IHJwaS5yZWR9KSxcbiAgICBQbG90LmRvdChtcy5wb2ludHMuZmlsdGVyKHAgPT4gcC5raW5kID09PSBcImlwXCIpLFxuICAgICAgICAgICAgIHt4OiBcInhcIiwgeTogXCJ5XCIsIHI6IDYuNSwgZmlsbDogcnBpLmdyZWVufSksXG4gICAgUGxvdC50ZXh0KG1zLmNvcm5lcnMuZmlsdGVyKHAgPT4gcC5uYW1lICE9PSBcIk9cIiksIHtcbiAgICAgIHg6IFwieFwiLCB5OiBcInlcIiwgdGV4dDogXCJuYW1lXCIsIGZpbGw6IHJwaS5pbmssIGZvbnRTaXplOiAxMywgZm9udFN0eWxlOiBcIml0YWxpY1wiLFxuICAgICAgZHg6IDgsIGR5OiAtOVxuICAgIH0pLFxuICAgIFBsb3QucnVsZVkoWzBdLCB7c3Ryb2tlOiBycGkuZ3JpZH0pLFxuICAgIFBsb3QucnVsZVgoWzBdLCB7c3Ryb2tlOiBycGkuZ3JpZH0pLFxuXG4gICAgLy8gVEhFIEhPVkVSLiBBIHJpbmcgb24gdGhlIHBvaW50IG5lYXJlc3QgdGhlIGN1cnNvciwgYW5kIG9uZSB0b29sdGlwXG4gICAgLy8gZm9yIGl0LiBQbG90LnRpcCBhcyBpdHMgb3duIG1hcmsgd2l0aCBQbG90LnBvaW50ZXIsIHRoZSByZWNpcGUgOFxuICAgIC8vIGZvcm06IGV2ZXJ5IHJvdyBpcyBhIG5hbWVkIGNoYW5uZWwsIGFuZCBgeDogZmFsc2UsIHk6IGZhbHNlYCBkcm9wc1xuICAgIC8vIHRoZSB0d28gUGxvdCB3b3VsZCBhZGQgdW5kZXIgdGhlIGF4aXMgbGFiZWxzLCBhcnJvd3MgYW5kIGFsbC5cbiAgICBQbG90LmRvdChtcy5wb2ludHMsIFBsb3QucG9pbnRlcih7eDogXCJ4XCIsIHk6IFwieVwiLCByOiA5LCBmaWxsOiBcIm5vbmVcIixcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3Ryb2tlOiBycGkuaW5rLCBzdHJva2VXaWR0aDogMS41fSkpLFxuICAgIFBsb3QudGlwKG1zLnBvaW50cywgUGxvdC5wb2ludGVyKHtcbiAgICAgIHg6IFwieFwiLCB5OiBcInlcIixcbiAgICAgIGNoYW5uZWxzOiB7UG9pbnQ6IFwibGFiZWxcIiwgUHJlc3NlczogXCJ4XCIsIExhdGhlczogXCJ5XCIsIFByb2ZpdDogXCJ6XCIsXG4gICAgICAgICAgICAgICAgIEJ1ZGdldDogXCJidWRnZXRcIiwgXCJGbG9vciBzcGFjZVwiOiBcImZsb29yXCJ9LFxuICAgICAgZm9ybWF0OiB7XG4gICAgICAgIHg6IGZhbHNlLCB5OiBmYWxzZSxcbiAgICAgICAgUG9pbnQ6IHRydWUsXG4gICAgICAgIFByZXNzZXM6IG1zRm10LFxuICAgICAgICBMYXRoZXM6IG1zRm10LFxuICAgICAgICBQcm9maXQ6IHYgPT4gYCQke2QzLmZvcm1hdChOdW1iZXIuaXNJbnRlZ2VyKHYpID8gXCIsXCIgOiBcIiwuMmZcIikodil9L2RheWAsXG4gICAgICAgIEJ1ZGdldDogdiA9PiBgJCR7ZDMuZm9ybWF0KFwiLFwiKShNYXRoLnJvdW5kKHYpKX0gb2YgJCR7ZDMuZm9ybWF0KFwiLFwiKShtcy5jb25zWzBdLmIpfWAsXG4gICAgICAgIFwiRmxvb3Igc3BhY2VcIjogdiA9PiBgJHttc0ZtdCh2KX0gb2YgJHttcy5jb25zWzFdLmJ9IGZ0wrJgXG4gICAgICB9XG4gICAgfSkpXG4gIF1cbn0pXG4ifV19
     </script>
