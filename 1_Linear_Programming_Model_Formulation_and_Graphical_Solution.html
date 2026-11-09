@@ -777,8 +777,9 @@ Sebastian Souyris
 <li><a href="#/fertilizer">A Minimization Model: Fertilizing a Field</a></li>
 <li><a href="#/irregular">Irregular Types of LP Problems</a></li>
 <li><a href="#/characteristics">Characteristics of LP Problems</a></li>
-<li><a href="#/practice">Practice Problems</a></li>
+<li><a href="#/practice">Practice: Formulating and Graphing LP Models</a></li>
 <li><a href="#/closing">Summary</a></li>
+<li><a href="#/appendix">Appendix: Reference Formulations</a></li>
 </ol>
 </section>
 <section>
@@ -1108,7 +1109,7 @@ Z = \$40(10) + \$50(20) = \$1{,}400
 \]</span></p>
 <p>Bowls on the horizontal axis, mugs on the vertical axis. Non-negativity keeps us in the first quadrant.</p>
 </div><div class="column" style="width:60%;">
-<div id="b0168072" class="cell" data-execution_count="2">
+<div id="30dd2ad5" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1131,7 +1132,7 @@ x_1 + 2x_2 = 40
 <li>Plot the line through both intercepts</li>
 </ul>
 </div><div class="column" style="width:60%;">
-<div id="9746e07d" class="cell" data-execution_count="3">
+<div id="d617e827" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1151,7 +1152,7 @@ x_1 + 2x_2 \le 40
 \]</span></p>
 <p>The inequality admits every point <em>on or below</em> the line: the shaded triangle is the labor constraint area.</p>
 </div><div class="column" style="width:60%;">
-<div id="b7b1ceeb" class="cell" data-execution_count="4">
+<div id="f73b390f" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1174,7 +1175,7 @@ x_1 + 2x_2 \le 40
 <li>Again, feasible points lie on or below the line</li>
 </ul>
 </div><div class="column" style="width:60%;">
-<div id="1c5f9072" class="cell" data-execution_count="5">
+<div id="493c8974" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1191,7 +1192,7 @@ x_1 + 2x_2 \le 40
 <div class="column" style="width:36%;">
 <p>Both constraint lines on one graph. A production plan must satisfy <em>both</em> restrictions at once, plus non-negativity.</p>
 </div><div class="column" style="width:60%;">
-<div id="55a284e3" class="cell" data-execution_count="6">
+<div id="a5115bae" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1219,7 +1220,7 @@ x_1 + 2x_2 \le 40
 </div>
 </div>
 </div><div class="column" style="width:60%;">
-<div id="cef0431c" class="cell" data-execution_count="7">
+<div id="056b1d2e" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1239,7 +1240,7 @@ x_1 + 2x_2 \le 40
 \]</span></p>
 <p>Every point on this line earns exactly $800. The line’s slope is <span class="math inline">\(-\tfrac{4}{5}\)</span>, set by the profit coefficients.</p>
 </div><div class="column" style="width:60%;">
-<div id="23ce85d3" class="cell" data-execution_count="8">
+<div id="025cfe78" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1257,7 +1258,7 @@ x_1 + 2x_2 \le 40
 <p>Profit lines for <span class="math inline">\(Z = 800\)</span>, <span class="math inline">\(1{,}200\)</span>, and <span class="math inline">\(1{,}600\)</span> are <strong>parallel</strong>: same slope, higher intercept.</p>
 <p>Pushing the line outward increases profit, until the feasible region ends.</p>
 </div><div class="column" style="width:60%;">
-<div id="df2c32a9" class="cell" data-execution_count="9">
+<div id="ffd7d436" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1285,7 +1286,7 @@ x_1 + 2x_2 \le 40
 </div>
 </div>
 </div><div class="column" style="width:60%;">
-<div id="0b0980c6" class="cell" data-execution_count="10">
+<div id="ef928796" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1323,7 +1324,7 @@ x_1 + 2x_2  &amp;= 40 \\
 </div>
 </div>
 </div><div class="column" style="width:60%;">
-<div id="7d8c1d7d" class="cell" data-execution_count="11">
+<div id="83c14877" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1379,7 +1380,7 @@ x_1 + 2x_2  &amp;= 40 \\
 </div>
 </div>
 </div><div class="column" style="width:60%;">
-<div id="3ba14040" class="cell" data-execution_count="12">
+<div id="e9cde905" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1419,7 +1420,7 @@ x_1 + 2x_2  &amp;= 40 \\
 </div>
 <p>The steeper profit line changes <em>which</em> corner wins.</p>
 </div><div class="column" style="width:60%;">
-<div id="7fc8abe4" class="cell" data-execution_count="13">
+<div id="6b58db3d" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1466,7 +1467,7 @@ x_1 + 2x_2  &amp;= 40 \\
 <p>where <span class="math inline">\(x_1\)</span> = bowls, <span class="math inline">\(x_2\)</span> = mugs, and <span class="math inline">\(s_1, s_2\)</span> are slack variables.</p>
 <p>At <span class="math inline">\(B\)</span> both resources are fully used; at <span class="math inline">\(A\)</span> clay is left over; at <span class="math inline">\(C\)</span> labor is left over.</p>
 </div><div class="column" style="width:56%;">
-<div id="b2689cf9" class="cell" data-execution_count="14">
+<div id="49aea585" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1594,7 +1595,7 @@ Minimize <span class="math inline">\(Z = \$6x_1 + \$3x_2\)</span>
 \]</span></p>
 <p>With <span class="math inline">\(\ge\)</span> constraints, feasible points lie <em>on or above</em> each line.</p>
 </div><div class="column" style="width:60%;">
-<div id="a44e0367" class="cell" data-execution_count="15">
+<div id="1511c494" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1612,7 +1613,7 @@ Minimize <span class="math inline">\(Z = \$6x_1 + \$3x_2\)</span>
 <p>The feasible region now extends <strong>upward without bound</strong>: you can always buy more fertilizer.</p>
 <p>Cost, however, pulls the solution <em>toward</em> the origin.</p>
 </div><div class="column" style="width:60%;">
-<div id="409be43e" class="cell" data-execution_count="16">
+<div id="a6d9784c" class="cell" data-execution_count="16">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1654,7 +1655,7 @@ Minimize <span class="math inline">\(Z = \$6x_1 + \$3x_2\)</span>
 </div>
 </div>
 </div><div class="column" style="width:60%;">
-<div id="4e2bcb49" class="cell" data-execution_count="17">
+<div id="25c31dbc" class="cell" data-execution_count="17">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1742,7 +1743,7 @@ Minimize <span class="math inline">\(Z = \$6x_1 + \$3x_2\)</span>
 </div>
 </div>
 </div><div class="column" style="width:60%;">
-<div id="4f182442" class="cell" data-execution_count="18">
+<div id="95eb81d4" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1794,7 +1795,7 @@ Minimize <span class="math inline">\(Z = \$6x_1 + \$3x_2\)</span>
 \]</span></p>
 <p>The objective function is <span class="alert">parallel</span> to the clay constraint (slope <span class="math inline">\(-\tfrac{4}{3}\)</span>). Every point on segment <span class="math inline">\(BC\)</span> earns <span class="math inline">\(Z = \$1{,}200\)</span>.</p>
 </div><div class="column" style="width:60%;">
-<div id="6afb754c" class="cell" data-execution_count="19">
+<div id="3af0c256" class="cell" data-execution_count="19">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1821,7 +1822,7 @@ Minimize <span class="math inline">\(Z = \$6x_1 + \$3x_2\)</span>
 \]</span></p>
 <p>Every possible solution violates at least one constraint: the three regions share no common point.</p>
 </div><div class="column" style="width:60%;">
-<div id="d941ca0a" class="cell" data-execution_count="20">
+<div id="c5896990" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1847,7 +1848,7 @@ Minimize <span class="math inline">\(Z = \$6x_1 + \$3x_2\)</span>
 \]</span></p>
 <p>The feasible strip extends forever to the right, so the objective value increases <span class="alert">indefinitely</span>. No finite optimum exists.</p>
 </div><div class="column" style="width:60%;">
-<div id="68b072a1" class="cell" data-execution_count="21">
+<div id="ac8101c0" class="cell" data-execution_count="21">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1900,7 +1901,7 @@ Minimize <span class="math inline">\(Z = \$6x_1 + \$3x_2\)</span>
 </section></section>
 <section>
 <section id="practice" class="title-slide slide level1 center">
-<h1>Practice Problems</h1>
+<h1>Practice: Formulating and Graphing LP Models</h1>
 
 </section>
 <section id="example-problem-1-hot-dog-mixture" class="slide level2">
@@ -1977,7 +1978,7 @@ Minimize <span class="math inline">\(Z = \$6x_1 + \$3x_2\)</span>
 \]</span></p>
 <p>The feasible space is the intersection of all constraints. Identify which line is which.</p>
 </div><div class="column" style="width:60%;">
-<div id="98e8f88e" class="cell" data-execution_count="22">
+<div id="41be8720" class="cell" data-execution_count="22">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -2037,7 +2038,7 @@ Minimize <span class="math inline">\(Z = \$6x_1 + \$3x_2\)</span>
 </div>
 </div>
 </div><div class="column" style="width:60%;">
-<div id="854ff0c9" class="cell" data-execution_count="23">
+<div id="7c7944fc" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -2114,7 +2115,7 @@ Minimize <span class="math inline">\(Z = \$6x_1 + \$3x_2\)</span>
 </section></section>
 <section>
 <section id="appendix" class="title-slide slide level1 appendix center">
-<h1>Appendix</h1>
+<h1>Appendix: Reference Formulations</h1>
 
 </section>
 <section id="appendix-divider" class="slide level2 standout">
