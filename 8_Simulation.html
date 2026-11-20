@@ -896,7 +896,7 @@ Sebastian Souyris
      the footline [check-layout]. The "deck 07" label sat on the red line
      at 5 to 6 pm, and anywhere under the dashed line the red line crosses
      it [observed]; it sits left of the dashed line's start. -->
-<div id="29810802" class="cell" data-execution_count="2">
+<div id="6de65402" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1001,7 +1001,7 @@ E[\text{Profit}] &amp;= \textstyle\sum_d P(d)\,\text{Profit}(200, d) \\
 </div><div class="column" style="width:46%;">
 <div class="r-stack">
 <div>
-<div id="966f2fe5" class="cell" data-execution_count="4">
+<div id="63e5e14b" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1012,7 +1012,7 @@ E[\text{Profit}] &amp;= \textstyle\sum_d P(d)\,\text{Profit}(200, d) \\
 </div>
 </div>
 <div class="fragment" data-fragment-index="1">
-<div id="c9e9c365" class="cell" data-execution_count="5">
+<div id="415dacb2" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1101,7 +1101,7 @@ E[\text{Profit}] &amp;= \textstyle\sum_d P(d)\,\text{Profit}(200, d) \\
 <h2>The Inverse Transform Is a Lookup</h2>
 <div class="columns">
 <div class="column" style="width:56%;">
-<div id="82690e2e" class="cell" data-execution_count="6">
+<div id="ab3f9ed7" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1389,7 +1389,7 @@ E[\text{Profit}] &amp;= \textstyle\sum_d P(d)\,\text{Profit}(200, d) \\
 <h2>1,000 Mornings</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
-<div id="4fba19c4" class="cell" data-execution_count="7">
+<div id="85fe38bb" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1426,27 +1426,62 @@ s = \sqrt{\frac{\sum_{i} (d_i - \bar{d})^2}{n - 1}} = 45.1
 </section>
 <section id="the-standard-error" class="slide level2">
 <h2>The Standard Error</h2>
-<p>An average of <span class="math inline">\(n\)</span> independent trials, whose values have standard deviation <span class="math inline">\(s\)</span>, has <strong>standard error</strong> (<span class="math inline">\(SE\)</span>)</p>
-<p><span class="math display">\[
-SE = \frac{s}{\sqrt{n}} \qquad\qquad \text{95\% interval: average} \pm 1.96\,SE
-\]</span></p>
+<!-- THE PASTRY COUNTER'S QUESTION (Sebastian, 2026-11-19: explain the
+     standard error in the problem's context). The counter bakes before
+     demand is known, so it plans on average demand; the box reads the
+     two intervals as pastries a morning. The formulas moved from a
+     display into the table's head, and the box lost "11 times narrower":
+     with the context added, the slide ran 110px into the footline
+     [check-layout]. -->
+<p>The counter bakes before demand is known, so it plans on average demand. Simulating <span class="math inline">\(n\)</span> mornings estimates it by <span class="math inline">\(\bar{d}\)</span>, with <strong>standard error</strong> (<span class="math inline">\(SE\)</span>):</p>
 <div class="fragment">
-<p><span class="math display">\[
-\begin{array}{r@{\quad}l}
-\text{10 mornings:} &amp; SE = 50.6/\sqrt{10} = 16.0, \qquad 216 \pm 31.4 \\[4pt]
-\text{1,000 mornings:} &amp; SE = 45.1/\sqrt{1{,}000} = 1.43, \qquad 199.4 \pm 2.8 = 196.6 \text{ to } 202.2
-\end{array}
-\]</span></p>
+<!-- A table, from a two-row array (review of 2026-11-19: every number
+     after its formula): with s computed for the ten mornings and the
+     1.96 x SE step written out, each row ran past the slide. Ten
+     mornings: the squared deviations from 216 sum to 23,040. The
+     intro lost "whose values have standard deviation s", the header
+     "Mornings", and the box is .compact: the slide ran 115px into the
+     footline [check-layout]. -->
+<table class="caption-top">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 20%">
+<col style="width: 26%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(s = \sqrt{\sum_i (d_i - \bar{d})^2/(n - 1)}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(SE = s/\sqrt{n}\)</span></th>
+<th style="text-align: center;">95%: <span class="math inline">\(\bar{d} \pm 1.96\,SE\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">10</td>
+<td style="text-align: center;"><span class="math inline">\(\sqrt{23{,}040/9} = 50.6\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(50.6/\sqrt{10} = 16.0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(216 \pm 1.96(16.0) = 216 \pm 31.4\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1,000</td>
+<td style="text-align: center;"><span class="math inline">\(45.1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(45.1/\sqrt{1{,}000} = 1.43\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(199.4 \pm 1.96(1.43) = 196.6 \text{ to } 202.2\)</span></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="fragment">
-<div title="Report the standard error">
+<div class="compact" title="Report the standard error">
 <div class="callout callout-important no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <p><strong>Report the standard error</strong></p>
 </div>
 <div class="callout-content">
-<p>A simulated average without its standard error cannot be compared with anything. Both intervals hold 200, and the 1,000-morning interval is eleven times narrower.</p>
+<p>Ten mornings put average demand anywhere from 185 to 247 pastries, too wide to set a bake; a thousand pin it to 197 to 202, around the table’s 200.</p>
 </div>
 </div>
 </div>
@@ -1599,14 +1634,59 @@ SE = \frac{s}{\sqrt{n}} \qquad\qquad \text{95\% interval: average} \pm 1.96\,SE
 <h1>Replications and the Standard Error</h1>
 
 </section>
-<section id="where-part-i-ended" class="slide level2">
-<h2>Where Part I Ended</h2>
+<section id="recall-how-many-pastries-to-bake" class="slide level2">
+<h2>Recall: How Many Pastries to Bake</h2>
+<!-- RECALL (Sebastian, 2026-11-19): Part II is a lecture of its own, so
+     it opens with the business problem, Example 2, before Where Part I
+     Ended gives the simulated numbers. Slide 16 by the footline count.
+     Every number after its formula. E[D] = 200 is on the next slide, so
+     it is not repeated here. -->
+<p>The coffee counter bakes <span class="math inline">\(Q\)</span>: cost $1.20, price $3.00, leftovers $0.50; demand <span class="math inline">\(D\)</span>:</p>
 <table class="caption-top">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Mornings simulated</th>
-<th style="text-align: center;">Average demand</th>
-<th style="text-align: center;">Standard error</th>
+<th style="text-align: left;">Pastries demanded <span class="math inline">\(d\)</span></th>
+<th style="text-align: center;">120</th>
+<th style="text-align: center;">160</th>
+<th style="text-align: center;">200</th>
+<th style="text-align: center;">240</th>
+<th style="text-align: center;">280</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Probability <span class="math inline">\(P(d)\)</span></td>
+<td style="text-align: center;">0.10</td>
+<td style="text-align: center;">0.20</td>
+<td style="text-align: center;">0.40</td>
+<td style="text-align: center;">0.20</td>
+<td style="text-align: center;">0.10</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[
+\text{Profit}(Q, D) = 3.00 \min(Q, D) + 0.50 \max(Q - D,\, 0) - 1.20\,Q
+\]</span></p>
+<div class="fragment">
+<ul>
+<li>Baking 200: the plan earns <span class="math inline">\(\text{Profit}(200, 200) = \$360\)</span>; the mornings average <span class="math inline">\(E[\text{Profit}(200)] = \sum_d P(d)\,\text{Profit}(200, d) = \$320\)</span>.</li>
+<li><strong>This lecture’s decision:</strong> the <span class="math inline">\(Q\)</span> with the highest <span class="math inline">\(E[\text{Profit}(Q)]\)</span>.</li>
+</ul>
+</div>
+</section>
+<section id="where-part-i-ended" class="slide level2">
+<h2>Where Part I Ended</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 40%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Mornings simulated <span class="math inline">\(n\)</span></th>
+<th style="text-align: center;">Average demand <span class="math inline">\(\bar{d} = \frac{1}{n}\sum_i d_i\)</span></th>
+<th style="text-align: center;">Standard error <span class="math inline">\(s/\sqrt{n}\)</span></th>
 </tr>
 </thead>
 <tbody>
@@ -1623,7 +1703,7 @@ SE = \frac{s}{\sqrt{n}} \qquad\qquad \text{95\% interval: average} \pm 1.96\,SE
 </tbody>
 </table>
 <ul>
-<li>The table’s expected demand is <strong>200</strong>.</li>
+<li>The table’s expected demand is <span class="math inline">\(E[D] = \sum_d d\,P(d) = \mathbf{200}\)</span>.</li>
 <li>Each simulated average is an estimate; its standard error says how far it can stray.</li>
 <li><strong>This lecture:</strong> how many runs a decision needs, then a decision, then queues.</li>
 </ul>
@@ -1652,30 +1732,50 @@ SE = \frac{s}{\sqrt{n}} \qquad\qquad \text{95\% interval: average} \pm 1.96\,SE
 </tbody>
 </table>
 <div class="fragment">
-<p>Within <span class="math inline">\(\pm E\)</span> pastries, 95% of the time, with <span class="math inline">\(E = 1\)</span>:</p>
+<!-- E from the bake decision (Sebastian, 2026-11-19: E = 1 looked very
+     small against E[D] = 200). E = 1 stays as the contrast that makes
+     "one more digit" concrete. The substitution uses sigma^2 = 1,920
+     exactly: (1.96 x 43.8)^2 gives 7,370, not 7,376. The lead on one
+     line, E = 1 in the box, the box .compact and "the demand levels are
+     40 apart" in the notes: the slide ran 98px into the footline
+     [check-layout]. -->
+<p>To plan a bake: within <span class="math inline">\(\pm E\)</span>, <span class="math inline">\(E = 10\)</span> pastries (<span class="math inline">\(10/200 = 5\%\)</span>), 95% of the time:</p>
 <p><span class="math display">\[
-1.96\,\frac{\sigma}{\sqrt{n}} \le E \quad\Longrightarrow\quad n \ge \left(\frac{1.96\,\sigma}{E}\right)^2 = (1.96 \times 43.8)^2 = 7{,}376 \text{ mornings}
+1.96\,\frac{\sigma}{\sqrt{n}} \le E \quad\Longrightarrow\quad n \ge \left(\frac{1.96\,\sigma}{E}\right)^2 = \frac{1.96^2 \times 1{,}920}{10^2} = 73.8 \text{, so } 74 \text{ mornings}
 \]</span></p>
 </div>
 <div class="fragment">
-<div title="Precision costs runs">
+<div class="compact" title="Precision costs runs">
 <div class="callout callout-important no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <p><strong>Precision costs runs</strong></p>
 </div>
 <div class="callout-content">
-<p>The error falls with <span class="math inline">\(\sqrt{n}\)</span>: four times the runs halve it, and one more digit costs 100 times the runs.</p>
+<p>One more digit, <span class="math inline">\(E = 1\)</span>, needs <span class="math inline">\(1.96^2 \times 1{,}920 / 1^2 = 7{,}376\)</span> mornings: 100 times the runs, since the error falls only with <span class="math inline">\(\sqrt{n}\)</span>.</p>
 </div>
 </div>
 </div>
 </div>
+<aside class="notes">
+<p>Why E = 10: demand comes in steps of 40 pastries, so an average known to within 10 pastries is close enough to plan a bake. E = 1 (half a percent of 200) is far finer than the decision needs, and it costs 7,376 mornings.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </div>
 </section>
 <section id="settle" class="slide level2">
 <h2>Watch the Average Settle</h2>
 <div class="rpi-lead">
-<p>Drag the number of mornings. The line is the running average of demand, the band its 95% interval. New draw: another run of 1,000 mornings.</p>
+<p>Drag the number of mornings. The line is the running average <span class="math inline">\(\bar{d}_n = \frac{1}{n}\sum_{i \le n} d_i\)</span>, the band its 95% interval <span class="math inline">\(\bar{d}_n \pm 1.96\,s/\sqrt{n}\)</span>. New draw: another run of 1,000 mornings.</p>
 </div>
 <!-- THE DECK'S ONE OJS SLIDE (PLAN section 2, item 4: the number of
      replications). Python hands over runs 1 to 10 of the pastry
@@ -1690,7 +1790,7 @@ SE = \frac{s}{\sqrt{n}} \qquad\qquad \text{95\% interval: average} \pm 1.96\,SE
 <div class="cell">
 <details class="code-fold hidden">
 <summary>Show code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="1106" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1105;"><span id="cb1-1106"><a href="" aria-hidden="true" tabindex="-1"></a>Plot <span class="op">=</span> <span class="bu">window</span><span class="op">.</span><span class="at">Plot</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="1189" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1188;"><span id="cb1-1189"><a href="" aria-hidden="true" tabindex="-1"></a>Plot <span class="op">=</span> <span class="bu">window</span><span class="op">.</span><span class="at">Plot</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-1" data-nodetype="declaration">
@@ -1701,7 +1801,7 @@ SE = \frac{s}{\sqrt{n}} \qquad\qquad \text{95\% interval: average} \pm 1.96\,SE
 <div class="cell">
 <details class="code-fold hidden">
 <summary>Show code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="1111" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1110;"><span id="cb2-1111"><a href="" aria-hidden="true" tabindex="-1"></a>Inputs <span class="op">=</span> <span class="bu">window</span><span class="op">.</span><span class="at">Inputs</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="1194" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1193;"><span id="cb2-1194"><a href="" aria-hidden="true" tabindex="-1"></a>Inputs <span class="op">=</span> <span class="bu">window</span><span class="op">.</span><span class="at">Inputs</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-2" data-nodetype="declaration">
@@ -1712,7 +1812,7 @@ SE = \frac{s}{\sqrt{n}} \qquad\qquad \text{95\% interval: average} \pm 1.96\,SE
 <div class="cell">
 <details class="code-fold hidden">
 <summary>Show code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="1116" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1115;"><span id="cb3-1116"><a href="" aria-hidden="true" tabindex="-1"></a>d3 <span class="op">=</span> <span class="bu">window</span><span class="op">.</span><span class="at">d3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="1199" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1198;"><span id="cb3-1199"><a href="" aria-hidden="true" tabindex="-1"></a>d3 <span class="op">=</span> <span class="bu">window</span><span class="op">.</span><span class="at">d3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-3" data-nodetype="declaration">
@@ -1723,7 +1823,7 @@ SE = \frac{s}{\sqrt{n}} \qquad\qquad \text{95\% interval: average} \pm 1.96\,SE
 <div class="cell">
 <details class="code-fold hidden">
 <summary>Show code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb4" data-startfrom="1121" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1120;"><span id="cb4-1121"><a href="" aria-hidden="true" tabindex="-1"></a>htl <span class="op">=</span> <span class="bu">window</span><span class="op">.</span><span class="at">htl</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb4" data-startfrom="1204" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1203;"><span id="cb4-1204"><a href="" aria-hidden="true" tabindex="-1"></a>htl <span class="op">=</span> <span class="bu">window</span><span class="op">.</span><span class="at">htl</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-4" data-nodetype="declaration">
@@ -1734,16 +1834,16 @@ SE = \frac{s}{\sqrt{n}} \qquad\qquad \text{95\% interval: average} \pm 1.96\,SE
 <div class="cell">
 <details class="code-fold hidden">
 <summary>Show code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb5" data-startfrom="1126" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1125;"><span id="cb5-1126"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">// House palette (theme.scss lines 36-49), the gallery's values.</span></span>
-<span id="cb5-1127"><a href="" aria-hidden="true" tabindex="-1"></a>rpi <span class="op">=</span> ({</span>
-<span id="cb5-1128"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">red</span><span class="op">:</span>  <span class="st">"#D6001C"</span><span class="op">,</span></span>
-<span id="cb5-1129"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">blue</span><span class="op">:</span> <span class="st">"#1D4158"</span><span class="op">,</span></span>
-<span id="cb5-1130"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">gold</span><span class="op">:</span> <span class="st">"#CDAC38"</span><span class="op">,</span></span>
-<span id="cb5-1131"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">green</span><span class="op">:</span><span class="st">"#1A7A4A"</span><span class="op">,</span></span>
-<span id="cb5-1132"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">grid</span><span class="op">:</span> <span class="st">"#B9CCD8"</span><span class="op">,</span></span>
-<span id="cb5-1133"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">ink</span><span class="op">:</span>  <span class="st">"#23373B"</span><span class="op">,</span></span>
-<span id="cb5-1134"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">paper</span><span class="op">:</span><span class="st">"#FAFAFA"</span></span>
-<span id="cb5-1135"><a href="" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb5" data-startfrom="1209" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1208;"><span id="cb5-1209"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">// House palette (theme.scss lines 36-49), the gallery's values.</span></span>
+<span id="cb5-1210"><a href="" aria-hidden="true" tabindex="-1"></a>rpi <span class="op">=</span> ({</span>
+<span id="cb5-1211"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">red</span><span class="op">:</span>  <span class="st">"#D6001C"</span><span class="op">,</span></span>
+<span id="cb5-1212"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">blue</span><span class="op">:</span> <span class="st">"#1D4158"</span><span class="op">,</span></span>
+<span id="cb5-1213"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">gold</span><span class="op">:</span> <span class="st">"#CDAC38"</span><span class="op">,</span></span>
+<span id="cb5-1214"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">green</span><span class="op">:</span><span class="st">"#1A7A4A"</span><span class="op">,</span></span>
+<span id="cb5-1215"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">grid</span><span class="op">:</span> <span class="st">"#B9CCD8"</span><span class="op">,</span></span>
+<span id="cb5-1216"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">ink</span><span class="op">:</span>  <span class="st">"#23373B"</span><span class="op">,</span></span>
+<span id="cb5-1217"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">paper</span><span class="op">:</span><span class="st">"#FAFAFA"</span></span>
+<span id="cb5-1218"><a href="" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-5" data-nodetype="declaration">
@@ -1754,16 +1854,16 @@ SE = \frac{s}{\sqrt{n}} \qquad\qquad \text{95\% interval: average} \pm 1.96\,SE
 <div class="cell">
 <details class="code-fold hidden">
 <summary>Show code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb6" data-startfrom="1140" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1139;"><span id="cb6-1140"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">// The gallery's frame; the slide sets its own height, since it carries a</span></span>
-<span id="cb6-1141"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">// lead line, controls and a readout.</span></span>
-<span id="cb6-1142"><a href="" aria-hidden="true" tabindex="-1"></a>frame <span class="op">=</span> ({</span>
-<span id="cb6-1143"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">820</span><span class="op">,</span></span>
-<span id="cb6-1144"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">290</span><span class="op">,</span></span>
-<span id="cb6-1145"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marginLeft</span><span class="op">:</span> <span class="dv">58</span><span class="op">,</span></span>
-<span id="cb6-1146"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marginRight</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span></span>
-<span id="cb6-1147"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marginBottom</span><span class="op">:</span> <span class="dv">42</span><span class="op">,</span></span>
-<span id="cb6-1148"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">style</span><span class="op">:</span> { <span class="dt">background</span><span class="op">:</span> rpi<span class="op">.</span><span class="at">paper</span><span class="op">,</span> <span class="dt">color</span><span class="op">:</span> rpi<span class="op">.</span><span class="at">ink</span><span class="op">,</span> <span class="dt">fontSize</span><span class="op">:</span> <span class="st">"13px"</span> }</span>
-<span id="cb6-1149"><a href="" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb6" data-startfrom="1223" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1222;"><span id="cb6-1223"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">// The gallery's frame; the slide sets its own height, since it carries a</span></span>
+<span id="cb6-1224"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">// lead line, controls and a readout.</span></span>
+<span id="cb6-1225"><a href="" aria-hidden="true" tabindex="-1"></a>frame <span class="op">=</span> ({</span>
+<span id="cb6-1226"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">820</span><span class="op">,</span></span>
+<span id="cb6-1227"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">290</span><span class="op">,</span></span>
+<span id="cb6-1228"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marginLeft</span><span class="op">:</span> <span class="dv">58</span><span class="op">,</span></span>
+<span id="cb6-1229"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marginRight</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span></span>
+<span id="cb6-1230"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marginBottom</span><span class="op">:</span> <span class="dv">42</span><span class="op">,</span></span>
+<span id="cb6-1231"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">style</span><span class="op">:</span> { <span class="dt">background</span><span class="op">:</span> rpi<span class="op">.</span><span class="at">paper</span><span class="op">,</span> <span class="dt">color</span><span class="op">:</span> rpi<span class="op">.</span><span class="at">ink</span><span class="op">,</span> <span class="dt">fontSize</span><span class="op">:</span> <span class="st">"13px"</span> }</span>
+<span id="cb6-1232"><a href="" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-6" data-nodetype="declaration">
@@ -1771,7 +1871,7 @@ SE = \frac{s}{\sqrt{n}} \qquad\qquad \text{95\% interval: average} \pm 1.96\,SE
 </div>
 </div>
 </div>
-<div id="bae6b170" class="cell" data-execution_count="8">
+<div id="dc21dbdf" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <script type="ojs-define">{"contents": [{"name": "mcRuns", "value": {"d": [[240, 200, 280, 200, 200, 240, 280, 120, 240, 160, 160, 120, 200, 200, 200, 200, 200, 200, 160, 160, 160, 200, 120, 160, 200, 200, 200, 160, 280, 160, 120, 200, 240, 200, 200, 160, 160, 160, 200, 200, 240, 240, 280, 200, 240, 200, 160, 200, 200, 120, 200, 240, 200, 200, 200, 160, 200, 200, 200, 240, 280, 280, 280, 120, 200, 240, 200, 160, 200, 200, 240, 200, 120, 200, 160, 160, 160, 200, 240, 240, 240, 240, 200, 200, 200, 120, 200, 160, 160, 240, 280, 200, 200, 240, 160, 200, 120, 200, 240, 200, 240, 240, 200, 280, 160, 240, 280, 240, 200, 200, 160, 280, 200, 240, 160, 160, 160, 200, 240, 280, 200, 240, 160, 200, 200, 120, 280, 280, 200, 160, 160, 200, 160, 160, 160, 200, 200, 280, 160, 240, 120, 240, 200, 200, 120, 200, 200, 200, 200, 200, 200, 200, 160, 160, 200, 280, 200, 120, 240, 160, 200, 280, 240, 200, 200, 200, 160, 160, 200, 240, 160, 280, 280, 200, 200, 280, 160, 160, 200, 160, 200, 280, 120, 120, 200, 160, 120, 240, 200, 160, 240, 200, 160, 160, 120, 160, 160, 200, 200, 200, 200, 160, 200, 240, 200, 240, 240, 200, 200, 200, 200, 200, 200, 240, 200, 240, 200, 200, 200, 200, 200, 200, 200, 240, 120, 120, 200, 240, 240, 240, 160, 160, 240, 240, 160, 200, 160, 200, 200, 160, 200, 120, 280, 240, 240, 200, 240, 240, 200, 160, 280, 120, 120, 120, 200, 200, 200, 240, 280, 200, 160, 200, 200, 200, 200, 200, 240, 280, 240, 160, 160, 240, 120, 240, 120, 280, 200, 120, 280, 200, 240, 200, 120, 200, 120, 200, 200, 200, 200, 200, 200, 200, 160, 120, 160, 120, 280, 240, 240, 200, 200, 200, 200, 200, 280, 160, 160, 120, 200, 200, 200, 240, 280, 120, 240, 280, 200, 200, 280, 200, 200, 200, 280, 240, 240, 120, 200, 280, 280, 120, 120, 120, 240, 240, 240, 160, 160, 120, 240, 160, 200, 160, 240, 280, 120, 200, 200, 160, 240, 280, 240, 240, 240, 240, 160, 160, 280, 200, 160, 120, 200, 200, 200, 160, 240, 160, 240, 200, 280, 200, 200, 200, 160, 200, 120, 160, 160, 160, 160, 240, 200, 200, 200, 280, 200, 240, 120, 280, 240, 200, 280, 200, 240, 160, 160, 200, 200, 200, 200, 240, 200, 120, 240, 160, 240, 200, 200, 240, 200, 280, 160, 160, 160, 120, 280, 160, 160, 160, 160, 240, 200, 200, 200, 280, 240, 200, 240, 160, 200, 200, 280, 160, 240, 240, 280, 240, 240, 280, 280, 240, 200, 200, 200, 240, 240, 200, 280, 200, 160, 240, 160, 200, 240, 280, 200, 160, 200, 160, 160, 160, 160, 120, 200, 240, 240, 200, 280, 200, 200, 240, 240, 200, 200, 200, 200, 200, 280, 240, 200, 160, 240, 200, 280, 280, 200, 240, 200, 200, 280, 240, 160, 280, 200, 200, 240, 280, 120, 120, 200, 160, 160, 160, 240, 160, 240, 200, 160, 200, 200, 200, 280, 200, 160, 200, 120, 120, 160, 280, 200, 280, 200, 160, 200, 240, 200, 200, 160, 200, 200, 200, 200, 120, 120, 200, 200, 200, 200, 120, 200, 240, 160, 240, 240, 200, 160, 120, 200, 240, 200, 120, 280, 120, 200, 160, 160, 160, 160, 240, 240, 240, 200, 160, 240, 280, 200, 200, 200, 200, 200, 280, 120, 120, 160, 240, 160, 280, 160, 200, 200, 240, 200, 200, 160, 240, 200, 200, 200, 240, 280, 200, 200, 200, 160, 200, 240, 160, 200, 120, 280, 200, 280, 200, 200, 120, 200, 280, 280, 280, 200, 200, 280, 160, 120, 120, 280, 200, 240, 160, 280, 160, 200, 160, 160, 240, 120, 200, 120, 200, 120, 200, 200, 160, 120, 200, 240, 160, 200, 160, 160, 200, 120, 200, 280, 200, 200, 240, 160, 200, 200, 120, 200, 160, 280, 280, 120, 160, 280, 200, 200, 200, 240, 160, 200, 200, 280, 200, 240, 160, 160, 200, 280, 200, 200, 160, 200, 160, 240, 120, 160, 120, 200, 200, 200, 160, 200, 200, 240, 240, 120, 240, 160, 240, 240, 200, 160, 200, 240, 120, 200, 200, 200, 280, 160, 200, 240, 200, 200, 200, 200, 160, 160, 200, 240, 200, 160, 200, 240, 280, 240, 200, 160, 160, 120, 200, 160, 160, 160, 280, 280, 160, 200, 240, 200, 280, 200, 160, 240, 200, 200, 160, 200, 280, 160, 160, 200, 160, 160, 200, 200, 160, 120, 200, 200, 200, 240, 200, 120, 240, 240, 120, 200, 280, 160, 120, 160, 160, 160, 200, 200, 160, 280, 280, 120, 200, 200, 160, 160, 240, 200, 160, 200, 200, 120, 240, 160, 160, 240, 240, 160, 120, 200, 160, 200, 120, 200, 160, 280, 200, 120, 240, 280, 240, 160, 200, 160, 120, 240, 200, 120, 200, 200, 200, 160, 200, 160, 200, 280, 200, 160, 200, 240, 160, 280, 240, 280, 200, 160, 240, 280, 240, 120, 200, 160, 160, 200, 240, 120, 200, 200, 240, 200, 160, 200, 160, 160, 200, 200, 280, 120, 280, 200, 280, 200, 280, 200, 200, 160, 160, 200, 200, 280, 200, 120, 200, 200, 120, 200, 200, 200, 200, 160, 160, 120, 120, 120, 200, 200, 200, 200, 120, 280, 240, 120, 240, 120, 280, 240, 160, 240, 280, 240, 200, 240, 200, 200, 280, 120, 240, 160, 200, 280, 200, 120, 240, 280, 160, 280, 120, 240, 200, 240, 200, 200, 280, 200, 120, 160, 200, 200, 200, 200, 240, 240, 160, 280, 120, 200, 120, 120, 200, 280, 280, 160, 200, 200, 200, 120, 200, 200, 200, 200, 280, 200, 160, 240, 200, 280, 200, 200, 240, 120, 240, 160, 240, 240, 200, 240, 160, 160, 240, 200, 120, 120, 200, 240, 160, 200, 120, 240, 160, 200, 200, 200, 160, 120, 160, 200, 200, 160, 160, 200, 280, 240, 200, 160, 200, 120, 200, 200, 200, 160, 280, 200, 200, 240, 240, 200, 160, 240, 200], [280, 200, 240, 240, 280, 240, 200, 240, 160, 160, 200, 200, 240, 200, 200, 120, 160, 200, 280, 200, 160, 200, 200, 200, 160, 200, 200, 200, 200, 160, 200, 280, 200, 240, 120, 280, 200, 200, 120, 200, 200, 200, 240, 200, 280, 200, 200, 200, 240, 160, 200, 160, 200, 200, 200, 160, 200, 160, 160, 160, 200, 240, 240, 240, 240, 240, 160, 200, 160, 280, 280, 280, 280, 200, 200, 160, 160, 200, 240, 160, 280, 200, 240, 200, 160, 200, 200, 200, 200, 240, 160, 240, 120, 200, 120, 160, 200, 280, 240, 280, 200, 240, 120, 280, 280, 200, 240, 280, 120, 160, 120, 200, 120, 200, 160, 240, 120, 200, 120, 240, 280, 240, 160, 200, 120, 200, 200, 200, 240, 280, 280, 120, 240, 200, 200, 240, 160, 200, 160, 240, 280, 120, 240, 200, 200, 160, 200, 160, 160, 200, 200, 200, 280, 240, 200, 240, 120, 240, 200, 160, 240, 160, 200, 160, 120, 240, 240, 200, 200, 240, 200, 200, 120, 200, 240, 160, 280, 200, 200, 160, 160, 240, 120, 240, 160, 200, 120, 160, 200, 160, 200, 160, 240, 200, 160, 240, 200, 200, 200, 280, 200, 120, 200, 200, 240, 200, 120, 200, 200, 240, 280, 240, 240, 200, 240, 200, 240, 200, 160, 240, 200, 240, 160, 280, 240, 240, 120, 200, 200, 160, 160, 200, 240, 160, 200, 200, 200, 160, 120, 160, 200, 200, 240, 280, 160, 240, 240, 240, 160, 200, 160, 280, 240, 160, 280, 120, 200, 200, 160, 280, 280, 240, 200, 160, 200, 240, 280, 120, 200, 200, 240, 160, 200, 120, 160, 160, 200, 240, 200, 200, 240, 200, 200, 200, 200, 160, 280, 240, 160, 160, 240, 280, 120, 200, 200, 160, 200, 160, 200, 200, 160, 160, 240, 120, 160, 160, 200, 120, 200, 200, 240, 240, 160, 240, 120, 200, 160, 160, 240, 280, 200, 160, 160, 160, 200, 240, 200, 200, 200, 200, 120, 280, 240, 200, 120, 160, 160, 200, 280, 200, 160, 200, 200, 200, 240, 280, 200, 200, 120, 200, 160, 160, 160, 200, 200, 240, 200, 240, 200, 160, 160, 240, 280, 240, 240, 280, 200, 200, 240, 240, 160, 240, 160, 160, 200, 160, 160, 120, 200, 160, 200, 240, 240, 200, 200, 240, 120, 160, 200, 160, 240, 200, 200, 280, 200, 200, 280, 200, 200, 240, 160, 160, 240, 200, 240, 280, 160, 120, 120, 160, 240, 240, 280, 280, 200, 200, 240, 160, 280, 280, 200, 200, 200, 200, 200, 200, 200, 240, 200, 200, 240, 240, 200, 120, 200, 160, 240, 240, 200, 160, 240, 200, 240, 280, 200, 200, 240, 200, 200, 240, 200, 200, 200, 280, 120, 160, 120, 200, 160, 200, 280, 200, 200, 240, 280, 160, 200, 200, 240, 120, 120, 200, 160, 280, 200, 200, 160, 160, 200, 280, 200, 240, 200, 240, 120, 160, 240, 280, 200, 160, 200, 200, 240, 120, 280, 160, 120, 280, 200, 160, 160, 160, 160, 160, 160, 160, 240, 280, 120, 200, 160, 120, 200, 200, 280, 200, 200, 280, 280, 200, 200, 280, 200, 160, 160, 160, 200, 280, 200, 200, 120, 280, 240, 200, 120, 200, 160, 200, 240, 160, 200, 240, 200, 240, 160, 240, 200, 200, 200, 200, 200, 160, 240, 240, 160, 160, 160, 240, 200, 280, 120, 200, 160, 200, 120, 280, 240, 240, 200, 200, 160, 160, 200, 120, 200, 200, 160, 240, 280, 240, 240, 200, 160, 240, 120, 200, 160, 160, 280, 280, 240, 160, 160, 200, 200, 120, 200, 120, 280, 120, 280, 200, 160, 200, 200, 280, 160, 200, 120, 120, 200, 200, 200, 200, 200, 280, 200, 280, 120, 120, 200, 120, 160, 120, 160, 200, 200, 280, 120, 240, 200, 160, 240, 120, 200, 200, 200, 280, 160, 240, 200, 200, 200, 120, 200, 160, 240, 200, 200, 200, 160, 200, 200, 200, 280, 200, 200, 160, 280, 200, 120, 200, 240, 160, 200, 120, 160, 240, 240, 200, 200, 240, 200, 200, 200, 240, 160, 240, 120, 160, 280, 200, 200, 240, 200, 200, 120, 120, 200, 200, 280, 200, 200, 160, 240, 200, 240, 160, 280, 240, 200, 280, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 120, 200, 120, 280, 280, 160, 160, 200, 160, 200, 240, 200, 280, 160, 200, 120, 240, 200, 240, 240, 200, 160, 200, 160, 160, 240, 200, 200, 160, 120, 240, 240, 240, 280, 240, 200, 200, 200, 280, 120, 200, 120, 280, 120, 240, 200, 160, 200, 120, 240, 200, 160, 280, 200, 160, 160, 120, 120, 160, 240, 200, 120, 200, 200, 200, 160, 200, 160, 200, 200, 200, 240, 240, 240, 160, 240, 240, 240, 160, 120, 200, 200, 200, 160, 280, 240, 200, 160, 160, 240, 240, 200, 160, 280, 200, 200, 200, 240, 160, 160, 120, 120, 240, 200, 200, 200, 280, 200, 280, 160, 200, 240, 280, 120, 200, 200, 200, 200, 280, 200, 120, 280, 120, 240, 200, 240, 160, 240, 120, 200, 120, 240, 280, 200, 240, 200, 200, 200, 160, 160, 200, 280, 240, 160, 160, 240, 160, 160, 120, 240, 200, 200, 200, 200, 240, 200, 120, 280, 200, 160, 120, 240, 160, 160, 200, 200, 200, 160, 120, 200, 200, 200, 240, 200, 120, 200, 200, 200, 120, 240, 160, 120, 200, 240, 160, 200, 240, 200, 200, 120, 200, 120, 200, 120, 120, 200, 160, 200, 200, 200, 200, 160, 200, 120, 120, 240, 160, 200, 240, 200, 200, 200, 240, 240, 200, 240, 280, 200, 200, 200, 200, 280, 200, 200, 160, 200, 200, 200, 200, 200, 240, 200, 120, 200, 160, 280, 240, 160, 200, 160, 240, 200, 200, 240, 240, 120, 240, 280, 200, 280, 280, 240, 200, 240, 160, 160, 240, 160, 200, 200, 120, 240, 280, 200, 280, 200, 200, 200, 240, 160, 200, 200, 200, 240, 160, 160, 200, 240, 160, 200, 160, 240, 240, 200, 160, 240], [280, 240, 240, 200, 200, 280, 200, 200, 280, 160, 200, 120, 200, 200, 120, 240, 200, 200, 200, 160, 160, 240, 200, 200, 200, 200, 120, 200, 200, 240, 240, 200, 200, 120, 160, 200, 200, 160, 200, 280, 200, 200, 160, 160, 120, 280, 240, 280, 200, 200, 200, 200, 160, 120, 120, 120, 240, 200, 240, 120, 200, 120, 160, 120, 280, 200, 200, 200, 120, 200, 200, 200, 200, 240, 200, 200, 200, 240, 200, 240, 200, 200, 200, 160, 200, 200, 160, 160, 200, 200, 200, 160, 200, 240, 240, 240, 240, 120, 200, 200, 200, 200, 200, 240, 200, 240, 240, 240, 200, 200, 240, 200, 200, 200, 200, 200, 200, 120, 120, 280, 200, 200, 240, 200, 280, 160, 160, 280, 160, 200, 200, 160, 160, 200, 240, 240, 160, 200, 160, 120, 240, 160, 200, 200, 200, 200, 160, 200, 200, 200, 240, 160, 160, 240, 200, 200, 280, 280, 200, 160, 200, 160, 200, 200, 240, 160, 240, 240, 240, 240, 280, 160, 200, 160, 160, 160, 200, 280, 280, 200, 160, 160, 200, 240, 240, 200, 200, 240, 280, 120, 160, 200, 200, 200, 200, 240, 240, 160, 200, 200, 200, 240, 200, 240, 240, 200, 280, 160, 280, 160, 200, 200, 160, 200, 120, 240, 120, 120, 200, 160, 240, 240, 200, 200, 160, 160, 120, 200, 200, 280, 240, 200, 280, 160, 200, 160, 280, 160, 200, 200, 160, 200, 200, 280, 200, 240, 240, 200, 200, 240, 200, 200, 200, 240, 200, 200, 200, 200, 160, 240, 240, 200, 120, 280, 280, 200, 160, 240, 200, 200, 160, 200, 280, 200, 200, 200, 200, 200, 240, 200, 200, 160, 240, 200, 120, 160, 240, 200, 200, 280, 120, 280, 200, 200, 200, 200, 160, 200, 160, 200, 160, 160, 240, 160, 200, 120, 160, 240, 200, 160, 120, 200, 200, 240, 240, 280, 160, 160, 160, 240, 160, 200, 200, 160, 200, 160, 200, 240, 280, 200, 160, 160, 200, 200, 200, 200, 200, 200, 200, 200, 160, 200, 160, 240, 160, 200, 240, 280, 200, 120, 280, 160, 200, 200, 160, 240, 200, 280, 200, 120, 280, 200, 200, 240, 120, 200, 240, 120, 200, 240, 200, 160, 200, 200, 200, 240, 280, 120, 200, 200, 120, 200, 200, 200, 280, 240, 160, 280, 240, 160, 200, 280, 200, 240, 200, 200, 240, 200, 280, 280, 160, 160, 200, 240, 200, 240, 200, 240, 240, 200, 200, 120, 120, 200, 120, 240, 280, 200, 160, 240, 160, 280, 200, 200, 280, 120, 200, 160, 280, 240, 280, 200, 200, 200, 200, 120, 240, 240, 200, 240, 200, 200, 280, 160, 200, 200, 280, 160, 200, 200, 200, 200, 200, 240, 160, 240, 200, 160, 240, 160, 200, 240, 160, 200, 200, 200, 200, 200, 200, 280, 280, 200, 160, 200, 200, 120, 120, 240, 200, 200, 160, 160, 200, 200, 120, 160, 160, 240, 200, 200, 160, 200, 280, 160, 200, 120, 160, 240, 200, 280, 200, 120, 120, 280, 200, 200, 240, 160, 280, 280, 120, 120, 200, 200, 120, 120, 200, 240, 240, 200, 200, 200, 240, 200, 200, 200, 200, 160, 280, 240, 280, 280, 200, 200, 240, 160, 160, 200, 200, 240, 200, 160, 200, 200, 200, 280, 160, 120, 280, 240, 240, 200, 200, 200, 200, 200, 120, 200, 160, 160, 200, 200, 200, 120, 160, 280, 200, 160, 160, 240, 200, 240, 240, 240, 120, 240, 280, 160, 160, 200, 240, 120, 240, 120, 200, 120, 240, 200, 200, 160, 200, 200, 120, 200, 240, 160, 240, 160, 200, 160, 280, 240, 160, 160, 200, 160, 160, 160, 280, 160, 200, 160, 240, 160, 200, 200, 240, 120, 200, 160, 200, 200, 160, 200, 240, 160, 240, 240, 120, 280, 120, 200, 120, 160, 160, 120, 200, 280, 240, 200, 240, 280, 280, 200, 240, 280, 280, 200, 120, 200, 200, 240, 160, 160, 200, 280, 200, 200, 200, 280, 120, 200, 240, 200, 160, 200, 240, 160, 200, 200, 160, 120, 280, 200, 200, 160, 200, 200, 280, 200, 200, 200, 200, 160, 200, 160, 200, 160, 280, 200, 200, 200, 200, 280, 200, 160, 240, 240, 160, 200, 160, 280, 240, 200, 200, 280, 200, 200, 280, 200, 200, 120, 160, 280, 240, 200, 200, 240, 200, 200, 120, 200, 240, 240, 240, 120, 200, 160, 160, 120, 160, 160, 160, 160, 240, 200, 200, 200, 240, 200, 200, 200, 160, 240, 200, 240, 240, 240, 160, 160, 200, 240, 280, 240, 200, 120, 200, 120, 120, 200, 240, 120, 240, 200, 280, 160, 280, 200, 200, 240, 240, 160, 240, 280, 200, 200, 120, 200, 160, 200, 280, 160, 200, 200, 240, 160, 160, 160, 240, 160, 280, 120, 240, 240, 120, 160, 240, 200, 160, 200, 160, 280, 240, 160, 200, 200, 280, 160, 280, 160, 200, 240, 120, 160, 160, 160, 120, 240, 200, 200, 240, 280, 200, 200, 240, 200, 160, 200, 200, 200, 240, 280, 240, 200, 200, 200, 240, 160, 200, 160, 200, 200, 120, 160, 200, 200, 200, 200, 120, 160, 200, 200, 200, 160, 160, 200, 280, 200, 240, 240, 240, 200, 120, 200, 160, 200, 200, 200, 240, 120, 240, 280, 200, 200, 200, 240, 280, 160, 200, 200, 200, 200, 200, 200, 200, 200, 160, 200, 160, 160, 200, 160, 240, 200, 280, 200, 200, 240, 160, 200, 280, 200, 200, 200, 280, 280, 200, 200, 160, 200, 120, 120, 240, 240, 200, 200, 200, 240, 200, 160, 160, 240, 200, 240, 200, 200, 200, 160, 160, 160, 240, 200, 120, 160, 240, 160, 120, 120, 240, 280, 200, 280, 200, 240, 240, 160, 200, 240, 240, 280, 200, 200, 160, 160, 200, 200, 160, 120, 280, 240, 200, 160, 240, 160, 240, 280, 160, 160, 240, 200, 200, 200, 280, 160, 200, 240, 160, 160, 200, 160, 160, 160, 280, 200, 200, 240, 120, 160, 200, 280, 240, 200, 160, 160, 240, 200, 200, 200, 240, 160], [280, 240, 240, 160, 240, 200, 240, 200, 200, 160, 200, 280, 160, 240, 120, 160, 160, 240, 200, 200, 200, 280, 280, 120, 240, 200, 200, 240, 200, 240, 160, 200, 160, 200, 200, 120, 200, 200, 240, 200, 200, 240, 160, 120, 280, 240, 240, 200, 240, 160, 160, 200, 240, 200, 160, 200, 200, 240, 240, 160, 240, 120, 280, 160, 200, 200, 240, 200, 240, 120, 240, 200, 120, 160, 200, 160, 240, 120, 240, 120, 200, 200, 120, 240, 240, 240, 200, 160, 200, 120, 240, 200, 120, 240, 240, 200, 240, 120, 200, 200, 200, 160, 200, 200, 120, 240, 240, 200, 160, 280, 120, 200, 200, 200, 240, 200, 240, 200, 280, 120, 240, 200, 240, 200, 200, 240, 240, 200, 200, 160, 240, 160, 120, 200, 200, 200, 200, 160, 200, 240, 160, 120, 200, 200, 280, 280, 160, 120, 200, 160, 200, 160, 240, 160, 160, 200, 160, 160, 240, 280, 280, 120, 160, 160, 240, 160, 200, 280, 200, 200, 160, 160, 240, 160, 200, 240, 120, 280, 240, 240, 200, 120, 240, 200, 280, 240, 200, 240, 280, 240, 240, 280, 120, 200, 200, 280, 280, 280, 240, 200, 200, 160, 200, 200, 200, 200, 200, 280, 240, 200, 160, 280, 240, 200, 200, 200, 200, 280, 160, 160, 280, 280, 240, 160, 160, 200, 240, 160, 200, 200, 200, 120, 160, 120, 200, 200, 240, 240, 200, 160, 160, 200, 240, 200, 200, 240, 160, 160, 120, 240, 160, 240, 120, 200, 160, 160, 240, 240, 280, 160, 280, 240, 120, 240, 280, 240, 160, 160, 160, 120, 160, 240, 160, 200, 240, 200, 240, 200, 200, 280, 200, 240, 200, 200, 240, 240, 160, 200, 160, 200, 120, 120, 280, 240, 200, 160, 240, 200, 120, 280, 160, 200, 240, 120, 200, 120, 200, 280, 200, 200, 160, 120, 280, 280, 240, 280, 160, 200, 200, 240, 160, 200, 200, 200, 240, 120, 240, 120, 240, 200, 240, 240, 240, 120, 160, 200, 240, 160, 200, 200, 200, 120, 160, 120, 160, 200, 160, 200, 160, 240, 240, 120, 240, 200, 240, 280, 240, 280, 200, 200, 200, 120, 280, 280, 280, 240, 160, 200, 200, 160, 280, 200, 200, 200, 160, 200, 200, 200, 160, 240, 200, 200, 240, 240, 160, 200, 160, 200, 120, 160, 120, 200, 240, 240, 120, 160, 200, 200, 120, 200, 280, 200, 240, 200, 280, 160, 160, 120, 240, 200, 280, 160, 200, 240, 240, 200, 200, 280, 240, 120, 200, 200, 160, 200, 200, 240, 240, 200, 280, 280, 120, 160, 240, 120, 200, 160, 200, 240, 240, 160, 120, 200, 280, 200, 160, 160, 160, 160, 160, 240, 200, 160, 200, 280, 200, 280, 240, 280, 280, 280, 200, 200, 280, 280, 160, 200, 200, 160, 240, 160, 240, 200, 160, 200, 200, 160, 120, 200, 200, 200, 280, 200, 160, 160, 200, 200, 240, 200, 280, 200, 200, 120, 200, 160, 240, 240, 120, 200, 200, 200, 240, 200, 200, 160, 240, 120, 200, 240, 160, 200, 240, 240, 200, 160, 200, 200, 240, 200, 240, 120, 200, 240, 240, 160, 200, 200, 200, 240, 240, 240, 200, 200, 200, 200, 200, 200, 200, 160, 200, 200, 200, 200, 280, 240, 280, 200, 240, 240, 160, 240, 120, 240, 200, 200, 200, 120, 240, 200, 200, 120, 160, 200, 240, 120, 240, 200, 200, 200, 240, 120, 160, 160, 200, 280, 160, 120, 200, 160, 200, 160, 200, 240, 280, 240, 240, 240, 200, 240, 160, 160, 200, 200, 200, 200, 280, 240, 280, 200, 160, 200, 240, 160, 200, 200, 120, 200, 200, 200, 200, 120, 280, 160, 280, 120, 200, 200, 200, 120, 200, 120, 200, 240, 200, 280, 160, 200, 200, 160, 120, 120, 160, 200, 200, 240, 280, 200, 240, 160, 240, 240, 120, 160, 200, 120, 160, 200, 160, 200, 240, 200, 160, 200, 280, 240, 120, 200, 240, 200, 200, 240, 160, 160, 200, 200, 240, 200, 200, 200, 200, 200, 240, 200, 200, 200, 200, 200, 240, 240, 240, 200, 240, 200, 240, 160, 160, 240, 240, 200, 160, 200, 160, 200, 240, 280, 280, 160, 120, 200, 200, 160, 280, 200, 280, 200, 120, 200, 200, 280, 200, 160, 240, 200, 200, 160, 200, 280, 240, 200, 160, 120, 280, 200, 160, 280, 200, 240, 200, 200, 240, 200, 240, 200, 160, 280, 240, 120, 200, 160, 120, 280, 160, 240, 280, 200, 200, 240, 280, 200, 200, 240, 200, 200, 280, 240, 200, 200, 200, 160, 200, 120, 240, 200, 200, 200, 200, 200, 200, 200, 240, 120, 280, 240, 200, 120, 160, 160, 280, 200, 200, 200, 200, 120, 200, 280, 200, 280, 240, 200, 200, 120, 200, 240, 240, 200, 200, 240, 160, 280, 280, 160, 200, 200, 160, 120, 160, 160, 200, 240, 160, 240, 200, 200, 240, 240, 200, 200, 200, 240, 200, 200, 240, 240, 160, 160, 160, 240, 200, 240, 160, 200, 160, 160, 200, 200, 120, 200, 160, 280, 200, 160, 200, 200, 120, 280, 240, 240, 160, 280, 160, 240, 160, 200, 200, 240, 200, 120, 280, 240, 200, 200, 200, 200, 280, 240, 200, 200, 280, 200, 280, 120, 280, 240, 160, 200, 120, 160, 200, 120, 160, 240, 240, 240, 200, 280, 240, 280, 200, 200, 160, 200, 120, 200, 200, 200, 200, 160, 200, 200, 120, 160, 160, 240, 240, 240, 120, 200, 240, 200, 120, 200, 200, 200, 160, 200, 160, 200, 280, 160, 200, 200, 280, 240, 240, 120, 160, 200, 280, 200, 240, 160, 160, 200, 200, 160, 240, 160, 160, 280, 200, 200, 200, 200, 280, 240, 160, 200, 200, 200, 120, 200, 160, 200, 200, 200, 160, 200, 200, 160, 160, 280, 200, 200, 240, 240, 160, 200, 240, 120, 200, 160, 200, 280, 200, 160, 160, 160, 240, 200, 160, 160, 200, 160, 200, 280, 160, 200, 200, 240, 200, 120, 280, 120, 200, 160, 200, 160, 280, 160, 200, 160], [200, 200, 160, 160, 200, 240, 240, 200, 240, 200, 160, 160, 160, 280, 240, 200, 240, 280, 120, 200, 200, 200, 200, 200, 240, 200, 240, 280, 200, 240, 280, 200, 200, 280, 120, 200, 280, 200, 240, 240, 160, 280, 120, 200, 280, 120, 280, 240, 200, 160, 200, 200, 200, 200, 200, 200, 120, 280, 200, 240, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 240, 280, 240, 200, 160, 120, 200, 200, 280, 280, 200, 160, 200, 160, 280, 160, 240, 200, 120, 120, 280, 160, 160, 280, 240, 200, 240, 280, 120, 160, 160, 280, 200, 200, 240, 200, 240, 200, 160, 160, 200, 200, 200, 240, 160, 160, 200, 240, 240, 200, 200, 200, 200, 280, 160, 240, 200, 200, 240, 160, 160, 120, 240, 280, 240, 200, 280, 120, 200, 240, 160, 200, 120, 160, 200, 240, 200, 200, 160, 160, 200, 200, 200, 280, 200, 240, 240, 120, 160, 120, 240, 240, 200, 120, 280, 200, 240, 160, 160, 240, 200, 160, 280, 240, 240, 240, 200, 200, 120, 160, 160, 200, 200, 200, 120, 240, 280, 160, 200, 240, 160, 200, 160, 200, 160, 160, 280, 120, 240, 120, 160, 160, 200, 200, 120, 200, 240, 200, 160, 160, 120, 160, 200, 160, 200, 200, 200, 200, 200, 200, 200, 200, 160, 160, 200, 200, 200, 120, 240, 200, 240, 160, 280, 200, 280, 160, 280, 200, 240, 200, 280, 240, 160, 200, 200, 200, 200, 200, 120, 120, 160, 240, 240, 200, 200, 200, 240, 280, 200, 160, 200, 240, 200, 160, 200, 280, 240, 240, 160, 200, 200, 160, 200, 240, 160, 200, 160, 240, 120, 200, 240, 200, 240, 280, 200, 160, 200, 160, 200, 120, 200, 120, 200, 160, 280, 200, 200, 200, 200, 160, 120, 280, 200, 240, 240, 240, 160, 240, 280, 200, 120, 160, 160, 200, 280, 240, 200, 200, 240, 200, 280, 200, 240, 160, 240, 280, 200, 240, 120, 240, 120, 200, 200, 200, 200, 240, 160, 280, 200, 160, 280, 200, 200, 200, 160, 160, 240, 200, 280, 280, 280, 280, 160, 160, 200, 120, 280, 200, 120, 280, 240, 160, 160, 120, 200, 160, 240, 240, 160, 200, 120, 200, 200, 160, 200, 280, 160, 280, 160, 240, 200, 160, 200, 200, 120, 160, 200, 200, 160, 240, 280, 200, 200, 200, 240, 240, 200, 160, 200, 240, 200, 120, 160, 160, 240, 160, 200, 120, 200, 200, 160, 200, 160, 120, 200, 200, 160, 160, 200, 240, 160, 240, 200, 240, 120, 240, 200, 120, 240, 200, 200, 200, 200, 200, 200, 200, 200, 200, 240, 160, 200, 280, 240, 240, 240, 200, 200, 160, 160, 200, 200, 120, 120, 240, 120, 160, 280, 160, 200, 160, 200, 200, 240, 120, 200, 200, 200, 240, 240, 120, 200, 200, 120, 240, 200, 200, 160, 120, 280, 200, 200, 200, 200, 240, 280, 200, 120, 120, 200, 160, 200, 160, 120, 200, 240, 120, 200, 120, 200, 240, 240, 280, 240, 160, 200, 280, 200, 200, 120, 280, 200, 160, 200, 120, 200, 120, 200, 160, 200, 200, 280, 200, 200, 280, 240, 160, 280, 240, 240, 240, 240, 160, 240, 200, 160, 200, 240, 240, 200, 200, 160, 200, 200, 280, 200, 160, 200, 200, 160, 120, 240, 160, 200, 160, 240, 240, 160, 200, 160, 240, 160, 200, 200, 280, 160, 240, 160, 160, 200, 200, 240, 160, 200, 280, 200, 160, 200, 160, 160, 200, 160, 200, 160, 120, 240, 240, 240, 160, 200, 280, 280, 280, 200, 200, 200, 160, 160, 240, 160, 240, 160, 200, 200, 200, 160, 120, 200, 200, 200, 280, 240, 120, 200, 240, 240, 120, 200, 200, 200, 160, 160, 160, 160, 200, 280, 240, 200, 240, 160, 240, 120, 200, 280, 240, 200, 200, 240, 200, 160, 120, 200, 160, 200, 240, 240, 160, 160, 200, 160, 200, 120, 240, 160, 160, 200, 280, 160, 160, 160, 200, 200, 120, 240, 240, 160, 200, 280, 120, 280, 240, 120, 200, 200, 120, 280, 160, 120, 200, 240, 240, 160, 240, 280, 200, 200, 160, 160, 240, 200, 160, 200, 280, 200, 200, 200, 200, 240, 240, 200, 240, 200, 200, 240, 240, 200, 200, 200, 120, 200, 200, 200, 200, 200, 160, 120, 240, 200, 240, 240, 240, 120, 200, 160, 280, 240, 160, 240, 200, 200, 160, 200, 240, 200, 200, 160, 120, 240, 240, 200, 160, 240, 240, 200, 280, 200, 200, 200, 240, 200, 240, 280, 280, 200, 200, 280, 240, 280, 200, 200, 280, 280, 120, 160, 200, 160, 200, 200, 200, 200, 160, 200, 280, 160, 280, 200, 160, 200, 160, 240, 120, 200, 240, 160, 280, 200, 240, 200, 200, 120, 200, 160, 200, 200, 240, 160, 240, 240, 200, 200, 160, 280, 240, 120, 200, 200, 160, 240, 160, 120, 240, 200, 120, 240, 280, 240, 120, 280, 160, 240, 120, 240, 240, 240, 240, 200, 120, 280, 200, 240, 280, 160, 240, 200, 200, 200, 160, 200, 160, 240, 280, 200, 160, 280, 160, 200, 200, 200, 200, 280, 240, 240, 240, 200, 160, 160, 160, 240, 280, 240, 240, 200, 160, 160, 240, 160, 200, 120, 200, 240, 200, 240, 200, 200, 280, 280, 200, 200, 120, 200, 240, 200, 240, 200, 200, 240, 200, 280, 160, 200, 160, 240, 240, 280, 120, 280, 200, 120, 200, 280, 200, 160, 120, 280, 200, 120, 120, 160, 280, 280, 200, 240, 160, 160, 280, 200, 120, 160, 160, 280, 120, 200, 200, 120, 160, 160, 160, 200, 120, 240, 160, 240, 200, 120, 200, 280, 200, 240, 200, 160, 240, 200, 160, 240, 120, 200, 240, 160, 160, 160, 280, 200, 200, 200, 160, 200, 200, 160, 120, 240, 200, 200, 200, 200, 280, 200, 240, 160, 240, 240, 200, 240, 120, 120, 240, 160, 160, 280, 160, 200, 160, 240, 160, 200, 160, 240, 200, 160, 200, 200, 200, 160, 160, 120, 240, 120, 200, 160, 200, 160], [200, 200, 120, 200, 280, 200, 200, 280, 200, 200, 160, 240, 280, 160, 240, 280, 240, 160, 160, 160, 200, 160, 160, 120, 120, 120, 160, 200, 200, 120, 120, 200, 160, 120, 200, 200, 120, 200, 160, 200, 200, 200, 160, 200, 200, 200, 120, 200, 200, 240, 200, 160, 240, 280, 160, 200, 240, 200, 200, 240, 240, 200, 240, 200, 200, 200, 160, 160, 160, 200, 200, 160, 200, 240, 120, 200, 200, 240, 120, 120, 160, 240, 200, 200, 160, 200, 160, 200, 160, 200, 120, 120, 120, 200, 200, 200, 200, 280, 200, 200, 240, 200, 280, 120, 160, 280, 240, 200, 200, 200, 160, 200, 240, 240, 200, 200, 160, 200, 200, 160, 200, 280, 280, 200, 120, 240, 200, 280, 120, 120, 240, 200, 160, 280, 200, 200, 200, 200, 200, 200, 200, 240, 120, 240, 200, 160, 200, 200, 120, 200, 200, 160, 200, 160, 240, 200, 280, 200, 160, 240, 200, 200, 200, 240, 160, 200, 240, 280, 120, 200, 160, 240, 120, 280, 160, 200, 240, 200, 160, 240, 240, 240, 240, 200, 280, 240, 200, 240, 160, 200, 200, 160, 240, 240, 240, 240, 200, 200, 280, 120, 200, 240, 240, 200, 200, 160, 120, 200, 200, 160, 200, 160, 160, 200, 240, 240, 240, 280, 120, 280, 200, 200, 200, 200, 200, 240, 240, 200, 240, 200, 200, 120, 120, 160, 280, 200, 200, 200, 160, 200, 200, 200, 200, 200, 160, 240, 240, 240, 240, 200, 200, 240, 240, 200, 240, 280, 200, 200, 120, 200, 200, 200, 240, 200, 160, 160, 200, 200, 160, 200, 200, 240, 240, 160, 160, 200, 240, 200, 280, 240, 200, 120, 200, 240, 160, 240, 120, 120, 160, 200, 200, 160, 200, 280, 200, 240, 200, 280, 200, 200, 160, 200, 240, 120, 200, 160, 280, 200, 160, 160, 200, 240, 240, 280, 120, 240, 200, 200, 200, 200, 200, 200, 160, 200, 240, 200, 200, 200, 120, 200, 240, 200, 160, 240, 200, 240, 200, 240, 240, 240, 160, 160, 200, 240, 200, 160, 240, 240, 200, 200, 200, 240, 200, 200, 120, 200, 200, 200, 280, 200, 160, 200, 120, 200, 200, 200, 240, 200, 120, 240, 160, 240, 200, 280, 240, 240, 240, 200, 240, 280, 200, 120, 240, 160, 200, 160, 200, 280, 240, 200, 120, 240, 160, 200, 200, 120, 240, 160, 280, 240, 120, 120, 160, 240, 200, 240, 200, 160, 120, 240, 160, 240, 280, 200, 160, 240, 200, 240, 160, 200, 200, 160, 240, 280, 240, 120, 240, 240, 240, 280, 160, 200, 280, 200, 160, 120, 240, 200, 200, 200, 200, 120, 200, 280, 160, 120, 160, 160, 280, 120, 200, 160, 160, 200, 240, 200, 160, 200, 120, 200, 160, 200, 240, 200, 160, 240, 160, 240, 160, 160, 240, 160, 120, 200, 200, 120, 200, 120, 240, 120, 200, 160, 200, 160, 160, 200, 280, 200, 200, 240, 120, 200, 160, 200, 200, 200, 200, 200, 160, 160, 280, 200, 200, 280, 120, 200, 280, 200, 160, 240, 160, 160, 200, 120, 280, 240, 200, 160, 160, 240, 120, 280, 200, 120, 240, 200, 120, 200, 200, 200, 280, 200, 200, 120, 120, 200, 200, 200, 200, 200, 200, 120, 160, 240, 120, 200, 200, 160, 280, 160, 200, 200, 200, 280, 120, 160, 200, 200, 280, 200, 200, 200, 200, 200, 200, 280, 200, 200, 200, 200, 200, 200, 200, 280, 200, 200, 200, 200, 280, 200, 280, 280, 240, 200, 200, 160, 200, 280, 160, 280, 200, 200, 200, 160, 120, 120, 160, 240, 200, 200, 160, 160, 280, 240, 240, 280, 200, 240, 240, 280, 240, 200, 160, 160, 240, 200, 200, 200, 240, 200, 280, 160, 200, 200, 240, 280, 200, 120, 200, 240, 240, 160, 280, 160, 160, 200, 200, 120, 240, 160, 280, 160, 160, 240, 240, 200, 200, 200, 200, 160, 200, 200, 240, 240, 200, 240, 240, 200, 160, 200, 200, 160, 160, 160, 240, 200, 200, 120, 280, 200, 160, 160, 160, 280, 160, 240, 160, 200, 200, 120, 120, 200, 120, 200, 200, 160, 280, 240, 280, 160, 200, 200, 200, 200, 200, 200, 120, 240, 160, 160, 160, 240, 280, 200, 200, 200, 200, 280, 240, 160, 240, 160, 200, 200, 160, 200, 280, 280, 200, 200, 200, 200, 240, 200, 160, 200, 200, 160, 240, 200, 160, 200, 200, 280, 200, 200, 200, 160, 200, 280, 160, 120, 160, 200, 240, 200, 240, 200, 200, 200, 240, 120, 160, 160, 200, 160, 240, 240, 160, 280, 200, 120, 160, 280, 120, 200, 200, 120, 280, 200, 280, 200, 240, 200, 200, 160, 160, 160, 160, 200, 160, 200, 240, 160, 160, 160, 160, 200, 280, 160, 200, 200, 200, 160, 200, 200, 200, 280, 240, 160, 120, 120, 200, 200, 240, 240, 160, 200, 160, 160, 120, 240, 160, 280, 160, 280, 240, 200, 200, 240, 200, 200, 240, 160, 120, 200, 200, 240, 280, 200, 160, 280, 200, 200, 200, 280, 200, 240, 200, 200, 240, 240, 240, 200, 240, 160, 120, 200, 240, 200, 160, 160, 160, 200, 240, 280, 240, 200, 240, 200, 160, 200, 200, 160, 200, 200, 120, 160, 120, 200, 240, 200, 240, 200, 200, 240, 120, 160, 160, 200, 240, 200, 280, 160, 200, 240, 280, 160, 120, 240, 280, 240, 280, 120, 200, 160, 200, 160, 160, 240, 200, 120, 160, 200, 200, 200, 200, 160, 200, 200, 160, 160, 200, 200, 200, 160, 160, 160, 200, 280, 160, 120, 120, 200, 200, 120, 280, 200, 120, 200, 240, 240, 160, 200, 160, 120, 200, 280, 240, 280, 200, 120, 240, 160, 200, 120, 120, 240, 200, 200, 160, 120, 160, 160, 200, 200, 200, 120, 200, 240, 200, 160, 120, 240, 200, 200, 160, 240, 200, 200, 160, 280, 240, 240, 200, 120, 160, 280, 240, 200, 200, 160, 280, 160, 200, 200, 240, 200, 120, 200, 200, 200, 160, 240, 160, 240, 240, 200, 200, 160], [160, 160, 280, 240, 200, 240, 200, 240, 280, 240, 240, 200, 280, 160, 120, 240, 200, 160, 160, 200, 240, 200, 200, 160, 200, 200, 280, 200, 200, 200, 200, 240, 280, 240, 120, 240, 240, 200, 200, 200, 200, 240, 160, 160, 200, 120, 280, 200, 160, 280, 240, 200, 120, 160, 240, 200, 280, 200, 280, 240, 200, 160, 200, 200, 280, 200, 160, 280, 280, 120, 120, 120, 280, 160, 160, 280, 120, 280, 200, 120, 200, 200, 200, 280, 120, 200, 200, 160, 160, 200, 200, 240, 160, 240, 160, 240, 200, 200, 240, 160, 200, 280, 160, 200, 200, 240, 200, 240, 200, 240, 160, 160, 200, 120, 160, 160, 200, 160, 200, 160, 240, 120, 240, 240, 200, 200, 160, 240, 120, 160, 160, 160, 200, 200, 200, 240, 240, 200, 160, 200, 200, 240, 200, 200, 240, 160, 280, 160, 160, 200, 280, 200, 120, 200, 280, 200, 160, 200, 240, 200, 120, 280, 200, 240, 160, 160, 160, 120, 200, 160, 200, 240, 160, 240, 160, 240, 160, 200, 160, 200, 160, 240, 200, 200, 160, 200, 240, 120, 240, 200, 240, 240, 200, 120, 200, 160, 200, 200, 120, 200, 240, 240, 200, 200, 160, 200, 240, 160, 240, 200, 200, 240, 200, 200, 120, 160, 200, 200, 240, 200, 200, 200, 200, 240, 240, 120, 200, 240, 160, 200, 200, 160, 120, 160, 160, 200, 240, 200, 120, 200, 240, 200, 200, 120, 200, 160, 200, 200, 240, 200, 200, 200, 200, 240, 280, 280, 200, 200, 240, 240, 160, 200, 200, 240, 200, 200, 200, 240, 160, 200, 280, 200, 240, 240, 160, 280, 200, 120, 240, 240, 240, 160, 240, 200, 200, 160, 200, 240, 200, 160, 120, 160, 280, 240, 120, 240, 240, 240, 200, 160, 160, 120, 200, 240, 160, 240, 240, 120, 200, 240, 280, 160, 280, 280, 200, 120, 160, 200, 280, 240, 200, 120, 200, 120, 280, 200, 240, 160, 240, 200, 240, 280, 200, 240, 120, 200, 240, 240, 200, 200, 240, 240, 120, 160, 200, 160, 200, 280, 200, 120, 240, 200, 280, 280, 160, 280, 200, 200, 120, 200, 160, 240, 200, 280, 160, 240, 200, 240, 200, 200, 200, 240, 160, 200, 200, 120, 120, 120, 160, 200, 280, 200, 240, 200, 280, 280, 160, 200, 200, 160, 240, 200, 240, 200, 160, 120, 160, 240, 200, 160, 160, 160, 200, 200, 240, 200, 200, 200, 120, 120, 280, 200, 200, 240, 200, 160, 240, 200, 200, 160, 200, 200, 240, 160, 280, 200, 200, 200, 120, 120, 160, 200, 200, 160, 120, 240, 200, 200, 200, 200, 280, 280, 200, 160, 200, 200, 240, 200, 160, 200, 200, 200, 200, 160, 240, 200, 160, 200, 200, 160, 240, 160, 200, 160, 160, 240, 160, 280, 240, 240, 160, 200, 240, 240, 240, 240, 200, 200, 200, 160, 200, 200, 240, 120, 240, 280, 200, 160, 120, 160, 200, 200, 200, 160, 200, 200, 240, 160, 200, 240, 240, 280, 120, 160, 240, 120, 240, 200, 200, 160, 200, 200, 280, 280, 240, 200, 200, 160, 240, 160, 160, 240, 240, 200, 120, 240, 200, 200, 200, 200, 160, 200, 200, 200, 200, 200, 200, 200, 160, 200, 200, 160, 200, 200, 240, 160, 160, 200, 160, 160, 200, 160, 200, 160, 160, 200, 200, 280, 200, 200, 160, 280, 120, 120, 200, 200, 120, 200, 160, 240, 160, 160, 160, 240, 280, 200, 120, 200, 200, 200, 120, 120, 280, 120, 200, 280, 280, 120, 240, 200, 200, 200, 120, 200, 160, 240, 200, 200, 160, 160, 280, 200, 160, 280, 200, 200, 200, 160, 240, 160, 240, 200, 280, 200, 200, 280, 240, 200, 200, 240, 120, 160, 120, 160, 280, 240, 240, 160, 200, 280, 200, 240, 200, 160, 200, 200, 200, 120, 120, 160, 120, 160, 240, 280, 200, 280, 240, 200, 200, 240, 160, 200, 160, 240, 200, 240, 160, 240, 120, 200, 200, 240, 240, 160, 280, 240, 200, 280, 240, 120, 160, 200, 200, 160, 160, 280, 160, 200, 280, 240, 200, 240, 200, 160, 200, 200, 120, 200, 200, 240, 240, 240, 240, 160, 200, 240, 280, 200, 200, 200, 200, 200, 200, 200, 240, 240, 120, 200, 160, 200, 120, 200, 240, 240, 200, 280, 200, 240, 120, 240, 200, 240, 240, 200, 160, 160, 200, 200, 200, 240, 200, 200, 160, 120, 200, 200, 200, 160, 200, 200, 200, 280, 200, 280, 160, 200, 160, 200, 280, 240, 160, 160, 200, 280, 200, 160, 160, 240, 200, 240, 200, 200, 240, 200, 200, 200, 160, 200, 160, 240, 200, 200, 200, 200, 240, 240, 120, 200, 200, 240, 200, 120, 200, 200, 160, 200, 160, 160, 200, 200, 160, 240, 240, 120, 240, 280, 160, 160, 160, 200, 200, 200, 240, 240, 200, 160, 240, 200, 280, 240, 240, 160, 200, 280, 240, 240, 240, 200, 200, 280, 200, 160, 200, 200, 200, 280, 240, 240, 200, 200, 160, 120, 240, 280, 200, 160, 160, 200, 200, 240, 200, 200, 240, 200, 200, 160, 280, 120, 240, 200, 200, 120, 200, 160, 280, 120, 240, 160, 200, 240, 160, 160, 160, 160, 280, 160, 160, 240, 200, 120, 240, 240, 160, 160, 200, 240, 240, 160, 240, 200, 240, 200, 120, 200, 280, 200, 240, 200, 240, 240, 160, 240, 200, 200, 200, 280, 200, 200, 200, 280, 160, 200, 200, 240, 200, 160, 120, 160, 200, 280, 280, 120, 200, 200, 200, 160, 160, 240, 160, 200, 200, 200, 160, 200, 200, 120, 240, 240, 200, 240, 240, 280, 240, 240, 200, 200, 160, 200, 160, 200, 120, 200, 280, 240, 240, 200, 240, 200, 160, 280, 200, 280, 200, 200, 240, 200, 200, 200, 120, 160, 240, 160, 160, 200, 200, 160, 160, 200, 160, 160, 200, 240, 280, 200, 160, 160, 200, 200, 120, 120, 200, 200, 240, 160, 280, 200, 240, 200, 200, 200, 200, 200, 240, 200, 240, 200, 160, 200, 240, 200], [240, 240, 200, 200, 200, 200, 160, 240, 200, 160, 200, 240, 240, 200, 240, 160, 200, 200, 280, 160, 240, 280, 240, 200, 200, 200, 240, 280, 200, 200, 160, 120, 200, 160, 200, 200, 240, 240, 280, 160, 200, 160, 240, 120, 200, 240, 280, 240, 200, 280, 240, 200, 200, 200, 160, 200, 200, 280, 160, 200, 240, 200, 200, 160, 200, 160, 160, 280, 280, 160, 200, 280, 240, 200, 240, 200, 200, 240, 200, 200, 240, 200, 240, 160, 200, 240, 160, 160, 240, 240, 240, 200, 120, 120, 160, 200, 280, 160, 200, 200, 160, 200, 120, 160, 200, 200, 240, 240, 160, 160, 160, 200, 240, 240, 160, 200, 120, 200, 240, 200, 240, 160, 120, 240, 200, 280, 200, 200, 280, 200, 240, 200, 160, 280, 240, 240, 240, 200, 240, 160, 200, 280, 240, 240, 200, 240, 200, 200, 200, 200, 160, 120, 280, 280, 280, 280, 280, 240, 160, 160, 160, 240, 120, 160, 200, 160, 160, 120, 200, 240, 160, 160, 200, 240, 200, 200, 160, 160, 280, 160, 160, 120, 200, 200, 160, 240, 160, 200, 240, 160, 120, 200, 200, 200, 160, 240, 160, 160, 240, 160, 160, 240, 240, 240, 200, 200, 240, 160, 280, 200, 160, 200, 160, 240, 160, 120, 200, 160, 200, 280, 240, 200, 200, 120, 160, 200, 200, 160, 200, 280, 200, 160, 200, 280, 240, 200, 160, 120, 200, 240, 240, 200, 200, 160, 200, 200, 200, 200, 240, 200, 160, 200, 200, 120, 200, 160, 280, 120, 200, 240, 200, 200, 240, 200, 200, 160, 120, 240, 160, 200, 240, 200, 160, 120, 200, 160, 240, 280, 200, 160, 240, 200, 200, 200, 240, 160, 200, 120, 200, 200, 200, 160, 240, 120, 200, 200, 160, 120, 120, 200, 200, 200, 240, 200, 200, 240, 200, 240, 200, 200, 120, 280, 200, 200, 200, 200, 200, 240, 160, 200, 200, 240, 160, 160, 200, 120, 160, 200, 240, 240, 200, 200, 160, 120, 280, 160, 160, 160, 200, 200, 280, 120, 240, 200, 200, 280, 200, 240, 240, 160, 200, 240, 120, 240, 200, 240, 200, 240, 160, 280, 200, 160, 280, 200, 160, 200, 160, 200, 200, 200, 160, 200, 200, 200, 240, 200, 240, 200, 240, 240, 240, 280, 160, 160, 200, 120, 200, 200, 200, 160, 200, 200, 280, 280, 240, 160, 240, 240, 200, 200, 280, 240, 200, 160, 240, 160, 240, 160, 120, 200, 200, 200, 240, 240, 200, 160, 280, 240, 200, 200, 120, 160, 280, 120, 120, 280, 200, 280, 200, 120, 120, 240, 200, 160, 160, 160, 160, 160, 200, 200, 120, 240, 240, 200, 120, 240, 240, 200, 240, 240, 200, 200, 240, 120, 160, 240, 200, 240, 200, 160, 240, 160, 200, 240, 200, 200, 160, 200, 200, 200, 160, 280, 160, 160, 200, 200, 240, 280, 160, 120, 280, 120, 160, 240, 280, 160, 200, 200, 200, 200, 200, 240, 200, 160, 120, 200, 200, 200, 240, 240, 160, 160, 200, 240, 280, 280, 240, 240, 120, 200, 240, 160, 120, 200, 200, 200, 200, 200, 200, 240, 160, 200, 200, 160, 120, 160, 200, 200, 200, 200, 240, 240, 200, 200, 240, 160, 160, 240, 160, 240, 240, 200, 200, 200, 240, 160, 280, 200, 200, 200, 200, 200, 160, 200, 240, 200, 240, 200, 200, 280, 160, 200, 200, 200, 160, 160, 200, 200, 120, 160, 240, 240, 200, 120, 240, 120, 240, 160, 200, 160, 240, 120, 160, 160, 240, 160, 120, 200, 160, 200, 200, 280, 160, 160, 160, 200, 200, 200, 160, 200, 200, 160, 120, 200, 200, 200, 160, 120, 200, 240, 240, 160, 240, 280, 120, 280, 160, 120, 240, 200, 280, 120, 120, 200, 120, 200, 160, 160, 120, 200, 120, 200, 200, 240, 120, 280, 200, 200, 160, 200, 200, 160, 200, 200, 240, 200, 240, 200, 240, 200, 200, 200, 160, 200, 160, 160, 240, 160, 160, 200, 200, 200, 280, 200, 160, 200, 200, 240, 280, 160, 200, 120, 120, 280, 160, 200, 240, 120, 160, 240, 120, 240, 160, 160, 200, 200, 200, 160, 240, 240, 280, 240, 200, 160, 200, 160, 120, 280, 160, 240, 240, 120, 280, 160, 240, 200, 160, 200, 240, 200, 280, 200, 200, 200, 200, 160, 200, 240, 120, 160, 120, 200, 200, 280, 200, 160, 120, 120, 240, 240, 200, 240, 120, 160, 280, 280, 200, 160, 200, 200, 200, 160, 240, 160, 240, 200, 200, 160, 240, 160, 200, 160, 200, 240, 160, 200, 240, 200, 280, 240, 200, 160, 120, 280, 200, 240, 160, 200, 200, 200, 200, 280, 200, 160, 160, 240, 280, 200, 200, 120, 200, 240, 280, 240, 240, 240, 240, 240, 200, 120, 240, 160, 280, 160, 200, 160, 240, 240, 240, 280, 200, 160, 280, 200, 160, 200, 200, 200, 200, 160, 200, 160, 120, 200, 200, 160, 200, 200, 160, 160, 280, 200, 200, 240, 200, 200, 160, 240, 200, 200, 120, 240, 200, 240, 280, 200, 200, 200, 240, 120, 240, 160, 160, 200, 200, 120, 120, 200, 240, 200, 200, 160, 200, 240, 240, 240, 160, 280, 200, 200, 200, 200, 240, 200, 160, 200, 200, 200, 240, 280, 160, 160, 240, 160, 200, 160, 200, 160, 200, 240, 200, 240, 240, 120, 200, 200, 200, 200, 200, 200, 200, 200, 280, 200, 200, 200, 200, 240, 200, 200, 120, 160, 200, 160, 200, 240, 280, 160, 200, 200, 160, 240, 240, 240, 120, 160, 200, 240, 160, 160, 160, 160, 200, 240, 240, 280, 200, 240, 200, 120, 160, 240, 200, 200, 240, 200, 200, 240, 200, 280, 160, 240, 160, 200, 200, 280, 160, 160, 240, 200, 240, 120, 200, 120, 200, 200, 160, 200, 280, 120, 160, 160, 200, 120, 120, 240, 200, 280, 280, 200, 240, 200, 200, 240, 120, 200, 280, 200, 200, 160, 280, 200, 200, 280, 200, 200, 200, 240, 200, 200, 240, 160, 200, 160, 280, 160, 280, 240, 160, 160], [240, 240, 120, 200, 160, 200, 200, 160, 200, 200, 160, 200, 160, 200, 120, 120, 160, 200, 200, 160, 160, 240, 240, 280, 160, 160, 200, 200, 200, 200, 120, 240, 280, 200, 240, 200, 200, 200, 200, 240, 120, 240, 200, 200, 120, 200, 240, 200, 120, 200, 160, 200, 240, 200, 160, 280, 120, 120, 280, 240, 200, 120, 240, 280, 200, 280, 240, 240, 240, 200, 240, 280, 240, 240, 200, 280, 240, 240, 200, 240, 280, 200, 240, 160, 200, 200, 120, 200, 120, 240, 160, 200, 240, 200, 240, 120, 160, 200, 200, 160, 200, 200, 240, 160, 160, 200, 200, 160, 200, 200, 240, 160, 160, 200, 240, 240, 160, 120, 160, 280, 240, 240, 200, 200, 240, 200, 160, 200, 160, 200, 200, 160, 200, 200, 200, 160, 200, 240, 280, 160, 200, 200, 160, 240, 240, 240, 200, 160, 200, 200, 240, 200, 120, 240, 120, 280, 160, 240, 160, 200, 120, 280, 160, 280, 200, 280, 280, 200, 160, 200, 240, 120, 280, 120, 240, 160, 200, 120, 160, 160, 200, 200, 240, 160, 200, 200, 240, 240, 200, 280, 160, 280, 160, 240, 240, 200, 200, 120, 120, 160, 200, 240, 120, 240, 200, 160, 280, 200, 280, 200, 200, 200, 200, 200, 200, 200, 240, 240, 200, 120, 200, 200, 200, 240, 160, 200, 280, 200, 160, 120, 200, 200, 200, 200, 160, 240, 120, 240, 240, 240, 240, 240, 160, 280, 120, 240, 200, 240, 200, 120, 240, 200, 200, 240, 120, 240, 200, 240, 160, 120, 200, 200, 200, 240, 200, 120, 240, 200, 160, 200, 120, 200, 160, 160, 200, 160, 240, 240, 200, 240, 200, 120, 200, 160, 120, 240, 240, 200, 240, 200, 200, 240, 160, 200, 200, 160, 160, 120, 240, 200, 120, 200, 120, 120, 120, 200, 280, 120, 200, 200, 120, 200, 200, 200, 200, 120, 160, 200, 120, 200, 160, 160, 200, 200, 200, 280, 200, 200, 240, 240, 240, 240, 280, 200, 200, 240, 240, 160, 160, 200, 120, 120, 200, 240, 200, 200, 280, 160, 160, 160, 200, 200, 200, 200, 240, 160, 240, 200, 200, 120, 280, 200, 200, 120, 200, 240, 240, 280, 200, 160, 200, 120, 240, 240, 240, 160, 200, 120, 200, 160, 200, 160, 200, 160, 200, 200, 240, 160, 160, 200, 280, 240, 160, 240, 120, 200, 200, 280, 200, 200, 240, 120, 200, 240, 200, 200, 200, 160, 240, 240, 200, 240, 240, 200, 200, 200, 160, 200, 120, 160, 120, 200, 240, 160, 240, 240, 160, 160, 120, 280, 120, 240, 200, 240, 120, 200, 280, 200, 200, 200, 200, 200, 160, 200, 240, 240, 200, 240, 240, 240, 120, 280, 200, 200, 120, 240, 160, 200, 240, 200, 160, 280, 280, 160, 240, 120, 160, 120, 200, 160, 200, 240, 120, 240, 200, 160, 200, 200, 160, 160, 280, 160, 160, 240, 200, 160, 240, 200, 200, 200, 200, 280, 200, 240, 240, 240, 160, 160, 280, 200, 160, 200, 200, 240, 120, 200, 200, 160, 280, 200, 280, 200, 160, 240, 200, 240, 160, 160, 240, 200, 200, 280, 120, 200, 160, 240, 240, 200, 240, 120, 200, 120, 280, 240, 240, 160, 280, 200, 200, 200, 200, 200, 120, 240, 160, 240, 200, 160, 200, 120, 280, 200, 200, 240, 240, 240, 120, 160, 200, 200, 200, 200, 280, 200, 200, 240, 200, 200, 240, 200, 200, 240, 120, 200, 200, 200, 200, 200, 160, 240, 160, 200, 240, 200, 240, 200, 280, 200, 200, 160, 160, 120, 160, 200, 200, 200, 200, 240, 160, 160, 160, 240, 200, 200, 240, 200, 280, 240, 280, 240, 240, 240, 120, 200, 200, 160, 160, 280, 120, 200, 200, 200, 200, 160, 240, 200, 160, 240, 120, 120, 200, 280, 240, 200, 160, 240, 160, 280, 200, 200, 240, 240, 280, 240, 240, 280, 160, 200, 200, 240, 200, 280, 160, 200, 280, 200, 280, 240, 200, 160, 200, 160, 200, 160, 200, 120, 280, 160, 160, 200, 200, 200, 120, 160, 160, 160, 160, 280, 200, 200, 160, 200, 200, 160, 280, 120, 160, 200, 240, 160, 200, 200, 200, 200, 160, 200, 240, 200, 200, 120, 200, 200, 200, 200, 160, 120, 160, 240, 120, 200, 240, 280, 160, 240, 200, 160, 280, 200, 280, 120, 240, 280, 240, 280, 200, 200, 240, 280, 160, 200, 280, 240, 280, 280, 120, 240, 200, 200, 200, 240, 160, 280, 280, 240, 120, 280, 280, 160, 200, 200, 160, 120, 240, 200, 240, 200, 160, 200, 280, 200, 240, 120, 120, 200, 240, 160, 200, 200, 120, 240, 240, 200, 160, 280, 200, 160, 200, 160, 120, 280, 200, 200, 280, 280, 200, 200, 160, 200, 160, 200, 200, 160, 200, 200, 240, 240, 240, 240, 200, 200, 240, 160, 280, 280, 200, 240, 240, 120, 200, 160, 240, 200, 240, 240, 200, 200, 240, 200, 240, 200, 200, 200, 280, 200, 240, 240, 120, 200, 240, 200, 240, 200, 200, 240, 240, 200, 200, 240, 240, 200, 160, 200, 120, 160, 240, 240, 200, 200, 240, 200, 200, 240, 200, 200, 160, 200, 240, 200, 160, 120, 240, 280, 240, 240, 240, 200, 160, 200, 200, 240, 200, 200, 200, 200, 160, 200, 200, 160, 200, 200, 200, 240, 200, 280, 200, 280, 240, 200, 200, 200, 120, 200, 200, 160, 160, 200, 240, 160, 240, 200, 240, 240, 120, 240, 240, 200, 280, 280, 280, 160, 240, 120, 160, 160, 240, 120, 160, 200, 240, 200, 200, 280, 240, 240, 160, 200, 240, 200, 200, 200, 200, 200, 200, 280, 200, 120, 160, 200, 200, 200, 160, 200, 200, 240, 240, 240, 240, 240, 160, 200, 200, 200, 240, 200, 200, 200, 280, 160, 280, 240, 200, 240, 240, 120, 120, 200, 160, 200, 240, 160, 200, 280, 240, 240, 200, 160, 160, 120, 200, 120, 280, 120, 160, 200, 280, 200, 200, 240, 200, 280, 200, 200, 160, 160, 160, 160, 200, 120, 240, 280], [120, 120, 160, 200, 160, 200, 200, 200, 200, 200, 200, 160, 200, 200, 200, 120, 240, 160, 160, 200, 240, 160, 200, 200, 160, 240, 280, 160, 160, 200, 200, 240, 240, 200, 160, 200, 160, 200, 200, 160, 200, 280, 160, 160, 200, 240, 200, 200, 200, 160, 200, 120, 160, 200, 240, 240, 240, 200, 240, 160, 240, 200, 200, 240, 160, 240, 160, 160, 240, 200, 160, 200, 160, 200, 200, 240, 200, 200, 240, 240, 120, 160, 240, 120, 160, 240, 200, 200, 200, 160, 160, 200, 120, 280, 200, 200, 200, 120, 240, 160, 200, 200, 200, 120, 200, 240, 200, 240, 120, 200, 200, 240, 240, 200, 200, 160, 240, 160, 200, 160, 240, 200, 240, 240, 200, 240, 200, 240, 160, 200, 200, 240, 280, 160, 200, 120, 160, 200, 200, 200, 120, 160, 120, 280, 160, 200, 280, 200, 160, 280, 200, 160, 200, 200, 160, 200, 200, 160, 240, 200, 280, 240, 200, 200, 200, 160, 160, 240, 200, 160, 200, 280, 160, 240, 280, 240, 200, 240, 200, 200, 200, 280, 200, 240, 120, 200, 200, 200, 240, 280, 160, 200, 240, 240, 240, 160, 120, 240, 200, 200, 200, 160, 160, 240, 200, 200, 280, 240, 200, 120, 120, 280, 200, 200, 280, 200, 120, 160, 160, 200, 200, 240, 240, 160, 200, 160, 200, 200, 120, 160, 280, 200, 240, 200, 200, 200, 200, 200, 200, 280, 200, 240, 120, 200, 160, 200, 280, 160, 240, 200, 200, 200, 240, 200, 200, 200, 160, 200, 200, 160, 200, 160, 280, 200, 200, 280, 240, 280, 200, 120, 200, 160, 240, 200, 160, 240, 200, 120, 280, 160, 200, 200, 240, 240, 200, 160, 200, 160, 280, 200, 200, 280, 200, 160, 280, 120, 120, 160, 240, 280, 240, 120, 200, 120, 240, 240, 160, 200, 200, 120, 240, 240, 160, 280, 280, 160, 200, 200, 240, 160, 240, 200, 160, 160, 240, 200, 200, 240, 120, 280, 200, 200, 200, 160, 200, 200, 160, 160, 200, 200, 200, 200, 200, 200, 120, 240, 280, 240, 120, 240, 120, 200, 200, 200, 120, 160, 280, 200, 120, 200, 240, 280, 240, 200, 240, 280, 120, 160, 160, 280, 120, 280, 200, 160, 200, 200, 200, 160, 200, 160, 280, 200, 200, 280, 160, 160, 120, 120, 160, 200, 200, 200, 280, 160, 120, 280, 160, 160, 200, 240, 200, 240, 200, 160, 200, 200, 240, 240, 200, 200, 200, 200, 120, 240, 200, 120, 240, 200, 120, 200, 200, 200, 200, 200, 120, 160, 160, 240, 160, 200, 200, 240, 160, 200, 160, 160, 240, 240, 280, 200, 200, 200, 120, 240, 200, 200, 200, 200, 200, 160, 200, 160, 240, 160, 240, 280, 160, 200, 120, 280, 120, 200, 200, 200, 280, 240, 200, 160, 240, 160, 160, 240, 120, 200, 240, 280, 240, 200, 240, 240, 160, 160, 200, 280, 200, 200, 200, 280, 200, 160, 200, 200, 160, 200, 160, 200, 240, 120, 240, 240, 120, 240, 120, 200, 160, 240, 240, 200, 240, 200, 160, 120, 200, 240, 160, 200, 160, 200, 120, 200, 160, 200, 240, 200, 240, 160, 200, 240, 120, 120, 200, 240, 160, 200, 200, 200, 160, 240, 280, 160, 200, 200, 160, 280, 160, 200, 240, 200, 240, 280, 200, 200, 280, 280, 200, 280, 160, 280, 200, 120, 200, 200, 200, 200, 160, 160, 240, 200, 160, 160, 160, 240, 120, 200, 200, 240, 160, 120, 200, 200, 240, 200, 280, 200, 240, 200, 200, 240, 160, 200, 160, 200, 240, 200, 160, 200, 200, 200, 200, 200, 200, 160, 240, 200, 200, 200, 240, 280, 240, 200, 120, 240, 160, 240, 200, 160, 200, 240, 280, 200, 280, 200, 200, 120, 280, 200, 240, 120, 200, 200, 240, 200, 160, 160, 240, 160, 120, 200, 240, 240, 200, 240, 240, 200, 240, 160, 200, 160, 280, 200, 200, 200, 200, 160, 120, 160, 200, 200, 160, 200, 200, 200, 200, 200, 200, 160, 240, 160, 240, 160, 280, 280, 160, 200, 240, 160, 200, 200, 160, 200, 200, 200, 200, 120, 160, 200, 240, 200, 200, 160, 200, 240, 160, 200, 280, 120, 160, 280, 200, 200, 200, 200, 200, 240, 240, 200, 240, 240, 200, 280, 240, 280, 160, 160, 240, 160, 200, 200, 240, 240, 160, 200, 240, 240, 280, 160, 240, 200, 160, 200, 200, 200, 160, 280, 200, 200, 200, 160, 160, 200, 200, 200, 200, 240, 240, 240, 200, 120, 240, 160, 200, 160, 200, 240, 160, 200, 160, 160, 280, 200, 120, 200, 240, 160, 200, 160, 200, 200, 240, 200, 120, 160, 200, 200, 200, 280, 240, 200, 200, 240, 240, 200, 200, 120, 160, 160, 200, 200, 160, 240, 280, 280, 200, 160, 120, 200, 200, 240, 160, 280, 200, 240, 160, 160, 120, 120, 200, 200, 280, 200, 200, 240, 120, 120, 160, 160, 240, 240, 160, 240, 200, 160, 160, 240, 200, 240, 120, 200, 120, 200, 240, 240, 280, 240, 200, 160, 240, 200, 200, 200, 200, 200, 200, 240, 160, 200, 160, 160, 200, 200, 240, 240, 240, 200, 160, 280, 120, 200, 240, 240, 200, 200, 200, 160, 160, 160, 280, 120, 160, 200, 120, 120, 240, 200, 200, 160, 200, 280, 200, 160, 200, 160, 120, 160, 200, 240, 200, 200, 200, 200, 200, 280, 200, 280, 120, 200, 240, 240, 200, 160, 200, 200, 200, 160, 200, 120, 200, 120, 120, 240, 280, 200, 280, 240, 240, 200, 200, 160, 240, 200, 160, 200, 160, 200, 200, 200, 240, 200, 200, 200, 240, 200, 200, 200, 240, 200, 120, 240, 200, 240, 120, 160, 200, 160, 200, 240, 200, 200, 120, 120, 120, 240, 200, 240, 240, 240, 200, 240, 200, 200, 160, 200, 160, 200, 160, 200, 120, 200, 240, 200, 120, 120, 120, 240, 280, 200, 120, 200, 200, 240, 200, 200, 200, 200, 240, 280, 200, 120, 120, 240, 160, 200, 240, 200, 160, 200, 240, 200, 200, 240]], "mean": 200}}]}</script>
 </div>
@@ -1779,21 +1879,21 @@ SE = \frac{s}{\sqrt{n}} \qquad\qquad \text{95\% interval: average} \pm 1.96\,SE
 <div class="cell">
 <details class="code-fold hidden">
 <summary>Show code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb7" data-startfrom="1164" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1163;"><span id="cb7-1164"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">// The grid is the gallery's .rpi-controls with a column for the button,</span></span>
-<span id="cb7-1165"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">// as deck 07's simulator. The slider is on a log scale, so the first ten</span></span>
-<span id="cb7-1166"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">// mornings get as much travel as the last nine hundred.</span></span>
-<span id="cb7-1167"><a href="" aria-hidden="true" tabindex="-1"></a>viewof mcIn <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">form</span>(</span>
-<span id="cb7-1168"><a href="" aria-hidden="true" tabindex="-1"></a>  {</span>
-<span id="cb7-1169"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="dt">n</span><span class="op">:</span>    Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">10</span><span class="op">,</span> <span class="dv">1000</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">transform</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">log</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Mornings n"</span>})<span class="op">,</span></span>
-<span id="cb7-1170"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="dt">draw</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">button</span>(<span class="st">"New draw"</span>)</span>
-<span id="cb7-1171"><a href="" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb7-1172"><a href="" aria-hidden="true" tabindex="-1"></a>  { <span class="dt">template</span><span class="op">:</span> (i) <span class="kw">=&gt;</span> htl<span class="op">.</span><span class="fu">html</span><span class="vs">`&lt;div class="rpi-controls rpi-mc"&gt;</span></span>
-<span id="cb7-1173"><a href="" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;style&gt;</span></span>
-<span id="cb7-1174"><a href="" aria-hidden="true" tabindex="-1"></a><span class="vs">        .reveal .rpi-controls.rpi-mc { grid-template-columns: 1fr auto; align-items: center; }</span></span>
-<span id="cb7-1175"><a href="" aria-hidden="true" tabindex="-1"></a><span class="vs">        .reveal .rpi-controls.rpi-mc form { --label-width: 130px; --input-width: 420px; }</span></span>
-<span id="cb7-1176"><a href="" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/style&gt;</span></span>
-<span id="cb7-1177"><a href="" aria-hidden="true" tabindex="-1"></a><span class="vs">      </span><span class="sc">${</span>i<span class="op">.</span><span class="at">n</span><span class="sc">}${</span>i<span class="op">.</span><span class="at">draw</span><span class="sc">}</span><span class="vs">&lt;/div&gt;`</span> }</span>
-<span id="cb7-1178"><a href="" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb7" data-startfrom="1247" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1246;"><span id="cb7-1247"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">// The grid is the gallery's .rpi-controls with a column for the button,</span></span>
+<span id="cb7-1248"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">// as deck 07's simulator. The slider is on a log scale, so the first ten</span></span>
+<span id="cb7-1249"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">// mornings get as much travel as the last nine hundred.</span></span>
+<span id="cb7-1250"><a href="" aria-hidden="true" tabindex="-1"></a>viewof mcIn <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">form</span>(</span>
+<span id="cb7-1251"><a href="" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb7-1252"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="dt">n</span><span class="op">:</span>    Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">10</span><span class="op">,</span> <span class="dv">1000</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">transform</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">log</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Mornings n"</span>})<span class="op">,</span></span>
+<span id="cb7-1253"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="dt">draw</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">button</span>(<span class="st">"New draw"</span>)</span>
+<span id="cb7-1254"><a href="" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb7-1255"><a href="" aria-hidden="true" tabindex="-1"></a>  { <span class="dt">template</span><span class="op">:</span> (i) <span class="kw">=&gt;</span> htl<span class="op">.</span><span class="fu">html</span><span class="vs">`&lt;div class="rpi-controls rpi-mc"&gt;</span></span>
+<span id="cb7-1256"><a href="" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;style&gt;</span></span>
+<span id="cb7-1257"><a href="" aria-hidden="true" tabindex="-1"></a><span class="vs">        .reveal .rpi-controls.rpi-mc { grid-template-columns: 1fr auto; align-items: center; }</span></span>
+<span id="cb7-1258"><a href="" aria-hidden="true" tabindex="-1"></a><span class="vs">        .reveal .rpi-controls.rpi-mc form { --label-width: 130px; --input-width: 420px; }</span></span>
+<span id="cb7-1259"><a href="" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/style&gt;</span></span>
+<span id="cb7-1260"><a href="" aria-hidden="true" tabindex="-1"></a><span class="vs">      </span><span class="sc">${</span>i<span class="op">.</span><span class="at">n</span><span class="sc">}${</span>i<span class="op">.</span><span class="at">draw</span><span class="sc">}</span><span class="vs">&lt;/div&gt;`</span> }</span>
+<span id="cb7-1261"><a href="" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-7" data-nodetype="declaration">
@@ -1804,21 +1904,21 @@ SE = \frac{s}{\sqrt{n}} \qquad\qquad \text{95\% interval: average} \pm 1.96\,SE
 <div class="cell">
 <details class="code-fold hidden">
 <summary>Show code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb8" data-startfrom="1183" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1182;"><span id="cb8-1183"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">// Welford's running mean and variance over the first n mornings of the</span></span>
-<span id="cb8-1184"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">// run; the 95% band is mean +- 1.96 s / sqrt(k).</span></span>
-<span id="cb8-1185"><a href="" aria-hidden="true" tabindex="-1"></a>mcPath <span class="op">=</span> {</span>
-<span id="cb8-1186"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> run <span class="op">=</span> mcIn<span class="op">.</span><span class="at">draw</span> <span class="op">%</span> mcRuns<span class="op">.</span><span class="at">d</span><span class="op">.</span><span class="at">length</span><span class="op">,</span> d <span class="op">=</span> mcRuns<span class="op">.</span><span class="at">d</span>[run]<span class="op">,</span> n <span class="op">=</span> mcIn<span class="op">.</span><span class="at">n</span><span class="op">;</span></span>
-<span id="cb8-1187"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> mean <span class="op">=</span> <span class="dv">0</span><span class="op">,</span> m2 <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb8-1188"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> path <span class="op">=</span> []<span class="op">;</span></span>
-<span id="cb8-1189"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> k <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> k <span class="op">&lt;=</span> n<span class="op">;</span> k<span class="op">++</span>) {</span>
-<span id="cb8-1190"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> x <span class="op">=</span> d[k <span class="op">-</span> <span class="dv">1</span>]<span class="op">,</span> delta <span class="op">=</span> x <span class="op">-</span> mean<span class="op">;</span></span>
-<span id="cb8-1191"><a href="" aria-hidden="true" tabindex="-1"></a>    mean <span class="op">+=</span> delta <span class="op">/</span> k<span class="op">;</span></span>
-<span id="cb8-1192"><a href="" aria-hidden="true" tabindex="-1"></a>    m2 <span class="op">+=</span> delta <span class="op">*</span> (x <span class="op">-</span> mean)<span class="op">;</span></span>
-<span id="cb8-1193"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> se <span class="op">=</span> k <span class="op">&gt;</span> <span class="dv">1</span> <span class="op">?</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span>(m2 <span class="op">/</span> (k <span class="op">-</span> <span class="dv">1</span>)) <span class="op">/</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span>(k) <span class="op">:</span> <span class="kw">NaN</span><span class="op">;</span></span>
-<span id="cb8-1194"><a href="" aria-hidden="true" tabindex="-1"></a>    path<span class="op">.</span><span class="fu">push</span>({k<span class="op">,</span> mean<span class="op">,</span> <span class="dt">lo</span><span class="op">:</span> mean <span class="op">-</span> <span class="fl">1.96</span> <span class="op">*</span> se<span class="op">,</span> <span class="dt">hi</span><span class="op">:</span> mean <span class="op">+</span> <span class="fl">1.96</span> <span class="op">*</span> se<span class="op">,</span> se})<span class="op">;</span></span>
-<span id="cb8-1195"><a href="" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb8-1196"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {run<span class="op">,</span> n<span class="op">,</span> path<span class="op">,</span> <span class="dt">last</span><span class="op">:</span> path[path<span class="op">.</span><span class="at">length</span> <span class="op">-</span> <span class="dv">1</span>]}<span class="op">;</span></span>
-<span id="cb8-1197"><a href="" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb8" data-startfrom="1266" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1265;"><span id="cb8-1266"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">// Welford's running mean and variance over the first n mornings of the</span></span>
+<span id="cb8-1267"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">// run; the 95% band is mean +- 1.96 s / sqrt(k).</span></span>
+<span id="cb8-1268"><a href="" aria-hidden="true" tabindex="-1"></a>mcPath <span class="op">=</span> {</span>
+<span id="cb8-1269"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> run <span class="op">=</span> mcIn<span class="op">.</span><span class="at">draw</span> <span class="op">%</span> mcRuns<span class="op">.</span><span class="at">d</span><span class="op">.</span><span class="at">length</span><span class="op">,</span> d <span class="op">=</span> mcRuns<span class="op">.</span><span class="at">d</span>[run]<span class="op">,</span> n <span class="op">=</span> mcIn<span class="op">.</span><span class="at">n</span><span class="op">;</span></span>
+<span id="cb8-1270"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> mean <span class="op">=</span> <span class="dv">0</span><span class="op">,</span> m2 <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb8-1271"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> path <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb8-1272"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> k <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> k <span class="op">&lt;=</span> n<span class="op">;</span> k<span class="op">++</span>) {</span>
+<span id="cb8-1273"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> x <span class="op">=</span> d[k <span class="op">-</span> <span class="dv">1</span>]<span class="op">,</span> delta <span class="op">=</span> x <span class="op">-</span> mean<span class="op">;</span></span>
+<span id="cb8-1274"><a href="" aria-hidden="true" tabindex="-1"></a>    mean <span class="op">+=</span> delta <span class="op">/</span> k<span class="op">;</span></span>
+<span id="cb8-1275"><a href="" aria-hidden="true" tabindex="-1"></a>    m2 <span class="op">+=</span> delta <span class="op">*</span> (x <span class="op">-</span> mean)<span class="op">;</span></span>
+<span id="cb8-1276"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> se <span class="op">=</span> k <span class="op">&gt;</span> <span class="dv">1</span> <span class="op">?</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span>(m2 <span class="op">/</span> (k <span class="op">-</span> <span class="dv">1</span>)) <span class="op">/</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span>(k) <span class="op">:</span> <span class="kw">NaN</span><span class="op">;</span></span>
+<span id="cb8-1277"><a href="" aria-hidden="true" tabindex="-1"></a>    path<span class="op">.</span><span class="fu">push</span>({k<span class="op">,</span> mean<span class="op">,</span> <span class="dt">lo</span><span class="op">:</span> mean <span class="op">-</span> <span class="fl">1.96</span> <span class="op">*</span> se<span class="op">,</span> <span class="dt">hi</span><span class="op">:</span> mean <span class="op">+</span> <span class="fl">1.96</span> <span class="op">*</span> se<span class="op">,</span> se})<span class="op">;</span></span>
+<span id="cb8-1278"><a href="" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb8-1279"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {run<span class="op">,</span> n<span class="op">,</span> path<span class="op">,</span> <span class="dt">last</span><span class="op">:</span> path[path<span class="op">.</span><span class="at">length</span> <span class="op">-</span> <span class="dv">1</span>]}<span class="op">;</span></span>
+<span id="cb8-1280"><a href="" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-8" data-nodetype="declaration">
@@ -1829,25 +1929,25 @@ SE = \frac{s}{\sqrt{n}} \qquad\qquad \text{95\% interval: average} \pm 1.96\,SE
 <div class="cell">
 <details class="code-fold hidden">
 <summary>Show code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb9" data-startfrom="1202" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1201;"><span id="cb9-1202"><a href="" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb9-1203"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="op">...</span>frame<span class="op">,</span></span>
-<span id="cb9-1204"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">262</span><span class="op">,</span></span>
-<span id="cb9-1205"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marginTop</span><span class="op">:</span> <span class="dv">22</span><span class="op">,</span></span>
-<span id="cb9-1206"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">type</span><span class="op">:</span> <span class="st">"log"</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Mornings simulated →"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">1000</span>]<span class="op">,</span></span>
-<span id="cb9-1207"><a href="" aria-hidden="true" tabindex="-1"></a>      <span class="dt">ticks</span><span class="op">:</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">500</span><span class="op">,</span> <span class="dv">1000</span>]<span class="op">,</span> <span class="dt">tickFormat</span><span class="op">:</span> d3<span class="op">.</span><span class="fu">format</span>(<span class="st">","</span>)}<span class="op">,</span></span>
-<span id="cb9-1208"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"↑ Average demand"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="dv">130</span><span class="op">,</span> <span class="dv">270</span>]<span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
-<span id="cb9-1209"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb9-1210"><a href="" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">areaY</span>(mcPath<span class="op">.</span><span class="at">path</span><span class="op">.</span><span class="fu">filter</span>(p <span class="kw">=&gt;</span> p<span class="op">.</span><span class="at">k</span> <span class="op">&gt;=</span> <span class="dv">5</span>)<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"k"</span><span class="op">,</span> <span class="dt">y1</span><span class="op">:</span> <span class="st">"lo"</span><span class="op">,</span> <span class="dt">y2</span><span class="op">:</span> <span class="st">"hi"</span><span class="op">,</span></span>
-<span id="cb9-1211"><a href="" aria-hidden="true" tabindex="-1"></a>               <span class="dt">fill</span><span class="op">:</span> rpi<span class="op">.</span><span class="at">blue</span><span class="op">,</span> <span class="dt">fillOpacity</span><span class="op">:</span> <span class="fl">0.16</span><span class="op">,</span> <span class="dt">clip</span><span class="op">:</span> <span class="kw">true</span>})<span class="op">,</span></span>
-<span id="cb9-1212"><a href="" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([mcRuns<span class="op">.</span><span class="at">mean</span>]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> rpi<span class="op">.</span><span class="at">ink</span><span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"6 4"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="fl">1.4</span>})<span class="op">,</span></span>
-<span id="cb9-1213"><a href="" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">text</span>([{<span class="dt">k</span><span class="op">:</span> <span class="fl">1.05</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> mcRuns<span class="op">.</span><span class="at">mean</span>}]<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"k"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">text</span><span class="op">:</span> () <span class="kw">=&gt;</span> <span class="st">"expected 200"</span><span class="op">,</span></span>
-<span id="cb9-1214"><a href="" aria-hidden="true" tabindex="-1"></a>               <span class="dt">dy</span><span class="op">:</span> <span class="op">-</span><span class="dv">9</span><span class="op">,</span> <span class="dt">textAnchor</span><span class="op">:</span> <span class="st">"start"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> rpi<span class="op">.</span><span class="at">ink</span><span class="op">,</span> <span class="dt">fontSize</span><span class="op">:</span> <span class="dv">12</span>})<span class="op">,</span></span>
-<span id="cb9-1215"><a href="" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(mcPath<span class="op">.</span><span class="at">path</span><span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"k"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"mean"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> rpi<span class="op">.</span><span class="at">red</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="fl">2.2</span><span class="op">,</span> <span class="dt">clip</span><span class="op">:</span> <span class="kw">true</span>})<span class="op">,</span></span>
-<span id="cb9-1216"><a href="" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>([mcPath<span class="op">.</span><span class="at">last</span>]<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"k"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"mean"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">6</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> rpi<span class="op">.</span><span class="at">red</span>})<span class="op">,</span></span>
-<span id="cb9-1217"><a href="" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">text</span>([<span class="vs">`run </span><span class="sc">${</span>mcPath<span class="op">.</span><span class="at">run</span> <span class="op">+</span> <span class="dv">1</span><span class="sc">}</span><span class="vs"> of </span><span class="sc">${</span>mcRuns<span class="op">.</span><span class="at">d</span><span class="op">.</span><span class="at">length</span><span class="sc">}</span><span class="vs">`</span>]<span class="op">,</span> {<span class="dt">frameAnchor</span><span class="op">:</span> <span class="st">"top-right"</span><span class="op">,</span></span>
-<span id="cb9-1218"><a href="" aria-hidden="true" tabindex="-1"></a>              <span class="dt">dx</span><span class="op">:</span> <span class="op">-</span><span class="dv">4</span><span class="op">,</span> <span class="dt">dy</span><span class="op">:</span> <span class="dv">4</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> rpi<span class="op">.</span><span class="at">ink</span><span class="op">,</span> <span class="dt">fontSize</span><span class="op">:</span> <span class="dv">12</span>})</span>
-<span id="cb9-1219"><a href="" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb9-1220"><a href="" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb9" data-startfrom="1285" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1284;"><span id="cb9-1285"><a href="" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb9-1286"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="op">...</span>frame<span class="op">,</span></span>
+<span id="cb9-1287"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">262</span><span class="op">,</span></span>
+<span id="cb9-1288"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marginTop</span><span class="op">:</span> <span class="dv">22</span><span class="op">,</span></span>
+<span id="cb9-1289"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">type</span><span class="op">:</span> <span class="st">"log"</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Mornings simulated →"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">1000</span>]<span class="op">,</span></span>
+<span id="cb9-1290"><a href="" aria-hidden="true" tabindex="-1"></a>      <span class="dt">ticks</span><span class="op">:</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">500</span><span class="op">,</span> <span class="dv">1000</span>]<span class="op">,</span> <span class="dt">tickFormat</span><span class="op">:</span> d3<span class="op">.</span><span class="fu">format</span>(<span class="st">","</span>)}<span class="op">,</span></span>
+<span id="cb9-1291"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"↑ Average demand"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="dv">130</span><span class="op">,</span> <span class="dv">270</span>]<span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb9-1292"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb9-1293"><a href="" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">areaY</span>(mcPath<span class="op">.</span><span class="at">path</span><span class="op">.</span><span class="fu">filter</span>(p <span class="kw">=&gt;</span> p<span class="op">.</span><span class="at">k</span> <span class="op">&gt;=</span> <span class="dv">5</span>)<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"k"</span><span class="op">,</span> <span class="dt">y1</span><span class="op">:</span> <span class="st">"lo"</span><span class="op">,</span> <span class="dt">y2</span><span class="op">:</span> <span class="st">"hi"</span><span class="op">,</span></span>
+<span id="cb9-1294"><a href="" aria-hidden="true" tabindex="-1"></a>               <span class="dt">fill</span><span class="op">:</span> rpi<span class="op">.</span><span class="at">blue</span><span class="op">,</span> <span class="dt">fillOpacity</span><span class="op">:</span> <span class="fl">0.16</span><span class="op">,</span> <span class="dt">clip</span><span class="op">:</span> <span class="kw">true</span>})<span class="op">,</span></span>
+<span id="cb9-1295"><a href="" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([mcRuns<span class="op">.</span><span class="at">mean</span>]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> rpi<span class="op">.</span><span class="at">ink</span><span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"6 4"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="fl">1.4</span>})<span class="op">,</span></span>
+<span id="cb9-1296"><a href="" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">text</span>([{<span class="dt">k</span><span class="op">:</span> <span class="fl">1.05</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> mcRuns<span class="op">.</span><span class="at">mean</span>}]<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"k"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">text</span><span class="op">:</span> () <span class="kw">=&gt;</span> <span class="st">"expected 200"</span><span class="op">,</span></span>
+<span id="cb9-1297"><a href="" aria-hidden="true" tabindex="-1"></a>               <span class="dt">dy</span><span class="op">:</span> <span class="op">-</span><span class="dv">9</span><span class="op">,</span> <span class="dt">textAnchor</span><span class="op">:</span> <span class="st">"start"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> rpi<span class="op">.</span><span class="at">ink</span><span class="op">,</span> <span class="dt">fontSize</span><span class="op">:</span> <span class="dv">12</span>})<span class="op">,</span></span>
+<span id="cb9-1298"><a href="" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(mcPath<span class="op">.</span><span class="at">path</span><span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"k"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"mean"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> rpi<span class="op">.</span><span class="at">red</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="fl">2.2</span><span class="op">,</span> <span class="dt">clip</span><span class="op">:</span> <span class="kw">true</span>})<span class="op">,</span></span>
+<span id="cb9-1299"><a href="" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>([mcPath<span class="op">.</span><span class="at">last</span>]<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"k"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"mean"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">6</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> rpi<span class="op">.</span><span class="at">red</span>})<span class="op">,</span></span>
+<span id="cb9-1300"><a href="" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">text</span>([<span class="vs">`run </span><span class="sc">${</span>mcPath<span class="op">.</span><span class="at">run</span> <span class="op">+</span> <span class="dv">1</span><span class="sc">}</span><span class="vs"> of </span><span class="sc">${</span>mcRuns<span class="op">.</span><span class="at">d</span><span class="op">.</span><span class="at">length</span><span class="sc">}</span><span class="vs">`</span>]<span class="op">,</span> {<span class="dt">frameAnchor</span><span class="op">:</span> <span class="st">"top-right"</span><span class="op">,</span></span>
+<span id="cb9-1301"><a href="" aria-hidden="true" tabindex="-1"></a>              <span class="dt">dx</span><span class="op">:</span> <span class="op">-</span><span class="dv">4</span><span class="op">,</span> <span class="dt">dy</span><span class="op">:</span> <span class="dv">4</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> rpi<span class="op">.</span><span class="at">ink</span><span class="op">,</span> <span class="dt">fontSize</span><span class="op">:</span> <span class="dv">12</span>})</span>
+<span id="cb9-1302"><a href="" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb9-1303"><a href="" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-9" data-nodetype="expression">
@@ -1858,12 +1958,12 @@ SE = \frac{s}{\sqrt{n}} \qquad\qquad \text{95\% interval: average} \pm 1.96\,SE
 <div class="cell">
 <details class="code-fold hidden">
 <summary>Show code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb10" data-startfrom="1225" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1224;"><span id="cb10-1225"><a href="" aria-hidden="true" tabindex="-1"></a>htl<span class="op">.</span><span class="fu">html</span><span class="vs">`&lt;div class="rpi-readout"&gt;</span></span>
-<span id="cb10-1226"><a href="" aria-hidden="true" tabindex="-1"></a><span class="vs">  n = &lt;b&gt;</span><span class="sc">${</span>mcPath<span class="op">.</span><span class="at">n</span><span class="sc">}</span><span class="vs">&lt;/b&gt; mornings &amp;nbsp;·&amp;nbsp; average &lt;b&gt;</span><span class="sc">${</span>mcPath<span class="op">.</span><span class="at">last</span><span class="op">.</span><span class="at">mean</span><span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="sc">}</span><span class="vs">&lt;/b&gt;</span></span>
-<span id="cb10-1227"><a href="" aria-hidden="true" tabindex="-1"></a><span class="vs">  &amp;nbsp;·&amp;nbsp; standard error </span><span class="sc">${</span>mcPath<span class="op">.</span><span class="at">last</span><span class="op">.</span><span class="at">se</span><span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">2</span>)<span class="sc">}</span></span>
-<span id="cb10-1228"><a href="" aria-hidden="true" tabindex="-1"></a><span class="vs">  &amp;nbsp;·&amp;nbsp; 95% interval </span><span class="sc">${</span>mcPath<span class="op">.</span><span class="at">last</span><span class="op">.</span><span class="at">lo</span><span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="sc">}</span><span class="vs"> to </span><span class="sc">${</span>mcPath<span class="op">.</span><span class="at">last</span><span class="op">.</span><span class="at">hi</span><span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="sc">}</span></span>
-<span id="cb10-1229"><a href="" aria-hidden="true" tabindex="-1"></a><span class="vs">  &amp;nbsp;·&amp;nbsp; </span><span class="sc">${</span><span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(mcPath<span class="op">.</span><span class="at">last</span><span class="op">.</span><span class="at">mean</span> <span class="op">-</span> mcRuns<span class="op">.</span><span class="at">mean</span>) <span class="op">&lt;=</span> <span class="fl">1.96</span> <span class="op">*</span> mcPath<span class="op">.</span><span class="at">last</span><span class="op">.</span><span class="at">se</span> <span class="op">?</span> <span class="st">"holds 200"</span> <span class="op">:</span></span>
-<span id="cb10-1230"><a href="" aria-hidden="true" tabindex="-1"></a>    htl<span class="op">.</span><span class="fu">html</span><span class="vs">`&lt;b style="color: </span><span class="sc">${</span>rpi<span class="op">.</span><span class="at">red</span><span class="sc">}</span><span class="vs">"&gt;misses 200&lt;/b&gt;`</span><span class="sc">}</span><span class="vs">&lt;/div&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb10" data-startfrom="1308" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1307;"><span id="cb10-1308"><a href="" aria-hidden="true" tabindex="-1"></a>htl<span class="op">.</span><span class="fu">html</span><span class="vs">`&lt;div class="rpi-readout"&gt;</span></span>
+<span id="cb10-1309"><a href="" aria-hidden="true" tabindex="-1"></a><span class="vs">  n = &lt;b&gt;</span><span class="sc">${</span>mcPath<span class="op">.</span><span class="at">n</span><span class="sc">}</span><span class="vs">&lt;/b&gt; mornings &amp;nbsp;·&amp;nbsp; average &lt;b&gt;</span><span class="sc">${</span>mcPath<span class="op">.</span><span class="at">last</span><span class="op">.</span><span class="at">mean</span><span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="sc">}</span><span class="vs">&lt;/b&gt;</span></span>
+<span id="cb10-1310"><a href="" aria-hidden="true" tabindex="-1"></a><span class="vs">  &amp;nbsp;·&amp;nbsp; standard error </span><span class="sc">${</span>mcPath<span class="op">.</span><span class="at">last</span><span class="op">.</span><span class="at">se</span><span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">2</span>)<span class="sc">}</span></span>
+<span id="cb10-1311"><a href="" aria-hidden="true" tabindex="-1"></a><span class="vs">  &amp;nbsp;·&amp;nbsp; 95% interval </span><span class="sc">${</span>mcPath<span class="op">.</span><span class="at">last</span><span class="op">.</span><span class="at">lo</span><span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="sc">}</span><span class="vs"> to </span><span class="sc">${</span>mcPath<span class="op">.</span><span class="at">last</span><span class="op">.</span><span class="at">hi</span><span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="sc">}</span></span>
+<span id="cb10-1312"><a href="" aria-hidden="true" tabindex="-1"></a><span class="vs">  &amp;nbsp;·&amp;nbsp; </span><span class="sc">${</span><span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(mcPath<span class="op">.</span><span class="at">last</span><span class="op">.</span><span class="at">mean</span> <span class="op">-</span> mcRuns<span class="op">.</span><span class="at">mean</span>) <span class="op">&lt;=</span> <span class="fl">1.96</span> <span class="op">*</span> mcPath<span class="op">.</span><span class="at">last</span><span class="op">.</span><span class="at">se</span> <span class="op">?</span> <span class="st">"holds 200"</span> <span class="op">:</span></span>
+<span id="cb10-1313"><a href="" aria-hidden="true" tabindex="-1"></a>    htl<span class="op">.</span><span class="fu">html</span><span class="vs">`&lt;b style="color: </span><span class="sc">${</span>rpi<span class="op">.</span><span class="at">red</span><span class="sc">}</span><span class="vs">"&gt;misses 200&lt;/b&gt;`</span><span class="sc">}</span><span class="vs">&lt;/div&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-10" data-nodetype="expression">
@@ -1890,12 +1990,14 @@ SE = \frac{s}{\sqrt{n}} \qquad\qquad \text{95\% interval: average} \pm 1.96\,SE
 <!-- The figure's two labels are its title line, above the dots: inside
      the axes they sat on the dots [observed]. 1.55 in tall and a shorter
      box, from 1.75 in: the slide ran 48px into the footline
+     [check-layout]. 1.4 in, from 1.55, when the closing line gained the
+     formula for the spread: 6px into the footline, then 1px at 1.45
      [check-layout]. -->
-<div id="5d60bd0d" class="cell" data-execution_count="9">
+<div id="dddbbc9e" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="8_Simulation_files/figure-revealjs/cell-10-output-1.png" class="quarto-figure quarto-figure-center" width="2036" height="340"></p>
+<p><img data-src="8_Simulation_files/figure-revealjs/cell-10-output-1.png" class="quarto-figure quarto-figure-center" width="2036" height="328"></p>
 </figure>
 </div>
 </div>
@@ -1913,7 +2015,7 @@ SE = \frac{s}{\sqrt{n}} \qquad\qquad \text{95\% interval: average} \pm 1.96\,SE
 </div>
 </div>
 <div class="fragment">
-<p>The 100 averages spread by <strong>1.30</strong>; one run’s <span class="math inline">\(SE = \sigma/\sqrt{n} = 43.8/\sqrt{1{,}000} = 1.39\)</span> predicts that spread.</p>
+<p>One run’s <span class="math inline">\(SE = \sigma/\sqrt{n} = 43.8/\sqrt{1{,}000} = 1.39\)</span> predicts the spread. The 100 averages, with mean <span class="math inline">\(m\)</span>, spread by <span class="math inline">\(\sqrt{\sum_r (\bar{d}_r - m)^2/99} = \mathbf{1.30}\)</span>.</p>
 </div>
 </section></section>
 <section>
@@ -1933,7 +2035,7 @@ SE = \frac{s}{\sqrt{n}} \qquad\qquad \text{95\% interval: average} \pm 1.96\,SE
 <h2>The Newsvendor Problem</h2>
 <p><strong>The newsvendor problem:</strong> order <span class="math inline">\(Q\)</span> units once, before demand <span class="math inline">\(D\)</span> is known, for one selling season: newspapers, pastries, flu vaccine, winter coats. Price <span class="math inline">\(p\)</span>, unit cost <span class="math inline">\(c\)</span>, salvage value <span class="math inline">\(s\)</span> a unit left over.</p>
 <div class="fragment">
-<div id="3504043e" class="cell" data-execution_count="10">
+<div id="e4a45225" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1962,7 +2064,7 @@ SE = \frac{s}{\sqrt{n}} \qquad\qquad \text{95\% interval: average} \pm 1.96\,SE
 <h2>The Critical Fractile</h2>
 <div class="columns">
 <div class="column" style="width:42%;">
-<div id="d7078e86" class="cell" data-execution_count="11">
+<div id="5d15fd38" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -2021,7 +2123,7 @@ SE = \frac{s}{\sqrt{n}} \qquad\qquad \text{95\% interval: average} \pm 1.96\,SE
 </section>
 <section id="normal-demand-q-mu-zsigma" class="slide level2">
 <h2>Normal Demand: <span class="math inline">\(Q^* = \mu + z\,\sigma\)</span></h2>
-<div id="27e132cc" class="cell" data-execution_count="12">
+<div id="7cd3dcb5" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -2053,179 +2155,49 @@ Q^* = \mu + z\,\sigma, \qquad \text{where } \Phi(z) = \frac{C_u}{C_u + C_o}
 </div>
 </div>
 </section>
-<section id="profit-of-one-morning" class="slide level2">
-<h2>Profit of One Morning</h2>
-<p>Bake <span class="math inline">\(Q\)</span> pastries; <span class="math inline">\(D\)</span> are demanded (Part I’s formula):</p>
-<p><span class="math display">\[
-\text{Profit}(Q, D) = 3.00 \min(Q, D) + 0.50 \max(Q - D,\, 0) - 1.20\,Q
-\]</span></p>
-<div class="fragment">
-<p>Bake 220, demand 160: sell 160, 60 left over.</p>
-<p><span class="math display">\[
-3.00(160) + 0.50(60) - 1.20(220) = 480 + 30 - 264 = \$246
-\]</span></p>
+<section id="vote-bake-200-220-or-240" class="slide level2">
+<h2>Vote: Bake 200, 220 or 240?</h2>
+<!-- SLIDES 24 TO 29 BY THE FOOTLINE COUNT, REBUILT (Sebastian: too many
+     numbers on 24 to 28; make them easier and more fun to follow). One
+     question runs through the six slides, in deck 07's order: predict
+     (this vote), compute (one morning, then the average morning), see
+     (100 runs, on different and on the same mornings), compute (the
+     mornings a $1 edge needs), decide (the fractile), and the vote
+     settled on the exact curve. One idea a click. The numbers that left
+     the slides are in the notes: the two mornings' intermediate sums,
+     the simulated averages and standard errors of run 1, the $365 a
+     year, 180's $23. This slide carries inputs only, and E[D] with its
+     formula. The box 30px up, into the band under the figure,
+     and the hint on one line: the slide ran 38px into the footline
+     [check-layout]. -->
+<p>Cost $1.20, price $3.00, leftovers $0.50. Demand, with <span class="math inline">\(E[D] = \sum_d d\,P(d) = 200\)</span>:</p>
+<div id="3a872ae3" class="cell" data-execution_count="13">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="8_Simulation_files/figure-revealjs/cell-14-output-1.png" class="quarto-figure quarto-figure-center" width="2036" height="486"></p>
+</figure>
 </div>
-<div class="fragment">
-<p>Bake 220, demand 240: sell 220, none left.</p>
-<p><span class="math display">\[
-3.00(220) - 1.20(220) = 660 - 264 = \$396
-\]</span></p>
 </div>
-</section>
-<section id="the-exact-expected-profit" class="slide level2">
-<h2>The Exact Expected Profit</h2>
-<p>A payoff table of <span class="math inline">\(\text{Profit}(Q, d)\)</span>, as in Decision Analysis:</p>
-<table class="caption-top">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 13%">
-<col style="width: 13%">
-<col style="width: 13%">
-<col style="width: 13%">
-<col style="width: 13%">
-<col style="width: 13%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Bake</th>
-<th style="text-align: center;">120 (0.1)</th>
-<th style="text-align: center;">160 (0.2)</th>
-<th style="text-align: center;">200 (0.4)</th>
-<th style="text-align: center;">240 (0.2)</th>
-<th style="text-align: center;">280 (0.1)</th>
-<th style="text-align: center;">Expected</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">180</td>
-<td style="text-align: center;">174</td>
-<td style="text-align: center;">274</td>
-<td style="text-align: center;">324</td>
-<td style="text-align: center;">324</td>
-<td style="text-align: center;">324</td>
-<td style="text-align: center;">299</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">200</td>
-<td style="text-align: center;">160</td>
-<td style="text-align: center;">260</td>
-<td style="text-align: center;">360</td>
-<td style="text-align: center;">360</td>
-<td style="text-align: center;">360</td>
-<td style="text-align: center;">320</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">220</td>
-<td style="text-align: center;">146</td>
-<td style="text-align: center;">246</td>
-<td style="text-align: center;">346</td>
-<td style="text-align: center;">396</td>
-<td style="text-align: center;">396</td>
-<td style="text-align: center;"><strong>321</strong></td>
-</tr>
-</tbody>
-</table>
-<div class="fragment">
-<p><span class="math display">\[
-\begin{aligned}
-E[\text{Profit}(220)] &amp;= \textstyle\sum_d P(d)\,\text{Profit}(220, d) \\
-&amp;= 0.1(146) + 0.2(246) + 0.4(346) + 0.3(396) \\
-&amp;= 14.6 + 49.2 + 138.4 + 118.8 = 321
-\end{aligned}
-\]</span></p>
 </div>
-<div class="fragment">
-<p>With five states, the table answers exactly. Simulation earns its place when the states are too many to list, as at the chargers.</p>
-</div>
-</section>
-<section id="the-same-decision-by-simulation" class="slide level2">
-<h2>The Same Decision by Simulation</h2>
-<!-- Table and difference side by side: stacked, the box ran 63px into
-     the footline [check-layout]. -->
-<div class="columns">
-<div class="column" style="width:51%;">
-<p>The same 1,000 mornings, priced for each quantity:</p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Bake</th>
-<th style="text-align: center;">Simulated</th>
-<th style="text-align: center;">SE</th>
-<th style="text-align: center;">Exact</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">180</td>
-<td style="text-align: center;">297.55</td>
-<td style="text-align: center;">1.50</td>
-<td style="text-align: center;">299</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">200</td>
-<td style="text-align: center;">317.90</td>
-<td style="text-align: center;">2.15</td>
-<td style="text-align: center;">320</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">220</td>
-<td style="text-align: center;">318.45</td>
-<td style="text-align: center;">2.52</td>
-<td style="text-align: center;">321</td>
-</tr>
-</tbody>
-</table>
-</div><div class="column fragment" style="width:47%;">
-<p>On each morning <span class="math inline">\(i\)</span>, 220’s profit minus 200’s:</p>
-<p><span class="math display">\[
-\Delta_i = \text{Profit}(220, d_i) - \text{Profit}(200, d_i)
-\]</span></p>
-<ul>
-<li>average <span class="math inline">\(\bar{\Delta} = \mathbf{\$0.55}\)</span></li>
-<li>standard error <span class="math inline">\(s_\Delta/\sqrt{n} = \mathbf{0.72}\)</span></li>
-</ul>
-</div></div>
-<div class="fragment">
-<div class="compact" title="Compare on the same mornings">
+<div style="margin-top: -30px;">
+<div class="compact" title="Hands up">
 <div class="callout callout-important no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Compare on the same mornings</strong></p>
+<p><strong>Hands up</strong></p>
 </div>
 <div class="callout-content">
-<p>Both quantities saw the same demand (common random numbers), so the difference’s standard error is a third of either average’s. Still, $0.55 is within one standard error of zero: 1,000 mornings cannot rank 220 above 200.</p>
+<p>Bake <strong>200</strong>, <strong>220</strong> or <strong>240</strong>? This section ends with the answer.</p>
 </div>
 </div>
 </div>
 </div>
-</div>
-</section>
-<section id="mornings-needed-to-separate-200-from-220" class="slide level2">
-<h2>Mornings Needed to Separate 200 From 220</h2>
-<p><span class="math inline">\(\Delta = -\$14\)</span> if <span class="math inline">\(D \le 200\)</span> (probability 0.7); <span class="math inline">\(\Delta = +\$36\)</span> if <span class="math inline">\(D \ge 240\)</span> (0.3):</p>
-<p><span class="math display">\[
-\begin{aligned}
-E[\Delta] &amp;= \textstyle\sum P\,\Delta = 0.7(-14) + 0.3(36) = \$1.00 \\
-\sigma_\Delta &amp;= \sqrt{\textstyle\sum P\,(\Delta - E[\Delta])^2} = \sqrt{0.7(-15)^2 + 0.3(35)^2} = \sqrt{525} = \$22.9
-\end{aligned}
-\]</span></p>
-<div class="fragment">
-<p>Two standard errors below the difference worth finding:</p>
-<p><span class="math display">\[
-2\,\frac{\sigma_\Delta}{\sqrt{n}} \le E[\Delta] \quad\Longrightarrow\quad n \ge \left(\frac{2\,\sigma_\Delta}{E[\Delta]}\right)^2 = (2 \times 22.9)^2 = 2{,}100 \text{ mornings}
-\]</span></p>
 </div>
 <div class="fragment">
-<!-- The "Decide the precision first" box went to the notes: the slide
-     ran 119px into the footline [check-layout]. One line a bullet, for
-     the formulas added in the review of 2026-11-16. -->
-<ul>
-<li>220 came out ahead in <strong>94 of 100</strong> runs of 1,000 mornings.</li>
-<li>$1 a morning is $365 a year; 2,100 simulated mornings take a second.</li>
-</ul>
+<p>Too many: leftovers at $0.50. Too few: lost sales. <strong>Which mistake costs more?</strong></p>
 <aside class="notes">
-<p>Decide the precision first. A simulation can always run longer: ask what difference would change the decision, then run until the standard error is well below it. Here the difference worth finding is a dollar a morning, so two standard errors must be under a dollar.</p>
+<p>Count the hands and write the three tallies on the board; the last slide of this run settles the vote. Most rooms pick 200, the average demand. Do not give the answer here: the second click is the hint.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2239,37 +2211,312 @@ E[\Delta] &amp;= \textstyle\sum P\,\Delta = 0.7(-14) + 0.3(36) = \$1.00 \\
       }</style></aside>
 </div>
 </section>
-<section id="the-newsvendor-the-pastry-counter" class="slide level2">
-<h2>The Newsvendor: The Pastry Counter</h2>
-<!-- On Exam 2 from 2026-11-16 (the "Not on Exam 2" badge removed). The
-     section's opening slides give the model; here F is the table's
-     cumulative column, a step function. The closed form for the discrete table: the smallest Q whose cumulative
-     probability reaches the fractile. The exact curve is EXACT over every
-     Q from 120 to 280; its flat top runs from 200 to 240. -->
-<div class="columns">
-<div class="column" style="width:52%;">
-<div style="font-size: 0.85em;">
-<p>A missed sale costs <span class="math inline">\(C_u = \text{price} - \text{cost} = 3.00 - 1.20 = 1.80\)</span>; a leftover costs <span class="math inline">\(C_o = \text{cost} - \text{salvage} = 1.20 - 0.50 = 0.70\)</span>. Bake the smallest <span class="math inline">\(Q\)</span> with</p>
+<section id="bake-220-one-morning-then-the-average" class="slide level2">
+<h2>Bake 220: One Morning, Then the Average</h2>
+<!-- One worked morning (two before) and one row of the payoff table
+     (three before): the worked $246 is the row's second entry, in bold.
+     The expected-profit sum is the Exam 2 hand calculation. Its formula is in the table's lead: on
+     the line of the sum it ran 1px past the slide [check-layout]. -->
 <p><span class="math display">\[
-F(Q) \ge \frac{C_u}{C_u + C_o} = \frac{1.80}{2.50} = 0.72
+\text{Profit}(Q, D) = 3.00 \min(Q, D) + 0.50 \max(Q - D,\, 0) - 1.20\,Q
 \]</span></p>
-<p>Demand is discrete, so <span class="math inline">\(F\)</span> is the table’s cumulative column: 0.10, 0.30, 0.70, <strong>0.90</strong>. At 200 it falls short, so <span class="math inline">\(Q^* = 240\)</span>, worth <strong>$322</strong>.</p>
+<div class="fragment">
+<p>A slow morning, demand 160: sell 160, 60 left over.</p>
+<p><span class="math display">\[
+\text{Profit}(220, 160) = 3.00(160) + 0.50(60) - 1.20(220) = \$246
+\]</span></p>
 </div>
-</div><div class="column" style="width:46%;">
-<div id="b91487c1" class="cell" data-execution_count="13">
+<div class="fragment">
+<p>At every demand, a one-row payoff table; <span class="math inline">\(E[\text{Profit}(220)] = \sum_d P(d)\,\text{Profit}(220, d)\)</span>:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Demand <span class="math inline">\(d\)</span></th>
+<th style="text-align: center;">120</th>
+<th style="text-align: center;">160</th>
+<th style="text-align: center;">200</th>
+<th style="text-align: center;">240</th>
+<th style="text-align: center;">280</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Probability <span class="math inline">\(P(d)\)</span></td>
+<td style="text-align: center;">0.1</td>
+<td style="text-align: center;">0.2</td>
+<td style="text-align: center;">0.4</td>
+<td style="text-align: center;">0.2</td>
+<td style="text-align: center;">0.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\text{Profit}(220, d)\)</span></td>
+<td style="text-align: center;">146</td>
+<td style="text-align: center;"><strong>246</strong></td>
+<td style="text-align: center;">346</td>
+<td style="text-align: center;">396</td>
+<td style="text-align: center;">396</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+E[\text{Profit}(220)] = 0.1(146) + 0.2(246) + 0.4(346) + 0.3(396) = \$321
+\]</span></p>
+<aside class="notes">
+<p>The slow morning in full: 480 + 30 - 264 = 246. A busy morning, demand 240: sell 220, none left, 3.00(220) - 1.20(220) = 660 - 264 = 396, the same at 280. The sum: 14.6 + 49.2 + 138.4 + 118.8 = 321; the last term joins demand 240 and 280, 0.2 + 0.1 = 0.3. The other rows: bake 180 gives 174, 274, 324, 324, 324, expected 299; bake 200 gives 160, 260, 360, 360, 360, expected 320, the Recall slide’s number.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="can-simulation-rank-220-above-200" class="slide level2">
+<h2>Can Simulation Rank 220 Above 200?</h2>
+<!-- A figure in place of the table of simulated averages and standard
+     errors (in the notes). Different mornings: bake 220 priced on run r,
+     bake 200 on run r - 1 (np.roll), so the two averages share no
+     demand. Two same-size figures in an .r-stack, the pattern of The
+     Flaw of Averages. 1.9 in tall, the second lead and the box
+     shortened, the box 40px up: the slide ran 80px into the footline
+     [check-layout]. -->
+<p>The exact edge: <span class="math inline">\(E[\text{Profit}(220)] - E[\text{Profit}(200)] = 321 - 320 = \$1\)</span> a morning.</p>
+<p>Each dot, one run of 1,000 mornings: <span class="math inline">\(\bar{\Delta} = \overline{\text{Profit}}(220) - \overline{\text{Profit}}(200)\)</span>.</p>
+<div class="r-stack">
+<div>
+<div id="aae137b0" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="8_Simulation_files/figure-revealjs/cell-14-output-1.png" width="938" height="738"></p>
+<p><img data-src="8_Simulation_files/figure-revealjs/cell-16-output-1.png" width="2026" height="418"></p>
 </figure>
 </div>
 </div>
 </div>
-</div></div>
+</div>
 <div class="fragment">
-<p><strong>Every quantity from 200 to 240 earns within $2 of the best; 180 gives up $23.</strong> The fractile checks all 161 quantities, 120 to 280, with no simulation.</p>
+<div id="229877d7" class="cell" data-execution_count="16">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="8_Simulation_files/figure-revealjs/cell-17-output-1.png" width="2026" height="418"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment" style="margin-top: -40px;">
+<div class="compact" title="Compare on the same mornings">
+<div class="callout callout-important no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Compare on the same mornings</strong></p>
+</div>
+<div class="callout-content">
+<p>Same demands for both (common random numbers): 220 is ahead in <strong>94 of 100</strong> runs. On different mornings: <strong>59 of 100</strong>, close to a coin toss.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 <aside class="notes">
-<p>The fractile is the inverse transform of 0.72: u = 0.72 falls in 0.70 to 0.90 and returns 240. One more pastry, the opening slides’ argument with numbers: at Q = 200, 1.80(0.30) - 0.70(0.70) = +0.05, bake more; at Q = 240, 1.80(0.10) - 0.70(0.90) = -0.45, stop. The slope of the curve between 200 and 240 is 1.80 x P(D &gt; Q) - 0.70 x P(D &lt;= Q) = 1.80(0.3) - 0.70(0.7) = 0.05 a pastry, so 220 earns 1 more than 200 and 240 another 1.</p>
+<p>Ask before the first click: will 1,000 mornings each be enough to rank them? Blue dots: each quantity on its own 1,000 mornings; the differences run from about -8 to +8 dollars and bury the $1 edge. Red dots, after the click: both quantities on the same mornings; the differences run from -0.90 to +2.35. Run 1, the workbook’s cached run: simulated averages 297.55 (SE 1.50), 317.90 (2.15) and 318.45 (2.52) for 180, 200 and 220, against the exact 299, 320, 321. On the same mornings the difference 220 minus 200 averages 0.55 with standard error 0.72, a third of either average’s, and still within one standard error of zero: one run of 1,000 cannot settle it. On different mornings the standard error of the difference is the square root of 2.15 squared plus 2.52 squared, 3.3.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="mornings-needed-to-see-a-1-edge" class="slide level2">
+<h2>Mornings Needed to See a $1 Edge</h2>
+<!-- Delta from the 20 extra pastries (unsold, each loses 1.20 - 0.50;
+     sold, each earns 3.00 - 1.20) in place of the payoff-table
+     differences 146 - 160 and 396 - 360: the bake-200 row is no longer
+     on a slide. The variance 525 only; sigma = 22.9 went to the notes
+     with the $365 a year. The mean and the variance on a line
+     each (side by side, 11px past the slide) and the two-standard-error
+     rule as the title of a one-line box (as a lead line, 4px into the
+     footline; with a two-line box, 21px) [check-layout]. -->
+<p>Bake 220 in place of 200, 20 more pastries: <span class="math inline">\(\Delta = \text{Profit}(220, D) - \text{Profit}(200, D)\)</span>.</p>
+<p><span class="math display">\[
+\Delta =
+\begin{cases}
+20\,(0.50 - 1.20) = -\$14, &amp; D \le 200 \text{: 20 more leftovers, probability } 0.7 \\
+20\,(3.00 - 1.20) = +\$36, &amp; D \ge 240 \text{: 20 more sales, probability } 0.3
+\end{cases}
+\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[
+E[\Delta] = \textstyle\sum P\,\Delta = 0.7(-14) + 0.3(36) = \$1
+\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\sigma_\Delta^2 = \textstyle\sum P\,(\Delta - E[\Delta])^2 = 0.7(-15)^2 + 0.3(35)^2 = 525
+\]</span></p>
+<p><span class="math display">\[
+2\,\frac{\sigma_\Delta}{\sqrt{n}} \le E[\Delta] \quad\Longrightarrow\quad n \ge \frac{4\,\sigma_\Delta^2}{E[\Delta]^2} = \frac{4 \times 525}{1^2} = 2{,}100 \text{ mornings}
+\]</span></p>
+</div>
+<div class="fragment">
+<div class="compact" title="Two standard errors must fit under the edge">
+<div class="callout callout-important no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Two standard errors must fit under the edge</strong></p>
+</div>
+<div class="callout-content">
+<p>Decide first what difference would change the decision, then run that long.</p>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>A dollar a morning hides inside swings of -14 and +36: sigma is the square root of 525, 22.9 dollars. With the rounded 22.9 the count is 2,098, so the slide uses the variance. Is a dollar worth finding? Over a year, 365 x 1 = 365 dollars, and a computer simulates 2,100 mornings in a second. A simulation can always run longer; the question is what difference would change the decision. The Summary’s warning, a difference within two standard errors is not settled, is this slide.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="the-pastry-counters-critical-fractile" class="slide level2">
+<h2>The Pastry Counter’s Critical Fractile</h2>
+<!-- EXAM 2: the critical fractile on the discrete table, by hand. F is
+     the table's cumulative column, drawn as its step function, and the
+     fractile is a horizontal line across it: Part I's lookup figure
+     read the same way. Step labels under the steps: above, 0.70 sat on
+     the 0.72 line. Two same-size figures in an .r-stack. The costs' definitions
+     inside the display, both leads on one line, the figure 2.8 in and
+     the box two lines: the slide ran 84px into the footline
+     [check-layout]. -->
+<div class="columns">
+<div class="column" style="width:47%;">
+<p>Missed sale <span class="math inline">\(C_u\)</span>, leftover <span class="math inline">\(C_o\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+C_u &amp;= p - c = 3.00 - 1.20 = \$1.80 \\
+C_o &amp;= c - s = 1.20 - 0.50 = \$0.70
+\end{aligned}
+\]</span></p>
+<div class="fragment" data-fragment-index="1">
+<p><span class="math display">\[
+\frac{C_u}{C_u + C_o} = \frac{1.80}{1.80 + 0.70} = 0.72
+\]</span></p>
+</div>
+<div class="fragment" data-fragment-index="2">
+<p>Smallest <span class="math inline">\(Q\)</span> with <span class="math inline">\(F(Q) \ge 0.72\)</span>:</p>
+</div>
+</div><div class="column" style="width:51%;">
+<div class="r-stack">
+<div>
+<div id="bfbc0254" class="cell" data-execution_count="18">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="8_Simulation_files/figure-revealjs/cell-19-output-1.png" width="1012" height="579"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment" data-fragment-index="2">
+<div id="d188502f" class="cell" data-execution_count="19">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="8_Simulation_files/figure-revealjs/cell-20-output-1.png" width="1012" height="579"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+<div class="fragment" data-fragment-index="3">
+<div class="compact" title="Bake 240">
+<div class="callout callout-important no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Bake 240</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math inline">\(F(200) = 0.70\)</span> falls short; <span class="math inline">\(F(240) = 0.90\)</span> is the first step to reach 0.72. A missed sale costs more than twice a leftover: bake above average demand.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>The first click gives the fractile, the second the line across the cumulative column, the third the answer. The fractile is the inverse transform of 0.72: u = 0.72 falls in 0.70 to 0.90 and returns 240. One more pastry, the opening slides’ argument with numbers: at Q = 200, 1.80(0.30) - 0.70(0.70) = +0.05, bake more; at Q = 240, 1.80(0.10) - 0.70(0.90) = -0.45, stop. The fractile checks all 161 quantities, 120 to 280, with no simulation.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-vote-settled-a-flat-top" class="slide level2">
+<h2>The Vote, Settled: A Flat Top</h2>
+<!-- The exact curve is EXACT over every Q from 120 to 280. The three
+     labels are the vote's three quantities; the simulated points and
+     180's $23 are in the notes. The bold line is the fact the Summary's
+     bottom line repeats. 2.1 in tall, the bold line 40px up and on
+     one line, the box two lines: the slide ran 112px into the footline
+     [check-layout]. -->
+<p>Every bake quantity, exactly: <span class="math inline">\(E[\text{Profit}(Q)] = \sum_d P(d)\,\text{Profit}(Q, d)\)</span>.</p>
+<div id="414cecc0" class="cell" data-execution_count="20">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="8_Simulation_files/figure-revealjs/cell-21-output-1.png" class="quarto-figure quarto-figure-center" width="2049" height="456"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment" style="margin-top: -40px;">
+<p><strong>Every quantity from 200 to 240 earns within <span class="math inline">\(322 - 320 = \$2\)</span> of the best.</strong></p>
+</div>
+<div class="fragment">
+<div class="compact" title="Three ways to one decision">
+<div class="callout callout-important no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Three ways to one decision</strong></p>
+</div>
+<div class="callout-content">
+<p>The table is exact; the fractile gives <span class="math inline">\(Q^*\)</span> in one line. Simulation takes over when the states are too many to list, as at the chargers.</p>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>Return to the tallies on the board. E[Profit(240)] = 0.1(132) + 0.2(232) + 0.4(332) + 0.3(432) = 322. Between 200 and 240 the curve rises 1.80 x P(D &gt; Q) - 0.70 x P(D &lt;= Q) = 1.80(0.3) - 0.70(0.7) = 0.05 a pastry, so 220 earns 1 more than 200 and 240 another 1. Outside the flat top the loss is real money: 180 gives up 322 - 299 = 23 dollars a morning, 280 gives up 322 - 304 = 18. Run 1’s simulated averages (297.55, 317.90, 318.45 for 180, 200, 220) sit within two standard errors of this curve.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2325,11 +2572,11 @@ F(Q) \ge \frac{C_u}{C_u + C_o} = \frac{1.80}{2.50} = 0.72
 <!-- The figure is cropped to the drawing (8.6 x 1.15 in), and the closing
      line went to the notes: the slide ran 38px into the footline
      [check-layout]. -->
-<div id="38202a24" class="cell" data-execution_count="14">
+<div id="1e6ca77e" class="cell" data-execution_count="21">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="8_Simulation_files/figure-revealjs/cell-15-output-1.png" class="quarto-figure quarto-figure-center" width="1759" height="270"></p>
+<p><img data-src="8_Simulation_files/figure-revealjs/cell-22-output-1.png" class="quarto-figure quarto-figure-center" width="1759" height="270"></p>
 </figure>
 </div>
 </div>
@@ -2442,6 +2689,7 @@ E[T] &amp;= \textstyle\sum_t t\,P(t) = 0.3(1) + 0.4(2) + 0.3(3) = 2 \text{ min},
   }
 </style>
 <div class="tight-rows" style="font-size: 0.85em;">
+<p>Arrival = previous arrival + gap; start = <span class="math inline">\(\max(\text{arrival}, \text{previous end})\)</span>; end = start + service; wait&nbsp;=&nbsp;start&nbsp;−&nbsp;arrival.</p>
 <table class="caption-top" style="width:100%;">
 <colgroup>
 <col style="width: 11%">
@@ -2597,11 +2845,11 @@ E[T] &amp;= \textstyle\sum_t t\,P(t) = 0.3(1) + 0.4(2) + 0.3(3) = 2 \text{ min},
 </section>
 <section id="what-ten-customers-show" class="slide level2">
 <h2>What Ten Customers Show</h2>
-<div id="287f6a6a" class="cell" data-execution_count="15">
+<div id="418e849f" class="cell" data-execution_count="22">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="8_Simulation_files/figure-revealjs/cell-16-output-1.png" class="quarto-figure quarto-figure-center" width="2053" height="458"></p>
+<p><img data-src="8_Simulation_files/figure-revealjs/cell-23-output-1.png" class="quarto-figure quarto-figure-center" width="2053" height="458"></p>
 </figure>
 </div>
 </div>
@@ -2638,7 +2886,7 @@ E[T] &amp;= \textstyle\sum_t t\,P(t) = 0.3(1) + 0.4(2) + 0.3(3) = 2 \text{ min},
      inside the block: CLAUDE.md rule 4. -->
 <div class="columns">
 <div class="column" style="width:54%;">
-<div id="0ea04697" class="cell" data-execution_count="16">
+<div id="9af68481" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> waits(arrive, service):</span>
 <span id="cb11-2"><a href="" aria-hidden="true" tabindex="-1"></a>    wait <span class="op">=</span> np.zeros(<span class="bu">len</span>(arrive))</span>
 <span id="cb11-3"><a href="" aria-hidden="true" tabindex="-1"></a>    free <span class="op">=</span> <span class="fl">0.0</span></span>
@@ -2713,7 +2961,7 @@ E[T] &amp;= \textstyle\sum_t t\,P(t) = 0.3(1) + 0.4(2) + 0.3(3) = 2 \text{ min},
 </table>
 </div>
 <div style="font-size: 0.7em;">
-<p>Waits in minutes. Simulated: 20 runs of 20,000 customers, the first 2,000 dropped; ± one standard error. Formulas from the Waiting Lines lecture; M/G/1 <span class="math inline">\(\sigma^2 = 1/3\)</span> min², <span class="math inline">\(P_w\)</span> the probability of waiting.</p>
+<p>Waits in minutes. Simulated: 20 runs of 20,000 customers, the first 2,000 dropped; ± one standard error. Formulas from the Waiting Lines lecture; M/G/1 <span class="math inline">\(\sigma^2 = (b - a)^2/12 = (3 - 1)^2/12 = 1/3\)</span> min², <span class="math inline">\(P_w\)</span> the probability of waiting.</p>
 </div>
 <div class="fragment">
 <div class="compact" title="The code passes">
@@ -2735,11 +2983,11 @@ E[T] &amp;= \textstyle\sum_t t\,P(t) = 0.3(1) + 0.4(2) + 0.3(3) = 2 \text{ min},
 <!-- 2.3 in tall, from 2.75, the text 40px up and the box .compact: the
      slide ran 118px into the footline [check-layout]. The evening label
      sits low and right of the curve: centred, it crossed it [observed]. -->
-<div id="7c94d3a4" class="cell" data-execution_count="18">
+<div id="8be627f1" class="cell" data-execution_count="25">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="8_Simulation_files/figure-revealjs/cell-19-output-1.png" class="quarto-figure quarto-figure-center" width="2082" height="444"></p>
+<p><img data-src="8_Simulation_files/figure-revealjs/cell-26-output-1.png" class="quarto-figure quarto-figure-center" width="2082" height="444"></p>
 </figure>
 </div>
 </div>
@@ -2774,24 +3022,24 @@ E[T] &amp;= \textstyle\sum_t t\,P(t) = 0.3(1) + 0.4(2) + 0.3(3) = 2 \text{ min},
 <ul>
 <li><strong>One shared line</strong>, first come, first served, to the first free charger.</li>
 <li><strong>Arrivals</strong> <span class="math inline">\(\lambda(t)\)</span>: 6 an hour, rising to 14 at 5 pm, back to 6 by 7 pm.</li>
-<li><strong>Charges</strong>: uniform, <span class="math inline">\(a + (b - a)\,u = 20 + 20u\)</span> min; <span class="math inline">\(\mu = 2\)</span>/hr.</li>
+<li><strong>Charges</strong>: uniform, <span class="math inline">\(a + (b - a)\,u = 20 + 20u\)</span> min, mean <span class="math inline">\((a + b)/2 = 30\)</span> min; <span class="math inline">\(\mu = 60/30 = 2\)</span>/hr.</li>
 <li><strong>1,000 evenings</strong>, the same for 6, 7 and 8 chargers; 1 to 3 pm is the warm-up.</li>
 </ul>
 </div><div class="column" style="width:48%;">
-<div id="61006aa4" class="cell" data-execution_count="19">
+<div id="8ce01ee3" class="cell" data-execution_count="26">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="8_Simulation_files/figure-revealjs/cell-20-output-1.png" width="1035" height="400"></p>
+<p><img data-src="8_Simulation_files/figure-revealjs/cell-27-output-1.png" width="1035" height="400"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="8e753d79" class="cell" data-execution_count="20">
+<div id="ab821d96" class="cell" data-execution_count="27">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="8_Simulation_files/figure-revealjs/cell-21-output-1.png" width="990" height="459"></p>
+<p><img data-src="8_Simulation_files/figure-revealjs/cell-28-output-1.png" width="990" height="459"></p>
 </figure>
 </div>
 </div>
@@ -2887,11 +3135,11 @@ E[T] &amp;= \textstyle\sum_t t\,P(t) = 0.3(1) + 0.4(2) + 0.3(3) = 2 \text{ min},
      table under the figure went: with it the slide ran 59px into the
      footline [check-layout]. "none" and "0" overprinted [observed]; the 0
      tick went. -->
-<div id="0dd21846" class="cell" data-execution_count="21">
+<div id="830d5428" class="cell" data-execution_count="28">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="8_Simulation_files/figure-revealjs/cell-22-output-1.png" class="quarto-figure quarto-figure-center" width="2068" height="593"></p>
+<p><img data-src="8_Simulation_files/figure-revealjs/cell-29-output-1.png" class="quarto-figure quarto-figure-center" width="2068" height="593"></p>
 </figure>
 </div>
 </div>
@@ -2926,17 +3174,17 @@ E[T] &amp;= \textstyle\sum_t t\,P(t) = 0.3(1) + 0.4(2) + 0.3(3) = 2 \text{ min},
 </section>
 <section id="when-drivers-wait" class="slide level2">
 <h2>When Drivers Wait</h2>
-<div id="d048b689" class="cell" data-execution_count="22">
+<div id="7e51e017" class="cell" data-execution_count="29">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="8_Simulation_files/figure-revealjs/cell-23-output-1.png" class="quarto-figure quarto-figure-center" width="1894" height="548"></p>
+<p><img data-src="8_Simulation_files/figure-revealjs/cell-30-output-1.png" class="quarto-figure quarto-figure-center" width="1894" height="548"></p>
 </figure>
 </div>
 </div>
 </div>
 <div style="margin-top: -30px;">
-<p>Waits peak half an hour after arrivals (shaded) do: from 4:30 the arrival rate exceeds 6 chargers’ <span class="math inline">\(c\mu = 12\)</span> an hour, and the line keeps growing until it falls back below. With 6 chargers, those arriving 5:30 to 5:45 wait <strong>17.6 minutes</strong> on average.</p>
+<p>Waits peak half an hour after arrivals (shaded) do: from 4:30 the arrival rate exceeds 6 chargers’ <span class="math inline">\(c\mu = 6 \times 2 = 12\)</span> an hour, and the line keeps growing until it falls back below. With 6 chargers, those arriving 5:30 to 5:45 wait <strong>17.6 minutes</strong> on average.</p>
 </div>
 </section>
 <section id="notebook-charger_queue.ipynb" class="slide level2">
@@ -2985,11 +3233,11 @@ E[T] &amp;= \textstyle\sum_t t\,P(t) = 0.3(1) + 0.4(2) + 0.3(3) = 2 \text{ min},
 </section>
 <section id="a-simulation-tests-a-policy" class="slide level2">
 <h2>A Simulation Tests a Policy</h2>
-<div id="7cf420d2" class="cell" data-execution_count="23">
+<div id="d3f12177" class="cell" data-execution_count="30">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="8_Simulation_files/figure-revealjs/cell-24-output-1.png" class="quarto-figure quarto-figure-center" width="2120" height="270"></p>
+<p><img data-src="8_Simulation_files/figure-revealjs/cell-31-output-1.png" class="quarto-figure quarto-figure-center" width="2120" height="270"></p>
 </figure>
 </div>
 </div>
